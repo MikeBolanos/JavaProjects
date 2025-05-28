@@ -40,15 +40,11 @@ public class ExersiceOperators {
         // Convert Celsius to Fahrenheit
         double temperatureFahrenheit = (temperatureCelsius * 9 / 5) + 32;
 
-        // Step 2: Assignment Operators
+        // Assignment Operators
         temperatureCelsius += 5;
         windSpeedKmh += 5;
 
-        System.out.println("\n--- Updated Weather ---");
-        System.out.println("Temperature: " + temperatureCelsius + "°C (" + temperatureFahrenheit + "°F)");
-        System.out.println("Wind Speed: " + windSpeedKmh + " km/h");
-
-        // Step 3: Comparison Operators
+        // Comparison Operators
         boolean isHot = temperatureFahrenheit > 85;
         boolean isWindy = windSpeedKmh > 20;
 
@@ -56,7 +52,7 @@ public class ExersiceOperators {
         System.out.println("Is it hot (over 85°F)? " + isHot);
         System.out.println("Is it windy (over 20 km/h)? " + isWindy);
 
-        // Step 4: Logical Operators
+        // Logical Operators
         boolean notRaining = !isRaining;
         boolean tempIsComfortable = temperatureFahrenheit >= 60 && temperatureFahrenheit <= 85;
         boolean goodDayOutside = notRaining && tempIsComfortable;
@@ -65,8 +61,41 @@ public class ExersiceOperators {
         boolean freezingTemp = temperatureCelsius < 0;
         boolean weatherWarning = windTooHigh || freezingTemp;
 
-       
+        System.out.println("Is it a good day to go outside? " + goodDayOutside);
+        System.out.println("Is there a weather warning? " + weatherWarning);
 
+        //Gaming - Player Score and Level Up System
+        System.out.println("\n~~~Player Level~~~");
+        int currentXP = 1200; // experience points
+        int level = 5;
+        int xpToNextLevel = 1500;
+        boolean levelUp;
+
+        // Arithmetic Operators
+        currentXP += 300;
+        xpToNextLevel -= 300;
+
+        currentXP *= 2;
+
+        //Comparison Operators
+        boolean enoughXP = currentXP >= xpToNextLevel;
+        boolean reachedLevel10 = level >= 10;
+
+        System.out.println("Current Level: " + level);
+
+        // Logical Operators
+        levelUp = enoughXP && level < 10;
+        boolean isPro = level > 7 || currentXP > 5000;
+
+        if (levelUp) {
+            System.out.println("You leveled up!");
+            level++;
+        }
+        System.out.println("You are now level: " + level);
+
+        if (isPro){
+        System.out.println("You're a pro gamer!");
+        }
 
     }
 }
