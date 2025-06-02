@@ -33,7 +33,7 @@ public class ShoppingCartDecisions {
         double shippingCost = 0.00;
         double discount = 0.00;
 
-        double subtotal = productPrice * productQuantity;
+        double subtotal = productPrice * orderQuantity;
         if (subtotal > 500) {
             discount = subtotal * 0.10;
 
