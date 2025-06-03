@@ -1,5 +1,3 @@
-import java.io.InvalidClassException;
-
 public class Main {
 
     // 1. Define a method called printWelcomeMessage (does not return anything)
@@ -58,18 +56,59 @@ public class Main {
     public static void greet(String name, int age) {
         System.out.println("Hello, " + name + "! You are " + age + " years old.");
     }
-    public static void main(String[] args) {
+
+    // 9. Define a method "countVowels" that returns the number of vowels in a given string
+    public static int countVowels(String text) {
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            char vowel = text.charAt(i);
+            // Check for vowel
+            if (vowel == 'A' || vowel == 'a' || vowel == 'E' || vowel == 'e' || vowel == 'I' || vowel == 'i' ||
+                    vowel == 'O' || vowel == 'o' || vowel == 'U' || vowel == 'u') {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // 10: Define a method "calculator" that performs addition, subtraction, multiplication, or division based on user input
+    public static double calculator(int num1, int num2, char operator) {
+        double result = 0;
+        // Switch statement for operations
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = (double) num1 / num2;
+                } else {
+                    System.out.println("Cannot divide by zero!");
+                    return 0;
+                }
+                break;
+        }
+        return result;
+    }
+
+    public static void main(String[] args){
 
         // Call printWelcomeMessage method inside main
         printWelcomeMessage("\nWelcome to the Java Methods exercise!");
 
         // Call sum method with different results and print them.
         int sum1 = sum(10, 15);
-        int sum2 = sum(2,40);
-        int sum3 = sum(13,5);
+        int sum2 = sum(2, 40);
+        int sum3 = sum(13, 5);
 
         System.out.println("\nThe sum of 10 and 15 is: " + sum1);
-        System.out.println("The sum of 2 and 40 is: "  + sum2);
+        System.out.println("The sum of 2 and 40 is: " + sum2);
         System.out.println("The sum of 13 and 5 is: " + sum3);
 
         // Call convertToFahrenheit in main with different values and print results
@@ -96,7 +135,7 @@ public class Main {
 
         // Call findMax and print results of different values
         System.out.println("\nMaximums:");
-        int result = findMax(4,2,9);
+        int result = findMax(4, 2, 9);
         System.out.println(result);
         System.out.println(findMax(5, 33, 21));
         System.out.println(findMax(103, 75, 234));
@@ -112,6 +151,23 @@ public class Main {
         greet("Xander");
         greet("Mike", 35);
 
+        // Call countVowels and print results for "hello world" and "java programming"
+        String text1 = "hello world";
+        String text2 = "java programming";
+
+        int vowels1 = countVowels(text1);
+        int vowels2 = countVowels(text2);
+
+        System.out.println("\nVowel count:");
+        System.out.println("There are " + vowels1 + " vowels in " + text1);
+        System.out.println("There are " + vowels2 + " vowels in " + text2);
+
+        //Call calculator method with different inputs
+        System.out.println("\nCalculations: ");
+        System.out.println("10 + 34 = " + calculator(10,34,'+'));
+        System.out.println("63 - 40 = " + calculator(63,40,'-'));
+        System.out.println("12 * 10 = " + calculator(12,10,'*'));
+        System.out.println("42 / 7 = " + calculator(42,7,'/'));
     }
 }
 
