@@ -1,3 +1,5 @@
+import java.io.InvalidClassException;
+
 public class Main {
 
     // 1. Define a method called printWelcomeMessage (does not return anything)
@@ -38,6 +40,24 @@ public class Main {
         return Math.max(c,max); // So use max of previous two arguments to compare to last integer to get max of all three
     }
 
+    // 7. Define a method "factorial" that calculates the factorial of a number using recursion
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return (n * factorial(n - 1));
+        }
+    }
+
+    // 8. Define two methods both named "greet"
+        // Method 1
+    public static void greet(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+        // Method 2
+    public static void greet(String name, int age) {
+        System.out.println("Hello, " + name + "! You are " + age + " years old.");
+    }
     public static void main(String[] args) {
 
         // Call printWelcomeMessage method inside main
@@ -80,7 +100,18 @@ public class Main {
         System.out.println(result);
         System.out.println(findMax(5, 33, 21));
         System.out.println(findMax(103, 75, 234));
-    
+
+        // Call factorial and print results for 5, 7, and 10
+        System.out.println("\nThe factorials of 5, 7 and 10 are: ");
+        System.out.println("5! = " + factorial(5));
+        System.out.println("7! = " + factorial(7));
+        System.out.println("10! = " + factorial(10));
+
+        // Call both methods with different arguments
+        System.out.println("\nOverloaded methods output:");
+        greet("Xander");
+        greet("Mike", 35);
+
     }
 }
 
