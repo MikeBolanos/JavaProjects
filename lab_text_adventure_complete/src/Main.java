@@ -1,17 +1,27 @@
 import java.util.Scanner;
 
 public class Main {
+    public static void print(String message) {
+        System.out.println(message);
+    }
+    public static String promptString(String message) {
+        Scanner adventure = new Scanner(System.in);
+        print(message);
+        return adventure.nextLine();
+    }
 
     public static void main(String[] args) {
+        // Welcome and name prompt
+        print("Welcome to the Five Doors!"); // Call print method
+        String name = promptString("What is your name?:  "); // Call prompt method
+        print("Hello, " + name + "!"); // Call print method
 
-        Scanner adventure = new Scanner(System.in);
-
-        System.out.println("Welcome to the Five Doors!");
+        // Variables
         boolean keepLooping = true;
         String[] rooms = new String[5];
         String[] seenRooms = new String[5];
-
         boolean[] keys = new boolean[4];
+
 
         String mainRoom = """
                 
@@ -29,6 +39,7 @@ public class Main {
                 
                 Which door do you choose to enter? (1, 2, 3, 4, 5):\s""";
 
+        // Arrays of choice returns
         rooms [0] = "\nYou push the brass door open, revealing a small aquatic-themed library. On a side table, you see a book with a brass key being used as a bookmark. You take the key";
         rooms [1] = "\nYou use all your might to push open the shiny steel door. You see a room full of medieval weapons displayed on the walls and in cases and racks. You find a steel key hanging on one of the weapon racks!";
         rooms [2] = "\nThe silver door slides to the side, into the wall, and you find a large taxidermy werewolf! Around its neck is a silver key on a cord. You carefully claim the key.";
@@ -40,9 +51,9 @@ public class Main {
         seenRooms[2] = "\nYou go through the silver door again. Did the stuffed werewolf move? No... of course not. You leave quickly.";
         seenRooms[3] = "\nYou go through the copper door again. Somehow the piles are now in ordered stacks. Nothing else is new.";
         seenRooms[4] = "\nYou insert all four keys and unlock the golden door. When you open it, you find... the exit!";
+
         while (keepLooping) {
-            System.out.print(mainRoom);
-            String choice = adventure.nextLine();
+            String choice = promptString(mainRoom); // Call prompt method
             int door = Integer.parseInt(choice);
             switch (door) {
                 case 1:
@@ -50,10 +61,10 @@ public class Main {
                 case 3:
                 case 4:
                     if (keys[door - 1]) {
-                        System.out.println(seenRooms[door - 1]);
+                        print(seenRooms[door - 1]); // Call print method
                     } else {
                         keys[door - 1] = true;
-                        System.out.println(rooms[door -1]);
+                        print(rooms[door -1]); // Call print method
                     }
                     break;
 
@@ -61,13 +72,13 @@ public class Main {
                     boolean unlock = true;
                 for (int i = 0; i < keys.length; i++) {
                     if (keys[i] == false) {
-                        System.out.println(rooms[4]);
+                        print(rooms[4]); // Call print method
                         unlock = false;
                         break;
                     }
                 }
                 if (unlock) {
-                    System.out.println(seenRooms[4]);
+                    print(seenRooms[4]); // Call print method
                     keepLooping = false;
                 }
                 break;
