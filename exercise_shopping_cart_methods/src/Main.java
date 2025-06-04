@@ -6,7 +6,7 @@ public class Main {
 
     // Method to display list of choices
     private static void displayChoices(String[] choices) {
-        for (int i = 0; i < choices.length(); i++) {
+        for (int i = 0; i < choices.length; i++) {
             System.out.println((i+1) + ". " + choices[i]);
         }
     }
@@ -25,13 +25,12 @@ public class Main {
     public static void main(String[] args) {
 
         // Variables: Shipping and tax
-//        double taxRate = 0.07;
-//        double standardShipping = 2.00;
-//        double twoDayShipping = 5.00;
-//        double overnightShipping = 10.00;
-//        String validPromo = "FREE";
-//        double productPrice = 4.99;
-//        int productQuantity = 78;
+        double taxRate = 0.07;
+        double standardShipping = 2.00;
+        double twoDayShipping = 5.00;
+        double overnightShipping = 10.00;
+        String validPromo = "FREE";
+        double productPrice = 4.99;
 
         // Arrays to contain addresses and sizes
         String[] addresses = {"123 Sesame St.", "345 Downtha Rd.", "567 Old Potato Way"};
@@ -53,7 +52,7 @@ public class Main {
             // Ask for product size
             System.out.println("Sizes:");
             displayChoices(sizes);
-            sizeIndex = promptUserForInt("Enter size choice (1,2,3): ");
+            int sizeIndex = promptUserForInt("Enter size choice (1,2,3): ");
 
             String taxExempt = ("\nAre you tax-exempt? (y/n) ");
             String shipping = promptUserForString("Are you shipping? (y/n) ");
@@ -61,7 +60,6 @@ public class Main {
             String promo = promptUserForString("Enter a promo code for free shipping if applicable: ");
 
             // Subtotal and discount
-            double shippingCost = 0.00;
             double discount = 0.00;
 
             double subtotal = productPrice * orderQuantity;
@@ -71,7 +69,6 @@ public class Main {
             } else if (subtotal > 100) {
                 discount = subtotal * 0.05;
             }
-
             double discountedTotal = subtotal - discount;
 
             // Apply tax if not exempt
@@ -81,9 +78,9 @@ public class Main {
             }
 
             // Shipping cost
+            double shippingCost = 0.00;
             if (shipping.equalsIgnoreCase("y")) {
-                System.out.println("Choose shipping type: (standard, two-day, overnight): ");
-                String shippingType = shopCart.nextLine();
+                String shippingType  = promptUserForString("Choose shipping type: (standard, two-day, overnight): ");
 
                 if (shippingType.equalsIgnoreCase("standard")) {
                     if (promo.equalsIgnoreCase(validPromo)) {
@@ -117,8 +114,7 @@ public class Main {
             System.out.printf("%-15s $%.2f%n", "Grand Total:", grandTotal);
 
             // Order confirmation
-            System.out.println("\nConfirm Order? (y/n): ");
-            String confirm = shopCart.nextLine();
+            String confirm = promptUserForString("\nConfirm Order? (y/n): ");
             if (confirm.equalsIgnoreCase("y")) {
                 isConfirmed = true;
                 System.out.println("\nYour order has been confirmed.");
