@@ -21,11 +21,11 @@ public class Main {
                 
                 2. The shiny steel door\
                 
-                3. The golden door\
+                3. The silver door\
                 
                 4. The copper door\
                 
-                5. The silver door\
+                5. The golden door\
                 
                 Which door do you choose to enter? (1, 2, 3, 4, 5):\s""";
 
@@ -61,13 +61,13 @@ public class Main {
                     boolean unlock = true;
                 for (int i = 0; i < keys.length; i++) {
                     if (keys[i] == false) {
-                        System.out.println(rooms[5]);
+                        System.out.println(rooms[4]);
                         unlock = false;
                         break;
                     }
                 }
                 if (unlock) {
-                    System.out.println(rooms[5]);
+                    System.out.println(seenRooms[4]);
                     keepLooping = false;
                 }
                 break;
