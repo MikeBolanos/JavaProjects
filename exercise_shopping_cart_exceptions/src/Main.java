@@ -55,23 +55,37 @@ public class Main {
             // Ask for shipping address:
             System.out.println("\nShipping address:");
             displayChoices(addresses);
-
+            // Loop to prompt user for valid input
             int addressIndex = 0;
             while (addressIndex < 1 || addressIndex > addresses.length) {
                 addressIndex = promptUserForInt("Enter your choice (1,2,3): ");
                 if (addressIndex < 1 || addressIndex > addresses.length) {
-                    System.out.println("Please choose 1, 2, or 3.");
+                    System.out.println("Invalid choice. Please choose 1, 2, or 3.");
                 }
             }
+
 
             // Ask for product size
             System.out.println("Sizes:");
             displayChoices(sizes);
-            int sizeIndex = promptUserForInt("Enter size choice (1,2,3): ");
-
+            // Loop to prompt user for valid input
+            int sizeIndex = 0;
+            while (sizeIndex < 1 || sizeIndex > sizes.length) {
+                sizeIndex = promptUserForInt("Enter size choice (1,2,3): ");
+                if (sizeIndex < 1 || sizeIndex > sizes.length) {
+                    System.out.println("Invalid size. Please choose 1, 2, or 3.");
+                }
+            }
+            // Ask user for tax and shipping details
             String taxExempt = ("\nAre you tax-exempt? (y/n) ");
             String shipping = promptUserForString("Are you shipping? (y/n) ");
-            int orderQuantity =promptUserForInt("Order Quantity? ");
+            int orderQuantity = 0;
+            while (orderQuantity <= 0) {
+                orderQuantity = promptUserForInt("Order Quantity? ");
+                if (orderQuantity <= 0) {
+                    System.out.println("Quantity must be more than 0");
+                }
+            }
             String promo = promptUserForString("Enter a promo code for free shipping if applicable: ");
 
             // Subtotal and discount
