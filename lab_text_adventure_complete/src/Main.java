@@ -10,6 +10,15 @@ public class Main {
         return adventure.nextLine();
     }
 
+    public static void keyAndRoomsText(String[] rooms, String[] seenRooms, boolean[] keys, int door) {
+        if (keys[door] == true) {
+            print(seenRooms[door]);
+        } else {
+            print(rooms[door]);
+            keys[door] = true;
+        }
+    }
+
     public static void main(String[] args) {
         // Welcome and name prompt
         print("Welcome to the Five Doors!"); // Call print method
@@ -84,9 +93,11 @@ public class Main {
                 break;
 
                 default:
-                    System.out.println("\nYou seem distracted by the decor of each door; try choosing again.");
+                    // Call print method
+                    print("\nYou seem distracted by the decor of each door; try choosing again.");
             }
         }
-        System.out.println("\nThanks for playing the Five Doors!");
+        // Call print method
+        print("\nCongrats, " + name + "! You've found the exit! Thanks for playing the Five Doors!");
     }
 }
