@@ -49,11 +49,11 @@ public class Main {
                 Which door do you choose to enter? (1, 2, 3, 4, 5):\s""";
 
         // Arrays of choice returns
-        rooms [0] = "\nYou push the brass door open, revealing a small aquatic-themed library. On a side table, you see a book with a brass key being used as a bookmark. You take the key";
-        rooms [1] = "\nYou use all your might to push open the shiny steel door. You see a room full of medieval weapons displayed on the walls and in cases and racks. You find a steel key hanging on one of the weapon racks!";
-        rooms [2] = "\nThe silver door slides to the side, into the wall, and you find a large taxidermy werewolf! Around its neck is a silver key on a cord. You carefully claim the key.";
-        rooms [3] = "\nYou push open the copper door and reveal a room full of piles copper currencies old and new. You search a few piles and finally find a copper key!";
-        rooms [4] = "\n You attempt to open the golden door, but it won't open. You notice four keyholes the other doors do not have...";
+        rooms[0] = "\nYou push the brass door open, revealing a small aquatic-themed library. On a side table, you see a book with a brass key being used as a bookmark. You take the key";
+        rooms[1] = "\nYou use all your might to push open the shiny steel door. You see a room full of medieval weapons displayed on the walls and in cases and racks. You find a steel key hanging on one of the weapon racks!";
+        rooms[2] = "\nThe silver door slides to the side, into the wall, and you find a large taxidermy werewolf! Around its neck is a silver key on a cord. You carefully claim the key.";
+        rooms[3] = "\nYou push open the copper door and reveal a room filled with piles of copper currencies old and new. You search a few piles and finally find a copper key!";
+        rooms[4] = "\n You attempt to open the golden door, but it won't open. You notice four keyholes the other doors do not have...";
 
         seenRooms[0] = "\nYou go through the brass door again. You find nothing else in the library.";
         seenRooms[1] = "\nYou go through the steel door again. You admire the many weapons, but there aren't any more keys.";
@@ -63,41 +63,41 @@ public class Main {
 
         while (keepLooping) {
             String choice = promptString(mainRoom); // Call prompt method
-            int door = Integer.parseInt(choice);
-            switch (door) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                    if (keys[door - 1]) {
-                        print(seenRooms[door - 1]); // Call print method
-                    } else {
-                        keys[door - 1] = true;
-                        print(rooms[door -1]); // Call print method
-                    }
-                    break;
+            try {
+                int door = Integer.parseInt(choice);
 
-                case 5:
-                    boolean unlock = true;
-                for (int i = 0; i < keys.length; i++) {
-                    if (keys[i] == false) {
-                        print(rooms[4]); // Call print method
-                        unlock = false;
+                switch (door) {
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                        keyAndRoomsText(rooms, seenRooms, keys, door - 1);
                         break;
-                    }
-                }
-                if (unlock) {
-                    print(seenRooms[4]); // Call print method
-                    keepLooping = false;
-                }
-                break;
 
-                default:
-                    // Call print method
-                    print("\nYou seem distracted by the decor of each door; try choosing again.");
+                    case 5:
+                        boolean unlock = true;
+                        for (int i = 0; i < keys.length; i++) {
+                            if (keys[i] == false) {
+                                print(rooms[4]); // Call print method
+                                unlock = false;
+                                break;
+                            }
+                        }
+                        if (unlock) {
+                            print(seenRooms[4]); // Call print method
+                            keepLooping = false;
+                        }
+                        break;
+
+                    default:
+                        // Call print method
+                        print("\nYou seem distracted by the decor of each door; try choosing again.");
+                    }
+                } catch (NumberFormatException ex) {
+                    print("Invalid option. Try again.");
             }
         }
         // Call print method
-        print("\nCongrats, " + name + "! You've found the exit! Thanks for playing the Five Doors!");
+        print("\nCongrats, " + name + "! You can now exit! Thanks for playing the Five Doors!");
     }
 }
