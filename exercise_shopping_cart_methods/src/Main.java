@@ -37,8 +37,6 @@ public class Main {
         String[] addresses = {"123 Sesame St.", "345 Downtha Rd.", "567 Old Potato Way"};
         String[] sizes = {"Small", "Medium", "Large"};
 
-        int addressIndex = 0;
-        int sizeIndex = 0;
 
         // Order Confirmation Loop variable
         boolean isConfirmed = false;
@@ -48,27 +46,19 @@ public class Main {
             // Collecting user input
             System.out.print("\n~*~*~Welcome to the shopping cart app!~*~*~\n");
             // Ask for shipping address:
-            System.out.println("\nChoose your shipping address (1,2,3): ");
+            System.out.println("\nShipping address:");
             displayChoices(addresses);
-            
+            int addressIndex = promptUserForInt("Enter your choice (1,2,3): ");
 
             // Ask for product size
-            for (int i = 0; i < sizes.length; i++) {
-                System.out.println((i+1) + ". " + sizes[i]);
-            }
-            System.out.println("\nWhich size? (1,2,3): ");
-            String size = shopCart.nextLine();
-            sizeIndex = Integer.parseInt(size);
+            System.out.println("Sizes:");
+            displayChoices(sizes);
+            sizeIndex = promptUserForInt("Enter size choice (1,2,3): ");
 
-            System.out.println("\nAre you tax-exempt? (y/n) ");
-            String taxExempt = shopCart.nextLine();
-            System.out.println("Are you shipping? (y/n) ");
-            String shipping = shopCart.nextLine();
-            System.out.println("Order Quantity? ");
-            int orderQuantity = Integer.parseInt(shopCart.nextLine());
-            System.out.println("Enter a promo code for free shipping if applicable: ");
-            String promo = shopCart.nextLine();
-
+            String taxExempt = ("\nAre you tax-exempt? (y/n) ");
+            String shipping = promptUserForString("Are you shipping? (y/n) ");
+            int orderQuantity =promptUserForInt("Order Quantity? ");
+            String promo = promptUserForString("Enter a promo code for free shipping if applicable: ");
 
             // Subtotal and discount
             double shippingCost = 0.00;
