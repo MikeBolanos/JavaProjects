@@ -26,8 +26,16 @@ public class LockerService {
                 return false; // locker available!
             }
         }
-        return true; // Lockers full
+        return true; // Lockers full (message?)***
     }
+
+    // PIN generator
+    private String generatePin() {
+        // variable to create random numbers from 0 to 9999
+        // return String formatted to lead with 0s ex: %04d(?)
+
+    }
+
 
     // Method to rent a locker
     public String rentLocker() {
@@ -36,6 +44,10 @@ public class LockerService {
                 String pin = generatePin(); // Need to make a PIN generator first!***
             }
         }
+
+         // Method to access a locker with correct PIN
+
+        // Method to release locker with correct PIN
     }
 }
 
