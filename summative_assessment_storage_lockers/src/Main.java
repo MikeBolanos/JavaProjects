@@ -8,7 +8,7 @@ public class Main {
         // Loop:
         // Use while true (boolean) loop for program
 
-            //Switch cases for MEnu choices
+            //Switch cases for Menu choices
                 // case 1: Rent a locker
 
                 // case 2: Access a locker
@@ -17,5 +17,6 @@ public class Main {
 
                 // case 4: "q" to quit
 
-    }
+
+    } // Exit/ Thank you message
 }
