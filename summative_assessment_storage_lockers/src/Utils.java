@@ -11,7 +11,7 @@ public class Utils {
         return scanner.nextLine();
     }
 
-    // Print method with new line
+    // Print method
     public static void print(String message) {
         System.out.println(message);
     }

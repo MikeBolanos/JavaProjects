@@ -29,7 +29,7 @@ public class LockerService {
         return true; // Lockers full (message?)***
     }
 
-    // PIN generator
+    // Method for PIN generator
     private String generatePin() {
         // variable to create random numbers from 0 to 9999
         // return String formatted to lead with 0s ex: %04d(?)
