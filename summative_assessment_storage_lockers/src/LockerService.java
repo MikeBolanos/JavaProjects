@@ -5,7 +5,7 @@ public class LockerService {
     private Random random;
 
     // Array of all lockers
-    private Locker[] lockers;
+    private Locker[] lockers; // Make final?***
 
     // Constructor
     // Sets up number of lockers in array
@@ -15,7 +15,7 @@ public class LockerService {
 
         // Put new lockers into array starting at 1
         for (int i = 1; i < numberOfLockers; i++) {
-            lockers[i] = new Locker(); // Start new lockers as available via Locker Constructor(?)
+            lockers[i] = new Locker(); // Start new lockers as available via Locker Constructor(?)***
         }
     }
 
@@ -33,7 +33,6 @@ public class LockerService {
     private String generatePin() {
         // variable to create random numbers from 0 to 9999
         // return String formatted to lead with 0s ex: %04d(?)
-
     }
 
 
