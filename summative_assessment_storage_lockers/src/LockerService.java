@@ -33,7 +33,7 @@ public class LockerService {
     public String rentLocker() {
         for (int i = 1; i < lockers.length; i++) {
             if (lockers[i].isAvailable()) {
-                String pin = generatePin();
+                String pin = generatePin(); // Need to make a PIN generator first!***
             }
         }
     }

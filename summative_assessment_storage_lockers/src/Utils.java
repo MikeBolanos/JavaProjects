@@ -28,9 +28,18 @@ public class Utils {
         }
     }
 
-    // Prompt method for booleans 
+    // Prompt method for booleans
     public static boolean promptBoolean(String prompt) {
-
+        while (true) {
+            String input = prompt(prompt + "(yes / no): ").toLowerCase();
+            if (input.equals("yes")) {
+                return true;
+            } else if (input.equals("no")) {
+                return false;
+            } else {
+                print("Please enter 'yes' or 'no' ");
+            }
+        }
     }
 }
 
