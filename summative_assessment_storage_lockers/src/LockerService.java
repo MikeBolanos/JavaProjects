@@ -53,10 +53,10 @@ public class LockerService {
     public Result accessLocker(String pinInput) {
         for (int i = 1; i < lockers.length; i++) {
             if (!lockers[i].isAvailable() && lockers[i].isCorrectPin(pinInput)) { // If locker is not available and matches the input PIN
-                return new Result(true, "Access granted! Your locker: " +[i] + " is open."); //Access granted
+                return new Result(true, "Access granted! Your locker: " + i + " is open."); //Access granted
             }
         }
-    } 
+    }
     // Method to release locker with correct PIN
 }
 
