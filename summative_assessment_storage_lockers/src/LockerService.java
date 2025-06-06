@@ -32,7 +32,9 @@ public class LockerService {
     // Method for PIN generator
     private String generatePin() {
         // variable to create random numbers from 0 to 9999
+        int number = random.nextInt(10000);//(?)
         // return String formatted to lead with 0s ex: %04d(?)
+        return String.format("%04d", number);
     }
 
 
@@ -40,13 +42,15 @@ public class LockerService {
     public String rentLocker() {
         for (int i = 1; i < lockers.length; i++) {
             if (lockers[i].isAvailable()) {
-                String pin = generatePin(); // Need to make a PIN generator first!***
+                String pin = generatePin();// Need to make a PIN generator first!***
+                lockers[i]                           // Store locker pin(?)
+
             }
         }
-
-         // Method to access a locker with correct PIN
+    }
+        // Method to access a locker with correct PIN
 
         // Method to release locker with correct PIN
-    }
 }
+
 

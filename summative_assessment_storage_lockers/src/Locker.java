@@ -18,6 +18,7 @@ public class Locker {
 
     // 1) Availability: check if locker isAvailable = true/false
     public boolean isAvailable() {
+
         return this.isAvailable;
     }
 
@@ -36,14 +37,12 @@ public class Locker {
         if (this.pin == null)   {
             return false;
         }
-
         if (this.pin.equals(pinInput)) {
             return true;
         } else {
             return false;
         }
     }
-
 
     // 4) Release locker: - Set isAvailable = true
                        // - set PIN to null(?)
