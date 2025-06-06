@@ -7,13 +7,13 @@ public class Utils {
 
     // Prompt method for Strings
     public static String prompt(String prompt) {
-        System.out.print(prompt);
+        System.out.print("\n" + prompt);
         return scanner.nextLine();
     }
 
     // Print method
     public static void print(String message) {
-        System.out.println(message);
+        System.out.println("\n" + message);
     }
 
     // Prompt method for integers with try/catch for valid input
@@ -24,20 +24,6 @@ public class Utils {
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException ex) {
                 print("Invalid input. Please enter a valid number.");
-            }
-        }
-    }
-
-    // Prompt method for booleans
-    public static boolean promptBoolean(String prompt) {
-        while (true) {
-            String input = prompt(prompt + "(yes / no): ").toLowerCase();
-            if (input.equals("yes")) {
-                return true;
-            } else if (input.equals("no")) {
-                return false;
-            } else {
-                print("Please enter 'yes' or 'no' ");
             }
         }
     }

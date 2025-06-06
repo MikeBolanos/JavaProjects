@@ -1,4 +1,3 @@
-
 public class Locker {
     //Variables:
     // String variable for PIN (null when empty) ex: (private?) String pin = null
@@ -24,16 +23,16 @@ public class Locker {
 
     // 2) Rent locker: - Set PIN for locker
                     // - Set isAvailable = false(?)
-    public void rentLocker(String newPin) {
+    public void setPin(String newPin) {
         this.pin = newPin;
         this.isAvailable = false;
     }
 
-    // 3) PIN validation: - Is PIN correct? boolean(?)
+    // 3) PIN comparison: - Is PIN correct? boolean(?)
                      // -If pinInput = stored PIN:
                             // - return true
                        // - Else : return false
-    public boolean isValidPin(String pinInput) {
+    public boolean isCorrectPin(String pinInput) {
         if (this.pin == null)   {
             return false;
         }
