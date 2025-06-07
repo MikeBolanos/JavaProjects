@@ -11,7 +11,7 @@ public class Main {
         // Use while true (boolean) loop for program
         while (testing) {
             // Main menu (testing)
-            Utils.print("~*~*~*~ Lockdown Lockers Test ~*~*~*~");
+            Utils.print("\n~*~*~*~ Lockdown Lockers Test ~*~*~*~");
             Utils.print("1. Rent a locker");
             Utils.print("2. Access a Locker");
 //            Utils.print("3. Release a locker");
@@ -32,6 +32,8 @@ public class Main {
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
                     String accessPIN = Utils.prompt("\nPlease enter your PIN: ");
                     Result access = lockerService.accessLocker(accessPIN);
+                    Utils.print(access.getMessage());
+                    break;
 //
 //                case "3":// case 3: Release a locker |
 

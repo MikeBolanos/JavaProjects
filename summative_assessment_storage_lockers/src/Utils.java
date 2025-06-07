@@ -13,7 +13,7 @@ public class Utils {
 
     // Print method
     public static void print(String message) {
-        System.out.println("\n" + message);
+        System.out.println(message);
     }
 
     // Prompt method for integers with try/catch for valid input
