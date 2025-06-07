@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         // Variables
-        // 1) new LockerService (will create new lockers)
+        // 1) new LockerService (will create new collection of lockers with chosen amount)
         LockerService lockerService = new LockerService(5);
 
         // 2) boolean for looping program menu until user quits
@@ -13,26 +13,29 @@ public class Main {
             // Main menu (testing)
             Utils.print("~*~*~*~ Lockdown Lockers Test ~*~*~*~");
             Utils.print("1. Rent a locker");
-//            Utils.print("2. Access a Locker");
+            Utils.print("2. Access a Locker");
 //            Utils.print("3. Release a locker");
-            Utils.print("Q. Quit");
+            Utils.print("4. Quit");
 
             // Prompt for menu choice
-            String choice = Utils.prompt("Please choose an option (1 or Q): ");
+            String choice = Utils.prompt("Please choose an option (1, 2, or 4): ");
+            MenuOption option = MenuOption.menuChoice(choice);
 
             //Switch cases for Menu choices
-            switch (choice) {
+            switch (option) {
 
-                case "1": // case 1: Rent a locker | Call rentLocker method
+                case RENT: // case 1: Rent a locker | Call rentLocker method
                     Result rent = lockerService.rentLocker();
                     Utils.print(rent.getMessage());
                     break;
 
-//                case "2": // case 2: Access a locker |
+                case ACCESS: // case 2: Access a locker | Call accessLocker method
+                    String accessPIN = Utils.prompt("\nPlease enter your PIN: ");
+                    Result access = lockerService.accessLocker(accessPIN);
 //
 //                case "3":// case 3: Release a locker |
 
-                case "4": // case 4: "q" to quit | Call print method
+                case QUIT: // case 4: "q" to quit | Call print method
                     Utils.print("Thanks for using the locker system by Lockdown Inc! Have great day!");
                     testing = false;
                     break;
