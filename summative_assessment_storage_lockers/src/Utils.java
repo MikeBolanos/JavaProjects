@@ -7,7 +7,7 @@ public class Utils {
 
     // Prompt method for Strings
     public static String prompt(String prompt) {
-        System.out.print("\n" + prompt);
+        System.out.print(prompt);
         return scanner.nextLine();
     }
 

@@ -14,11 +14,11 @@ public class Main {
             Utils.print("\n~*~*~*~ Lockdown Lockers Test ~*~*~*~");
             Utils.print("1. Rent a locker");
             Utils.print("2. Access a Locker");
-//            Utils.print("3. Release a locker");
+            Utils.print("3. Release a locker");
             Utils.print("4. Quit");
 
             // Prompt for menu choice
-            String choice = Utils.prompt("Please choose an option (1, 2, or 4): ");
+            String choice = Utils.prompt("Please choose an option (1, 2, 3, or 4): ");
             MenuOption option = MenuOption.menuChoice(choice);
 
             //Switch cases for Menu choices
@@ -30,20 +30,24 @@ public class Main {
                     break;
 
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
-                    String accessPIN = Utils.prompt("\nPlease enter your PIN: ");
-                    Result access = lockerService.accessLocker(accessPIN);
+                    String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
+                    Result access = lockerService.accessLocker(accessPin);
                     Utils.print(access.getMessage());
                     break;
-//
-//                case "3":// case 3: Release a locker |
+
+                case RELEASE: // case 3: Release a locker |
+                    String releasePin = Utils.prompt("\nTo release a locker, please enter your PIN: ");
+                    Result release = lockerService.handleLockerRelease(releasePin);
+                    Utils.print(release.getMessage());
+                    break;
 
                 case QUIT: // case 4: "q" to quit | Call print method
-                    Utils.print("Thanks for using the locker system by Lockdown Inc! Have great day!");
+                    Utils.print("\nThanks for using the locker system by Lockdown Inc! Have great day!");
                     testing = false;
                     break;
 
                 default: // Invalid input choice message via print method
-                    Utils.print("Invalid choice. Please try again.");
+                    Utils.print("\nInvalid choice. Please try again.");
             }
         }
     }

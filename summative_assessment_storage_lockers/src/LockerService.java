@@ -58,15 +58,18 @@ public class LockerService {
         }
         return new Result(false, "Access denied. Incorrect PIN or locker is not rented.");
     }
+
     // Method to release locker with correct PIN
     public Result handleLockerRelease(String pinInput) {
-        for(int i = 1; i < lockers.length; i++) {
+        for (int i = 1; i < lockers.length; i++) {
             // Check if locker is rented(!isAvailable)
             // Check for PIN match
-
-            // Release locker if both conditions are true
+            if (!lockers[i].isAvailable() && lockers[i].isCorrectPin(pinInput)) {
+                // Release locker if both conditions are true
+                return new Result(true, "Locker " + i + " released successfully. It is now available.");
+            }
         }
+        return new Result(false, "Invalid PIN. Please try again.");
     }
-
 }
 
