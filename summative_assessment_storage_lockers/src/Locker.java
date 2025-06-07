@@ -1,13 +1,12 @@
 public class Locker {
     //Variables:
-    // String variable for PIN (null when empty) ex: (private?) String pin = null
+    // String variable for PIN (null when empty)
     private String pin;
 
-    // boolean variable for availability: isAvailable (true = locker is empty, false = locker being used)
+    // boolean variable for availability: isAvailable (true = locker is available, false = locker rented)
     private boolean isAvailable;
 
-    // Constructor: Used when new locker created(?)
-    // - Set PIN to new pin? or null?
+    // Constructor: Used when new locker created
     public Locker() {
         this.pin = null;
         this.isAvailable = true;
@@ -36,11 +35,7 @@ public class Locker {
         if (this.pin == null)   {
             return false;
         }
-        if (this.pin.equals(pinInput)) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.pin.equals(pinInput);
     }
 
     // 4) Release locker: - Set isAvailable = true
