@@ -49,6 +49,16 @@ public class LockerService {
         return new Result(false, "\nNo lockers available at the moment!");
     }            // ^^^ Calling Result to return tuple ^^^
 
+    // Method to check for valid PIN
+    public boolean isPinValid(String pinInput) {
+        for (int i = 1; i < lockers.length; i++) {
+            if (!lockers[i].isAvailable() && lockers[i].isCorrectPin(pinInput)) {
+                return true;
+            }
+        }
+    }
+
+
     // Method to access a locker with correct PIN
     public Result accessLocker(String pinInput) {
         for (int i = 1; i < lockers.length; i++) {
@@ -56,7 +66,10 @@ public class LockerService {
                 return new Result(true, "Access granted! Your locker: " + i + " is open."); //Access granted
             }
         }
+        return new Result(false, "Access denied. Incorrect PIN or locker is not rented.");
     }
     // Method to release locker with correct PIN
+
+
 }
 
