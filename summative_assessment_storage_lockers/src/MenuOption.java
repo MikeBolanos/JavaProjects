@@ -7,26 +7,21 @@ public enum MenuOption {
 
 
     // Variable to store user input for option
-    private final String choice;
+    private final String number;
 
     // Constructor
-    MenuOption(String choice) {
-        this.choice = choice;
+    MenuOption(String number) {
+        this.number = number;
     }
 
     // Method for menu options
-    public static MenuOption menuOption(String input) {
-        input = input.trim(); // initialize input
-        if (input.equals("1")) {
-            return RENT;
-        }else if (input.equals("2")) {
-            return  ACCESS;
-        }else if (input.equals("3")) {
-            return RELEASE;
-        }else if (input.equals("4")) {
-            return QUIT;
-        }else {
-            return INVALID;
+    public static MenuOption menuChoice(String input) {
+        input = input.trim();
+        for (MenuOption option : values()) {
+            if (option.number.equals(input)) {
+                return option;
+            }
         }
+        return  INVALID;
     }
 }
