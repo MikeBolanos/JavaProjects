@@ -15,7 +15,7 @@ public class LockerService {
 
         // Put new lockers into array starting at 1
         for (int i = 1; i <= numberOfLockers; i++) {
-            lockers[i] = new Locker(); // Start new lockers as available via Locker Constructor(?)***
+            lockers[i] = new Locker(); // Start new lockers as available via Locker Constructor
         }
     }
 
@@ -48,16 +48,6 @@ public class LockerService {
         }
         return new Result(false, "\nNo lockers available at the moment!");
     }            // ^^^ Calling Result to return tuple ^^^
-
-    // Method to check for valid PIN (DRY in accessLocker and releaseLocker)
-    public boolean isPinValid(String pinInput) {
-        for (int i = 1; i < lockers.length; i++) {
-            if (!lockers[i].isAvailable() && lockers[i].isCorrectPin(pinInput)) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     // Method to access a locker with correct PIN
     public Result accessLocker(String pinInput) {
