@@ -78,6 +78,7 @@ public class MenuHandler {
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
                     if (!anyLockersRented) { // Check if any lockers are rented
                         Utils.print("\nNo lockers have been rented. Please rent a locker before attempting access.");
+                        break;
                     }
                     String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
                     Result access = lockerService.accessLocker(accessPin);
@@ -87,6 +88,7 @@ public class MenuHandler {
                 case RELEASE: // case 3: Release a locker |
                     if (!anyLockersRented) {
                         Utils.print("\nNo lockers have been rented. Please rent a locker before attempting a locker release.");
+                        break;
                     }
                     String releasePin = Utils.prompt("\nTo release a locker, please enter your PIN: ");
                     Result release = lockerService.handleLockerRelease(releasePin);
