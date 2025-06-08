@@ -25,7 +25,7 @@ public class Main {
 
             // Prompt for menu choice
             String choice = Utils.prompt("Please choose an option (1, 2, 3, or 4): ");
-            MenuOption option = MenuOption.menuChoice(choice);
+            MenuHandler.MenuOption option = MenuHandler.MenuOption.menuChoice(choice);
 
             //Switch cases for Menu choices
             switch (option) {
