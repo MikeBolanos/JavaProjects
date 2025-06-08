@@ -1,10 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         // Variables
-        // 1) new LockerService (will create new collection of lockers with chosen amount)
+        // New LockerService (will create new collection of lockers with chosen amount)
         LockerService lockerService = new LockerService(5);
+        // Check if all lockers are rented
+        boolean allLockersRented = lockerService.lockersFull();
 
-        // 2) boolean for looping program menu until user quits
+        // boolean for looping program menu until user quits
         boolean testing = true;
 
         // Loop:
@@ -12,9 +14,12 @@ public class Main {
         while (testing) {
             // Main menu (testing)
             Utils.print("\n~*~*~*~ Lockdown Lockers Test ~*~*~*~");
-            Utils.print("1. Rent a locker");
+            // Check if all lockers are full before displaying Rent option
+            if (!allLockersRented) {
+                Utils.print("1. Rent a Locker");
+            }
             Utils.print("2. Access a Locker");
-            Utils.print("3. Release a locker");
+            Utils.print("3. Release a Locker");
             Utils.print("4. Quit");
 
             // Prompt for menu choice
@@ -30,6 +35,10 @@ public class Main {
                     break;
 
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
+                    if (allLockersRented) {
+                        Utils.print("All lockers are available. Cannot access any lockers until rented.");
+                        break;
+                    }
                     String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
                     Result access = lockerService.accessLocker(accessPin);
                     Utils.print(access.getMessage());
