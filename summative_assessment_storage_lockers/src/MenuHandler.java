@@ -63,7 +63,7 @@ public class MenuHandler {
             switch (option) {
 
                 case RENT: // case 1: Rent a locker | Call rentLocker method
-                    if (allLockersRented) {
+                    if (allLockersRented) { // In case user tries to enter 1 if menu option is not displayed
                         Utils.print("All lockers are rented. At least one locker must be released to rent a locker.");
                         break;
                     }
@@ -72,6 +72,7 @@ public class MenuHandler {
                     break;
 
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
+                    if ()
                     String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
                     Result access = lockerService.accessLocker(accessPin);
                     Utils.print(access.getMessage());

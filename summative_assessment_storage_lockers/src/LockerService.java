@@ -29,6 +29,16 @@ public class LockerService {
         return true; // Lockers full (message?)***
     }
 
+    // Method to check if any locker is rented
+    public boolean anyLockerRented() {
+        for (int i =1; i < lockers.length; i++) {
+            if (!lockers[i].isAvailable()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Method for PIN generator
     private String generatePin() {
         // variable to create random numbers from 0 to 9999
@@ -48,6 +58,7 @@ public class LockerService {
         }
         return new Result(false, "\nNo lockers available at the moment!");
     }            // ^^^ Calling Result to return tuple ^^^
+
 
     // Method to access a locker with correct PIN
     public Result accessLocker(String pinInput) {
