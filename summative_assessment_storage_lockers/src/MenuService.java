@@ -1,13 +1,13 @@
-public class MenuHandler {
+public class MenuService {
     // Locker Service
     private final LockerService lockerService;
     // boolean for loop
-    private boolean testing;
+    private boolean looping;
 
     // Constructor for LockerService
-    public MenuHandler(LockerService lockerService) {
+    public MenuService(LockerService lockerService) {
         this.lockerService = lockerService;
-        this.testing = true;
+        this.looping = true;
     }
 
     public enum MenuOption {
@@ -41,7 +41,7 @@ public class MenuHandler {
     public void menuLoop() {
         // Loop:
         // Use while true (boolean) loop for Menu
-        while (testing) {
+        while (looping) {
             // Check if all lockers are rented
             boolean allLockersRented = lockerService.lockersFull();
             // Check is any locker is rented
@@ -61,7 +61,7 @@ public class MenuHandler {
 
             // Prompt for menu choice
             String choice = Utils.prompt("Please select an option by number: ");
-            MenuHandler.MenuOption option = MenuHandler.MenuOption.menuChoice(choice);
+            MenuService.MenuOption option = MenuService.MenuOption.menuChoice(choice);
 
             //Switch cases for Menu choices
             switch (option) {
@@ -97,7 +97,7 @@ public class MenuHandler {
 
                 case QUIT: // case 4: "q" to quit | Call print method
                     Utils.print("\nThanks for using the locker system by Lockdown Inc! Have great day!");
-                    testing = false;
+                    looping = false;
                     break;
 
                 default: // Invalid input choice message via print method
