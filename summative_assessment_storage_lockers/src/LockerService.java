@@ -66,6 +66,7 @@ public class LockerService {
             // Check for PIN match
             if (!lockers[i].isAvailable() && lockers[i].isCorrectPin(pinInput)) {
                 // Release locker if both conditions are true
+                lockers[i].releaseLocker();
                 return new Result(true, "Locker " + i + " released successfully. It is now available.");
             }
         }
