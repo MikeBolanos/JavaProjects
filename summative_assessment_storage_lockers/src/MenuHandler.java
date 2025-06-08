@@ -53,9 +53,10 @@ public class MenuHandler {
             if (!allLockersRented) {
                 Utils.print("1. Rent a Locker");
             }
-            if ()
-            Utils.print("2. Access a Locker");
-            Utils.print("3. Release a Locker");
+            if (anyLockersRented) {
+                Utils.print("2. Access a Locker");
+                Utils.print("3. Release a Locker");
+            }
             Utils.print("4. Quit");
 
             // Prompt for menu choice
@@ -75,13 +76,18 @@ public class MenuHandler {
                     break;
 
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
-                    if () // Check if any lockers are rented
+                    if (!anyLockersRented) { // Check if any lockers are rented
+                        Utils.print("\nNo lockers have been rented. Please rent a locker before attempting access.");
+                    }
                     String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
                     Result access = lockerService.accessLocker(accessPin);
                     Utils.print(access.getMessage());
                     break;
 
                 case RELEASE: // case 3: Release a locker |
+                    if (!anyLockersRented) {
+                        Utils.print("\nNo lockers have been rented. Please rent a locker before attempting a locker release.");
+                    }
                     String releasePin = Utils.prompt("\nTo release a locker, please enter your PIN: ");
                     Result release = lockerService.handleLockerRelease(releasePin);
                     Utils.print(release.getMessage());
