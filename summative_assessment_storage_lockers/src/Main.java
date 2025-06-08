@@ -36,7 +36,7 @@ public class Main {
 
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
                     if (allLockersRented) {
-                        Utils.print("All lockers are available. Cannot access any lockers until rented.");
+                        Utils.print("All lockers are rented. At least one locker must be released to rent a locker.");
                         break;
                     }
                     String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
