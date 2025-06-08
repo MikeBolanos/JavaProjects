@@ -4,6 +4,12 @@ public class MenuHandler {
     // boolean for loop
     private boolean testing;
 
+    // Constructor for LockerService
+    public MenuHandler(LockerService lockerService) {
+        this.lockerService = lockerService;
+        this.testing = true;
+    }
+
     public enum MenuOption {
         RENT ("1"),
         ACCESS("2"),
@@ -31,9 +37,10 @@ public class MenuHandler {
             return  INVALID;
         }
     }
+
     // Loop:
     // Use while true (boolean) loop for program
-        while (testing) {
+        while (this.testing) {
         // Check if all lockers are rented
         boolean allLockersRented = lockerService.lockersFull();
 
