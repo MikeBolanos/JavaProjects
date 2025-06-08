@@ -15,18 +15,6 @@ public class Utils {
     public static void print(String message) {
         System.out.println(message);
     }
-
-    // Prompt method for integers with try/catch for valid input
-    public static int promptInt(String prompt) {
-        while (true) {
-            try {
-                System.out.println(prompt);
-                return Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException ex) {
-                print("Invalid input. Please enter a valid number.");
-            }
-        }
-    }
 }
 
 

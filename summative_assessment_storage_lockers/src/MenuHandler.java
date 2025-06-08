@@ -1,6 +1,6 @@
 public class MenuHandler {
     // Locker Service
-    private LockerService lockerService;
+    private final LockerService lockerService;
     // boolean for loop
     private boolean testing;
 
