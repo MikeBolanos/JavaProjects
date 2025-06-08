@@ -3,8 +3,6 @@ public class Main {
         // Variables
         // New LockerService (will create new collection of lockers with chosen amount)
         LockerService lockerService = new LockerService(5);
-        // Check if all lockers are rented
-        boolean allLockersRented = lockerService.lockersFull();
 
         // boolean for looping program menu until user quits
         boolean testing = true;
@@ -12,6 +10,9 @@ public class Main {
         // Loop:
         // Use while true (boolean) loop for program
         while (testing) {
+            // Check if all lockers are rented
+            boolean allLockersRented = lockerService.lockersFull();
+
             // Main menu (testing)
             Utils.print("\n~*~*~*~ Lockdown Lockers Test ~*~*~*~");
             // Check if all lockers are full before displaying Rent option
@@ -30,15 +31,15 @@ public class Main {
             switch (option) {
 
                 case RENT: // case 1: Rent a locker | Call rentLocker method
+                    if (allLockersRented) {
+                        Utils.print("All lockers are rented. At least one locker must be released to rent a locker.");
+                        break;
+                    }
                     Result rent = lockerService.rentLocker();
                     Utils.print(rent.getMessage());
                     break;
 
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
-                    if (allLockersRented) {
-                        Utils.print("All lockers are rented. At least one locker must be released to rent a locker.");
-                        break;
-                    }
                     String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
                     Result access = lockerService.accessLocker(accessPin);
                     Utils.print(access.getMessage());
