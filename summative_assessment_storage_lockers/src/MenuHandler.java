@@ -40,23 +40,26 @@ public class MenuHandler {
 
     public void menuLoop() {
         // Loop:
-        // Use while true (boolean) loop for program
+        // Use while true (boolean) loop for Menu
         while (testing) {
             // Check if all lockers are rented
             boolean allLockersRented = lockerService.lockersFull();
+            // Check is any locker is rented
+            boolean anyLockersRented = lockerService.anyLockerRented();
 
-            // Main menu (testing)
+            // Main menu
             Utils.print("\n~*~*~*~ Lockdown Lockers Test ~*~*~*~");
             // Check if all lockers are full before displaying Rent option
             if (!allLockersRented) {
                 Utils.print("1. Rent a Locker");
             }
+            if ()
             Utils.print("2. Access a Locker");
             Utils.print("3. Release a Locker");
             Utils.print("4. Quit");
 
             // Prompt for menu choice
-            String choice = Utils.prompt("Please choose an option (1, 2, 3, or 4): ");
+            String choice = Utils.prompt("Please select an option by number: ");
             MenuHandler.MenuOption option = MenuHandler.MenuOption.menuChoice(choice);
 
             //Switch cases for Menu choices
@@ -72,7 +75,7 @@ public class MenuHandler {
                     break;
 
                 case ACCESS: // case 2: Access a locker | Call accessLocker method
-                    if ()
+                    if () // Check if any lockers are rented
                     String accessPin = Utils.prompt("\nTo access a locker, please enter your PIN: ");
                     Result access = lockerService.accessLocker(accessPin);
                     Utils.print(access.getMessage());
