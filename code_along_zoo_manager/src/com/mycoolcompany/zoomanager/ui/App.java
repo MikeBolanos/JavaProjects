@@ -13,10 +13,14 @@ public class App {
         Animal bear = new Animal("Bear", 2, "Snarl");
 
         Animal[] population = new Animal[3];
-        
+
+
         population[0] = lion;
         population[1] = tiger;
         population[2] = bear;
+
+        // Calls setPopulation from Zoo class to make a collection with the new Animals
+        zoo.setPopulation(population);
 
         // Print a population report of new Animal collection
         zoo.printPopulationReport();
