@@ -37,9 +37,11 @@ public class Zoo {
             System.out.println(a.getName() + ": " + a.getPopulationCount());
         }
         System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
-
-
     }
+    public void printAnimalSounds() {
+            
+        }
+
 
     // Animal Sounds Report: Print a header, followed by all the sounds we'll hear in the zoo
 
