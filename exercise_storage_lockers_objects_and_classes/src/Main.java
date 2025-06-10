@@ -51,6 +51,14 @@ public class Main {
                     System.out.println("Enter a locker ID to retrieve an item");
                     String retrieveId = scanner.nextLine();
                     Locker retrieveLocker = service.getLocker(retrieveId);
+                    if (retrieveLocker == null) {
+                        System.out.println("Locker ID not found");
+                    }else if (!retrieveLocker.isOccupied) { // check if locker is empty already
+                        System.out.println("This locker is already empty");
+                    } else {
+                        retrieveLocker.removeItem();
+                        System.out.println();
+                    }
 
                 case 5: // Display lockers
                     service.displayAllLockers();
