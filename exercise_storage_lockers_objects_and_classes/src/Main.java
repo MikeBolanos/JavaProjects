@@ -34,15 +34,17 @@ public class Main {
                     service.removeLocker(removeId);
                     break;
 
-//                case 3: // Store item
-//                    System.out.println("Enter a locker ID to store an item");
-//                    String storeId = scanner.nextLine();
-//                    Locker storeLocker = service.getLocker(storeId);
-//
-//                case 4: // Retrieve item
-//                    System.out.println("Enter a locker ID to retrieve an item");
-//                    String retrieveId = scanner.nextLine();
-//                    Locker retrieveLocker = service.getLocker(retrieveId);
+                case 3: // Store item
+                    System.out.println("Enter a locker ID to store an item");
+                    String storeId = scanner.nextLine();
+                    Locker storeLocker = service.getLocker(storeId);
+                    if(storeLocker == null)
+
+
+                case 4: // Retrieve item
+                    System.out.println("Enter a locker ID to retrieve an item");
+                    String retrieveId = scanner.nextLine();
+                    Locker retrieveLocker = service.getLocker(retrieveId);
 
                 case 5: // Display lockers
                     service.displayAllLockers();
@@ -55,7 +57,8 @@ public class Main {
 
         }
         System.out.println("\nThank you for using the Locker Service System!");
-
     }
 
 }
+
+
