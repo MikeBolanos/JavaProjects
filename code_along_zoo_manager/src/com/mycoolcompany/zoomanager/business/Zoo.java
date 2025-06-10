@@ -37,16 +37,16 @@ public class Zoo {
         }
         System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
     }
+    // Animal Sounds Report: Print a header, followed by all the sounds we'll hear in the zoo
     public void printAnimalSounds() {
-            System.out.println("The Sounds of: " + name);
+        System.out.println("The Sounds of: " + name);
         System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\n");
-        for (int i = 0; i < population.length; i++){
+        for (int i = 0; i < population.length; i++) {
             Animal a = population[i];
             System.out.println(a.getSound());
         }
+
+        System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\n");
     }
-
-
-    // Animal Sounds Report: Print a header, followed by all the sounds we'll hear in the zoo
 
 }
