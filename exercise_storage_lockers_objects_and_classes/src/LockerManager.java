@@ -40,9 +40,10 @@ public class LockerManager {
     // 3) void removeLocker(String lockerId): Removes a locker from the list by its ID
     public void removeLocker(String lockerId) {
         Locker removingLocker = getLocker(lockerId);
-        if(removingLocker == null) {
+        if (removingLocker == null) {
             System.out.println("Locker ID not found");
-            return null;
+            return;
         }
+        lockers.remove(removingLocker);
     }
 }
