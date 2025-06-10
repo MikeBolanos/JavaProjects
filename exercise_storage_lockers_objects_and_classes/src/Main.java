@@ -44,7 +44,8 @@ public class Main {
                         System.out.println("Enter an item to store in the locker: ");
                         String item = scanner.nextLine();
                         storeLocker.storeItem(item);// Store item in Locker, isOccupied is true
-                    } break;
+                    }
+                    break;
 
 
                 case 4: // Retrieve item
@@ -56,9 +57,10 @@ public class Main {
                     }else if (!retrieveLocker.isOccupied) { // check if locker is empty already
                         System.out.println("This locker is already empty");
                     } else {
-                        retrieveLocker.removeItem();
-                        System.out.println();
+                        retrieveLocker.removeItem(); // Removes items from locker and isOccupied is false.
+                        System.out.println("Item(s) retrieved! " + retrieveLocker);
                     }
+                    break;
 
                 case 5: // Display lockers
                     service.displayAllLockers();
