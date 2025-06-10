@@ -4,7 +4,7 @@ public class LockerManager {
     // Attributes
 
     // lockers (ArrayList<Locker>): A list to store multiple Locker objects
-    private ArrayList<Locker> lockers;
+    private final ArrayList<Locker> lockers;
 
     // Constructor
     // LockerManager(): Initializes list of lockers
@@ -33,7 +33,7 @@ public class LockerManager {
                 return currentIndex;
             }
         }
-        return null;
+        return null; // Returns nothing
     }
 
 
@@ -50,6 +50,9 @@ public class LockerManager {
 
     // 4) void displayAllLockers(): Displays info for all lockers
     public void displayAllLockers() {
-
+    for (int i = 0; i < lockers.size(); i++) {
+        Locker currentIndex = lockers.get(i);
+        System.out.println(currentIndex.toString());
+    }
     }
 }
