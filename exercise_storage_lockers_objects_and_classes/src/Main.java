@@ -38,7 +38,9 @@ public class Main {
                     System.out.println("Enter a locker ID to store an item");
                     String storeId = scanner.nextLine();
                     Locker storeLocker = service.getLocker(storeId);
-                    if(storeLocker == null)
+                    if(storeLocker == null) {
+                        System.out.println("Locker ID not found.");
+                    }
 
 
                 case 4: // Retrieve item
