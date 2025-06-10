@@ -20,11 +20,23 @@ public class LockerManager {
                 System.out.println("That Locker ID is already taken."); // do not add locker
                 return;
             }
-        } lockers.add(new Locker(lockerId)); // add locker with locker ID if no matches found
-        System.out.print("Locker added!");
+        }
+        lockers.add(new Locker(lockerId)); // add locker with locker ID if no matches found
+        System.out.println("Locker added!");
 
     }
-    // 2) Locker getLocker
+    // 2) Locker getLocker(String lockerId): Retrieves a locker by its ID
+    public Locker getLocker(String lockerId) {
+        for (int i = 0; i < lockers.size(); i++) {
+            Locker currentIndex = lockers.get(i);
+            if (currentIndex.getLockerId().equals(lockerId)) {
+                return currentIndex;
+            }
+        }
+        
+    }
 
+
+    // 3) void removeLocker(String lockerId): Removes a locker from the list by its ID
 
 }
