@@ -41,5 +41,8 @@ public class LockerManager {
     public void removeLocker(String lockerId) {
         Locker removingLocker = getLocker(lockerId);
         if(removingLocker == null) {
+            System.out.println("Locker ID not found");
+            return null;
+        }
     }
 }
