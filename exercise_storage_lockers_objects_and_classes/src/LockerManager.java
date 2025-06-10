@@ -33,10 +33,13 @@ public class LockerManager {
                 return currentIndex;
             }
         }
-        
+        return null;
     }
 
 
     // 3) void removeLocker(String lockerId): Removes a locker from the list by its ID
-
+    public void removeLocker(String lockerId) {
+        Locker removingLocker = getLocker(lockerId);
+        if(removingLocker == null) {
+    }
 }
