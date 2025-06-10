@@ -5,6 +5,12 @@ public class Animal {
     private int populationCount; // Total amount of species in zoo
     private String sound; // Sound the animal makes
 
+    public Animal(String name,int populationCount, String sound) {
+        this.name = name;
+        this.populationCount = populationCount;
+        this.sound = sound;
+    }
+
     public String getName() {
         return name;
     }
@@ -28,5 +34,6 @@ public class Animal {
     public void setSound(String sound) {
         this.sound = sound;
     }
+
 }
 
