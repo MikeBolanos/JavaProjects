@@ -33,8 +33,10 @@ public class Main {
                     String removeId = scanner.nextLine();
                     service.removeLocker(removeId);
                     break;
+
+                case 3:
             }
-                
+
 
 
         }
