@@ -9,8 +9,8 @@ public class Main {
 
         while (looping) {
             // Menu options
-            System.out.println("\n~*~*~*~Locker Service Main Menu~*~*~*~");
-            System.out.println("\n 1. Add locker ID");
+            System.out.println("\n~*~*~Locker Service Main Menu~*~*~");
+            System.out.println("1. Add locker ID");
             System.out.println("2. Remove locker ID");
             System.out.println("3. Store item");
             System.out.println("4. Retrieve item");
@@ -23,13 +23,13 @@ public class Main {
 
             switch (choice) {
                 case 1: // add locker
-                    System.out.println("Enter an ID to add locker");
+                    System.out.println("\nEnter an ID to add locker");
                     String newId = scanner.nextLine();
                     service.addLocker(newId);
                     break;
 
                 case 2: // remove locker
-                    System.out.println("Enter a locker ID to remove");
+                    System.out.println("\nEnter a locker ID to remove");
                     String removeId = scanner.nextLine();
                     service.removeLocker(removeId);
                     break;
@@ -54,7 +54,7 @@ public class Main {
             }
 
         }
-        System.out.println("Thank you for using the Locker Service System!");
+        System.out.println("\nThank you for using the Locker Service System!");
 
     }
 
