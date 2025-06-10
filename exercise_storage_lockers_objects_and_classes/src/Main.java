@@ -35,7 +35,7 @@ public class Main {
                     break;
 
                 case 3: // Store item
-                    System.out.println("Enter a locker ID to store an item");
+                    System.out.println("\nEnter a locker ID to store an item");
                     String storeId = scanner.nextLine();
                     Locker storeLocker = service.getLocker(storeId);
                     if(storeLocker == null) { // Check if locker ID input will return anything.
@@ -49,7 +49,7 @@ public class Main {
 
 
                 case 4: // Retrieve item
-                    System.out.println("Enter a locker ID to retrieve an item");
+                    System.out.println("\nEnter a locker ID to retrieve an item");
                     String retrieveId = scanner.nextLine();
                     Locker retrieveLocker = service.getLocker(retrieveId);
                     if (retrieveLocker == null) {
