@@ -22,7 +22,7 @@ public class LockerManager {
             }
         }
         lockers.add(new Locker(lockerId)); // add locker with locker ID if no matches found
-        System.out.println("Locker added!");
+        System.out.println("Locker " + lockerId + " added!");
 
     }
     // 2) Locker getLocker(String lockerId): Retrieves a locker by its ID
@@ -45,5 +45,11 @@ public class LockerManager {
             return;
         }
         lockers.remove(removingLocker);
+        System.out.println("Locker " + lockerId + " removed!");
+    }
+
+    // 4) void displayAllLockers(): Displays info for all lockers
+    public void displayAllLockers() {
+
     }
 }
