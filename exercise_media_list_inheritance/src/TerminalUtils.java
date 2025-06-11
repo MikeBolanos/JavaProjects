@@ -19,6 +19,14 @@ public class TerminalUtils {
         System.out.println("4. List All Media");
         System.out.print("5. Quit");
     }
+
+    // getMenuChoice() - gets and validates menu selection
+    public int getMenuChoice() {
+        int choice;
+        while (true);
+        
+    }
+
     // getString(String prompt) method - gets string input with prompt
     public String getString(String prompt) {
         System.out.println(prompt);
