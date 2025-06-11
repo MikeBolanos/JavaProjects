@@ -36,6 +36,6 @@ public class Book extends Media {
 
     @Override
     public String getDescription() { // getDescription() method override with media name from the superclass and all subclass-specific fields
-        return String.format("Book: %s | ")
+        return String.format("Book: %s | Author: %s | Pages: %d", name, author, pageCount);
     }
 }
