@@ -5,7 +5,7 @@ public abstract class Video extends Media {
     String resolution; // video resolution (e.g. 720p, 1080p, 4K
 
     // Constructor
-    public Video(String name, int duration, String resolution) {
+    public Video(String name, int duration, String resolution) { // Added name to parameters
         this.duration = duration;
         this.resolution = resolution;
     }
@@ -27,4 +27,5 @@ public abstract class Video extends Media {
     public void setResolution(String resolution) {
         this.resolution = resolution;
     }
+
 }
