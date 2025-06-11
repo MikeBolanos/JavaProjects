@@ -6,4 +6,12 @@ public class TerminalUtils {
     public TerminalUtils() {
         this.scanner = new Scanner(System.in);
     }
+
+    //Methods
+
+    // getString(String prompt) method
+    public String getString(String prompt) {
+        System.out.println(prompt);
+        return scanner.nextLine();
+    }
 }
