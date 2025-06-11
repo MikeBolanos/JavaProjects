@@ -6,6 +6,7 @@ public abstract class Video extends Media {
 
     // Constructor
     public Video(String name, int duration, String resolution) { // Added name to parameters
+        this.name = name; // Inherited from Media class
         this.duration = duration;
         this.resolution = resolution;
     }
@@ -28,4 +29,10 @@ public abstract class Video extends Media {
         this.resolution = resolution;
     }
 
+    @Override
+    public void play{
+        System.out.println("Playing video " + name + " using video player software.");
+
+
+    }
 }
