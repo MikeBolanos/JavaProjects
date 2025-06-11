@@ -7,7 +7,7 @@ public class MediaService {
     // class to manage the media collection
 
     // Fields
-    private List<Media> mediaList;
+    private final List<Media> mediaList;
 
     // Constructor
     public MediaService() {
@@ -39,4 +39,21 @@ public class MediaService {
         }
         return null; // returns nothing if no match found.
     }
+
+    // getAllMedia() - returns copy of media list
+
+    public List<Media> getAllMedia() {
+        return new ArrayList<>(mediaList);
+    }
+
+    // getMediaCount() - returns number of media items
+    public int getMediaCount() {
+        return mediaList.size();
+    }
+
+    // isEmpty() - checks if Media list is empty
+    public boolean isEmpty() {
+        return mediaList.isEmpty();
+    }
+
 }
