@@ -16,4 +16,12 @@ public class MediaService {
     public void addMedia(Media media) {
         mediaList.add(media);
     }
+
+    // removeMedia(String name) - removes media by name, returns boolean success
+    public boolean removeMedia(String name) { // Need to build findMediaByName to make this work?
+        
+
+        }
+    }
 }
+

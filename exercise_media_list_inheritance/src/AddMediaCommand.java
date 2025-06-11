@@ -3,9 +3,9 @@ public class AddMediaCommand {
     //collect all the data specific to that type
 
     // Fields
-    private MediaService service;
+    private final MediaService service;
 
-    private TerminalUtils utils;
+    private final TerminalUtils utils;
 
     // Constructor
     public AddMediaCommand(MediaService service, TerminalUtils utils) {
