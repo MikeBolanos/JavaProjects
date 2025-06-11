@@ -33,14 +33,21 @@ public class AddMediaCommand {
 
         }
     }
-
+    // add media methods by type
     private void addVideo() {
         String name = utils.getString("Enter the video name: ");
-        String duration = utils.getString("Enter the duration of the video in minutes: ");
+        int duration = utils.getInt("Enter the duration of the video in minutes: ");
         String resolution = utils.getString("Enter the resolution of the video (e.g., 1080p: ");
         Video video = new Video(name, duration, resolution);
         service.addMedia(video);
         utils.displayMessage("Video media added!");
+    }
+
+    private void addAudio() {
+        String name = utils.getString("Enter the audio name: ");
+        String artist = utils.getString("Enter the artist that created the audio: ");
+        int duration = utils.getInt("Enter the duration of the audio in minutes: ");
+        Audio audio = new Audio(name, artist, duration);
     }
 
 
