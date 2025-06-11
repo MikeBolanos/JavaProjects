@@ -7,7 +7,9 @@ public class Image extends Media{
 
     // Constructor
     public Image(String name, String fileFormat, String dimensions) {
-
+        this.name = name;
+        this.fileFormat = fileFormat;
+        this.dimensions = dimensions;
     }
 
     // Getter/setter for dimensions

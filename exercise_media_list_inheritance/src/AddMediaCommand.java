@@ -3,7 +3,16 @@ public class AddMediaCommand {
     //collect all the data specific to that type (Videos will have different inputs than audio or books)
 
     // Fields
-    MediaService mediaService;
+    private MediaService service;
+
+    private TerminalUtils utils;
+
+    // Constructor
+    public AddMediaCommand(MediaService service, TerminalUtils utils) {
+        this.service = service;
+        this.utils = utils;
+    }
+
 
 
 
