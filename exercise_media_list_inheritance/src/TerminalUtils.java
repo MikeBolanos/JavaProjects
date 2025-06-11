@@ -23,8 +23,15 @@ public class TerminalUtils {
     // getMenuChoice() - gets and validates menu selection
     public int getMenuChoice() {
         int choice;
-        while (true);
-        
+        while (true) {
+            choice = getInt("Select an option by number: ");
+            if (choice > 1 && choice < 5) {
+                return choice;
+            } else {
+                System.out.println("Invalid selection. Please choose an option by its number");
+            }
+        }
+
     }
 
     // getString(String prompt) method - gets string input with prompt
