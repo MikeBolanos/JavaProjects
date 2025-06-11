@@ -33,7 +33,7 @@ public class Video extends Media {
 
     @Override
     public void play() { // play() method override with: "Playing video '[name]' using video player software"
-        System.out.println("Playing video " + name + " using video player software.");
+        System.out.println("Playing video, '" + name + "', using video player software...");
     }
 
     @Override

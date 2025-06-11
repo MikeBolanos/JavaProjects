@@ -32,11 +32,11 @@ public class Audio extends Media {
 
     @Override
     public void play() { // play() method override with "Playing audio '[name]' using audio player software"
-        System.out.println("Playing audio " + name + "using audio player software");
+        System.out.println("Playing audio, '" + name + "', using audio player software...");
     }
 
     @Override
-    public String getDescription() {  // // getDescription() method override with media name from the superclass and all subclass-specific fields
+    public String getDescription() {  // getDescription() method override with media name from the superclass and all subclass-specific fields
         return String.format("Audio: %s | Artist: %s | Duration: %d minutes", name, artist, duration);
     }
 }
