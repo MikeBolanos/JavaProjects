@@ -35,7 +35,7 @@ public abstract class Video extends Media {
 
     @Override
     public String getDescription() {  // getDescription method override with media name from the superclass and all subclass-specific fields
-        return String.format(name + ":" 
+        return String.format("Video: %s | Duration: %d | Resolution %s"
         }
     }
 }
