@@ -1,5 +1,6 @@
 import java.util.Scanner;
-import java.util.
+import java.util.List;
+
 public class TerminalUtils {
     private final Scanner scanner;
 
@@ -59,6 +60,11 @@ public class TerminalUtils {
 
     // displayMediaList(List<Media> mediaList) - formats and displays media list
     public void displayMediaList(List<Media> mediaList) {
+        System.out.println("\n~*~*~*~Media List~*~*~*~");
         for (int i = 0; i < mediaList.size(); i++) {
+            Media media = mediaList.get(i);
+            System.out.printf("%d. %s%n", i + 1, media.getDescription());
+        }
     }
+
 }
