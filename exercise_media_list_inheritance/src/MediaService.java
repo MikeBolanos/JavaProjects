@@ -21,9 +21,12 @@ public class MediaService {
 
     // removeMedia(String name) - removes media by name, returns boolean success
     public boolean removeMedia(String name) {
-        // Need to build findMediaByName to make this work?
-
-
+        Media media = findMediaByName(name);
+        if (media != null) { // use boolean to see if the name search returned no matches
+            mediaList.remove(media);
+            return true;
+        }
+        return  false;
     }
 
     // findMediaByName(String name) - finds and returns Media by name
