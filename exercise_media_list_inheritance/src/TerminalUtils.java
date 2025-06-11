@@ -14,4 +14,17 @@ public class TerminalUtils {
         System.out.println(prompt);
         return scanner.nextLine();
     }
+
+    // getInt(String prompt) method
+    public int getInt(String prompt) {
+        // Add validation for input to ensure int
+        while (true) {
+            System.out.println(prompt);
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("Invalid input. Please enter a valid number");
+            }
+        }
+    }
 }
