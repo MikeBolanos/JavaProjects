@@ -1,10 +1,16 @@
-public class Video {
+public abstract class Video extends Media {
 
     // Fields
     int duration; // duration in minutes
     String resolution; // video resolution (e.g. 720p, 1080p, 4K
 
-    // Getters
+    // Constructor
+    public Video(String name, int duration, String resolution) {
+        this.duration = duration;
+        this.resolution = resolution;
+    }
+
+    // Getter and Setter for duration
     public int getDuration() {
         return duration;
     }
@@ -13,7 +19,7 @@ public class Video {
         this.duration = duration;
     }
 
-    // Setters
+    // Getter and Setters for resolution
     public String getResolution() {
         return resolution;
     }
@@ -21,5 +27,4 @@ public class Video {
     public void setResolution(String resolution) {
         this.resolution = resolution;
     }
-
 }

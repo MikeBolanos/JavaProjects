@@ -21,6 +21,4 @@ public abstract class Media {
     // Abstract method to be overridden by subclasses
     abstract String getDescription();
 
-
-
 }
