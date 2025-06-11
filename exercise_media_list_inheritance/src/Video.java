@@ -29,13 +29,16 @@ public class Video extends Media {
         this.resolution = resolution;
     }
 
+
+
     @Override
     public void play() { // play() method override with: "Playing video '[name]' using video player software"
         System.out.println("Playing video " + name + " using video player software.");
     }
+
     @Override
-    public String getDescription() {  // getDescription method override with media name from the superclass and all subclass-specific fields
-        return String.format("Video: %s | Duration: %d minutes | Resolution %s", name, duration, resolution);
+    public String getDescription() {  // getDescription() method override with media name from the superclass and all subclass-specific fields
+        return String.format("Video: %s | Duration: %d minutes | Resolution: %s", name, duration, resolution);
 
     }
 }
