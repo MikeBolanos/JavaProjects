@@ -32,12 +32,16 @@ public class AddMediaCommand {
             case 4 -> addimage();
 
         }
-
-
-
-
     }
 
+    private void addVideo() {
+        String name = utils.getString("Enter the video name: ");
+        String duration = utils.getString("Enter the duration of the video in minutes: ");
+        String resolution = utils.getString("Enter the resolution of the video (e.g., 1080p: ");
+        Video video = new Video(name, duration, resolution);
+        service.addMedia(video);
+        utils.displayMessage("Video media added!");
+    }
 
 
 }
