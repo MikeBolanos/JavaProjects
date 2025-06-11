@@ -1,6 +1,5 @@
-import java.io.PrintStream;
 import java.util.Scanner;
-
+import java.util.
 public class TerminalUtils {
     private final Scanner scanner;
 
@@ -58,4 +57,8 @@ public class TerminalUtils {
         System.out.println(message);
     }
 
+    // displayMediaList(List<Media> mediaList) - formats and displays media list
+    public void displayMediaList(List<Media> mediaList) {
+        for (int i = 0; i < mediaList.size(); i++) {
+    }
 }
