@@ -1,23 +1,13 @@
 public class Image extends Media{
 
     // Fields
-    String dimensions; // image dimensions (e.g., "1920x1080")
     String fileFormat; // image format (e.g., "JPEG", "PNG")
-
+    String dimensions; // image dimensions (e.g., "1920x1080")
 
     // Constructor
     public Image(String name, String fileFormat, String dimensions) {
         this.name = name;
         this.fileFormat = fileFormat;
-        this.dimensions = dimensions;
-    }
-
-    // Getter/setter for dimensions
-    public String getDimensions() {
-        return dimensions;
-    }
-
-    public void setDimensions(String dimensions) {
         this.dimensions = dimensions;
     }
 
@@ -29,6 +19,17 @@ public class Image extends Media{
     public void setFileFormat(String fileFormat) {
         this.fileFormat = fileFormat;
     }
+
+
+    // Getter/setter for dimensions
+    public String getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
 
     @Override
     public void play() { // play() method override with "Displaying image '[name]' using image viewer software"

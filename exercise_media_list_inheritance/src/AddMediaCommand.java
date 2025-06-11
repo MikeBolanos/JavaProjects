@@ -29,7 +29,7 @@ public class AddMediaCommand {
             case 1 -> addVideo();
             case 2 -> addAudio();
             case 3 -> addBook();
-            case 4 -> addimage();
+            case 4 -> addImage();
 
         }
     }
@@ -37,7 +37,7 @@ public class AddMediaCommand {
     private void addVideo() {
         String name = utils.getString("Enter the name of the video: ");
         int duration = utils.getInt("Enter the duration of the video in minutes: ");
-        String resolution = utils.getString("Enter the resolution of the video (e.g., 720p, 1080p, 4K, etc.): ");
+        String resolution = utils.getString("Enter the resolution of the video (720p, 1080p, 4K, etc.): ");
         Video video = new Video(name, duration, resolution);
         service.addMedia(video);
         utils.displayMessage("Video media added!");
@@ -62,6 +62,13 @@ public class AddMediaCommand {
     }
 
     private void addImage() {
-        String name = utils.getString("Enter the name of the image ");
+        String name = utils.getString("Enter the name of the image: ");
+        String fileFormat = utils.getString("Enter the file format of the image (JPEG, PNG, etc.): ");
+        String dimensions = utils.getString("Enter the dimensions of the image (1280x720, 1920x1080, etc.): ");
+        Image image = new Image(name, fileFormat, dimensions);
+        service.addMedia(image);
+        utils.displayMessage("Image media added!");
     }
+
+
 }
