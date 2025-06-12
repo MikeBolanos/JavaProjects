@@ -21,7 +21,7 @@ public class AddMediaCommand {
         utils.displayMessage("3. Book");
         utils.displayMessage("4. Image");
 
-        int choice = utils.getInt("\nSelect a media type by number: ");
+        int choice = utils.getInt("\nTo add media, select a media type by number: ");
 
         switch (choice) {  // cases will call add methods for each media type
             case 1 -> addVideo();

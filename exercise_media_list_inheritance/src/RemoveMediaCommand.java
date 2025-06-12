@@ -20,6 +20,7 @@ public class RemoveMediaCommand {
             utils.displayMessage("No media present to remove.");
             return;
         }
+        // Prompt for name of media to be removed
         utils.displayMessage("~*~*~Remove Media~*~*~");
         String name = ("Enter the name of the media being removed: ");
 

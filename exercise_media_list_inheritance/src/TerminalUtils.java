@@ -28,7 +28,7 @@ public class TerminalUtils {
             if (choice >= 1 && choice <= 5) {
                 return choice;
             } else {
-                System.out.println("Invalid selection. Please choose an option by its number");
+                System.out.println("Invalid selection. Please choose an option by its number.");
             }
         }
 
@@ -48,7 +48,7 @@ public class TerminalUtils {
             try {
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException ex) {
-                System.out.println("Invalid input. Please enter a valid number");
+                System.out.println("Invalid input. Please enter a valid number.");
             }
         }
     }
