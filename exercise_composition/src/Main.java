@@ -40,9 +40,11 @@ public class Main {
         if (response.equalsIgnoreCase("Y")) {
             curator = discoverer; // If "Yes" curator is the discoverer
 
-        }else { // Otherwise ask for curator info
-            System.out.println("Enter the name of the curator: ");
-            
+        }else { // Otherwise ask for curator info: first name, last name, primary specialty
+            System.out.println("Enter the first name of the curator: ");
+            String curatorFirstName = scanner.nextLine();
+
+
 
         }
 
