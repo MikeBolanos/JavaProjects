@@ -28,6 +28,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return
-    }
+        return String.format("%s %s, %s", firstName, lastName, primarySpecialty);
+        }
 }
+
