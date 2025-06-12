@@ -57,7 +57,9 @@ public class Main {
 
         // Created the Artifact object with all info provided
         Artifact artifact = new Artifact(artifactName, year, discoverer, curator);
-        
 
+        // Artifact report
+        System.out.println("\n~*~*~Artifact Report~*~*~");
+        System.out.println(artifact);
     }
 }
