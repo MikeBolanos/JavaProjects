@@ -4,8 +4,8 @@ public class ListAllMediaCommand {
     // ListAllMediaCommand - handles displaying all media
 
     // Fields
-    private MediaService service;
-    private TerminalUtils utils;
+    private final MediaService service;
+    private final TerminalUtils utils;
 
     // Constructor
     public ListAllMediaCommand(MediaService service, TerminalUtils utils) {

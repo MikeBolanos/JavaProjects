@@ -2,8 +2,8 @@ public class PlayMediaCommand {
     // PlayMediaCommand - handles playing selected media
 
     // Fields
-    private MediaService service;
-    private TerminalUtils utils;
+    private final MediaService service;
+    private final TerminalUtils utils;
 
     // Constructor
     public PlayMediaCommand(MediaService service, TerminalUtils utils) {
@@ -29,7 +29,7 @@ public class PlayMediaCommand {
         if (media != null) {
             media.play(); // plays media using overridden methods in each media class
         } else {
-            utils.displayMessage("Media, '" + name + "', not found.");
+            utils.displayMessage("Media: '" + name + "', not found.");
         }
     }
 
