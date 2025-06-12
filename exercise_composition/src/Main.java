@@ -29,9 +29,13 @@ public class Main {
 
         // 4. Ask whether the discoverer is also the curator.
         System.out.println("Is the discoverer also the curator? (Y/N): ");
-        String
+        String response = scanner.nextLine();
 
-        
+        if (response.equalsIgnoreCase("Y")) {
+            
+        }
+
+
 
     }
 }
