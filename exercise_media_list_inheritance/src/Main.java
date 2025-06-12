@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         // Create instance for MediaService and TerminalUtils
@@ -14,6 +12,19 @@ public class Main {
 
         // Do-while loop to display menu at least once
         int choice;
+
+        do {
+            utils.displayMenu();
+            utils.getMenuChoice();
+
+            switch (choice) {
+                case 1 -> addMedia.execute();
+                case 2 -> removeMedia.execute();
+                case 3 -> playMedia.execute();
+                case 4 -> listAllMedia.execute();
+                case 5 -> utils
+            }
+        }
     }
 }
 
