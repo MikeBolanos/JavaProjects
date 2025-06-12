@@ -27,9 +27,9 @@ public class RemoveMediaCommand {
 
         // Display whether the media was removed or not successful
         if (removed) {
-            utils.displayMessage("Media, '" + name + "', has been removed!");
+            utils.displayMessage("Media: '" + name + "' has been removed!");
         } else {
-            utils.displayMessage("Media, '" + name + "', not found.");
+            utils.displayMessage("Media: '" + name + "' not found.");
         }
     }
 }

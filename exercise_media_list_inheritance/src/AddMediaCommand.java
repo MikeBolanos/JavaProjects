@@ -38,7 +38,7 @@ public class AddMediaCommand {
         String resolution = utils.getString("Enter the resolution of the video (720p, 1080p, 4K, etc.): ");
         Video video = new Video(name, duration, resolution);
         service.addMedia(video);
-        utils.displayMessage("Video media: " + name + " added!");
+        utils.displayMessage("Video media: '" + name + "' added!");
     }
 
     private void addAudio() {
@@ -47,7 +47,7 @@ public class AddMediaCommand {
         int duration = utils.getInt("Enter the duration of the audio in minutes: ");
         Audio audio = new Audio(name, artist, duration);
         service.addMedia(audio);
-        utils.displayMessage("Audio media: " + name + " added!");
+        utils.displayMessage("Audio media: '" + name + "' added!");
     }
 
     private void addBook() {
@@ -56,7 +56,7 @@ public class AddMediaCommand {
         int pageCount = utils.getInt("Enter the number of pages in the book: ");
         Book book = new Book(name, author, pageCount);
         service.addMedia(book);
-        utils.displayMessage("Book media: " + name + " added!");
+        utils.displayMessage("Book media: '" + name + "' added!");
     }
 
     private void addImage() {
@@ -65,8 +65,6 @@ public class AddMediaCommand {
         String dimensions = utils.getString("Enter the dimensions of the image (1280x720, 1920x1080, etc.): ");
         Image image = new Image(name, fileFormat, dimensions);
         service.addMedia(image);
-        utils.displayMessage("Image media: " + name + " added!");
+        utils.displayMessage("Image media: '" + name + "' added!");
     }
-
-
 }
