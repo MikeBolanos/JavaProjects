@@ -1,3 +1,5 @@
+import javax.xml.namespace.QName;
+
 public class RemoveMediaCommand {
     // RemoveMediaCommand - handles removing media from list
 
@@ -15,7 +17,13 @@ public class RemoveMediaCommand {
     // Methods
 
     public void execute() {
-        
+        if (service.isEmpty()) { // Check if media list is empty
+            utils.displayMessage("No media present to remove.");
+            return;
+        }
+        utils.displayMessage("~*~*~Remove Media~*~*~");
+        ("Enter the name of the media being removed: ");
 
+        boolean removed = service.removeMedia(name);
     }
 }
