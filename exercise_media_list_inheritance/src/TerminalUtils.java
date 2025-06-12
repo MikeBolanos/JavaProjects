@@ -17,7 +17,7 @@ public class TerminalUtils {
         System.out.println("2. Remove Media");
         System.out.println("3. Play Media");
         System.out.println("4. List All Media");
-        System.out.print("5. Quit");
+        System.out.println("5. Quit");
     }
 
     // getMenuChoice() - gets and validates menu selection
