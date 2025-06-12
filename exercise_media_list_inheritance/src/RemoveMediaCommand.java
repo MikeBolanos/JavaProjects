@@ -1,5 +1,3 @@
-import javax.xml.namespace.QName;
-
 public class RemoveMediaCommand {
     // RemoveMediaCommand - handles removing media from list
 
@@ -22,9 +20,9 @@ public class RemoveMediaCommand {
         }
         // Prompt for name of media to be removed
         utils.displayMessage("~*~*~Remove Media~*~*~");
-        String name = ("Enter the name of the media being removed: ");
+        String name = utils.getString("Enter the name of the media being removed: ");
 
-        // Remove media 
+        // Remove media
         boolean removed = service.removeMedia(name);
 
         // Display whether the media was removed or not successful
