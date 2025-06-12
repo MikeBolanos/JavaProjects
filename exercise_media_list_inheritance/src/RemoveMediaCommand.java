@@ -24,7 +24,7 @@ public class RemoveMediaCommand {
         utils.displayMessage("~*~*~Remove Media~*~*~");
         String name = ("Enter the name of the media being removed: ");
 
-        // Remove media
+        // Remove media 
         boolean removed = service.removeMedia(name);
 
         // Display whether the media was removed or not successful

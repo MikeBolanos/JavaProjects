@@ -22,7 +22,15 @@ public class PlayMediaCommand {
         utils.displayMessage("~*~*~Play Media~*~*~");
         String name = utils.getString("Enter the name of the Media you want to play: ");
 
-    //  Search for name in media list
+    //  Play media
+        Media media = service.findMediaByName(name);
+
+    // If media found, play it. If not, display error message
+        if (media != null) {
+            media.play(); // plays media using overridden methods in each media class
+        } else {
+            utils.displayMessage("Media, '" + name + "', not found.");
+        }
     }
 
 }
