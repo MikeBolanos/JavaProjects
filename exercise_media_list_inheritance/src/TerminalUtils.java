@@ -24,7 +24,7 @@ public class TerminalUtils {
     public int getMenuChoice() {
         int choice;
         while (true) {
-            choice = getInt("Select an option by number: ");
+            choice = getInt("\nSelect an option by number: ");
             if (choice >= 1 && choice <= 5) {
                 return choice;
             } else {
