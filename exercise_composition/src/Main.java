@@ -27,7 +27,7 @@ public class Main {
         System.out.println("Enter the primary specialty of the discoverer: ");
         String discovererPrimarySpecialty = scanner.nextLine();
 
-        // Created new discoverer Person object
+        // Created new discoverer Person object with info provided
         Person discoverer = new Person(discovererFirstName, discovererLastName, discovererPrimarySpecialty);
 
         // 4. Ask whether the discoverer is also the curator.
@@ -37,18 +37,26 @@ public class Main {
         // Need curator variable to use in if statement
         Person curator;
 
+        // 5. If the user answers N for #4, enter the name and primary specialty of the curator
         if (response.equalsIgnoreCase("Y")) {
             curator = discoverer; // If "Yes" curator is the discoverer
 
-        }else { // Otherwise ask for curator info: first name, last name, primary specialty
+        } else { // Otherwise ask for curator info: first name, last name, primary specialty
             System.out.println("Enter the first name of the curator: ");
             String curatorFirstName = scanner.nextLine();
 
+            System.out.println("Enter the last name of the curator: ");
+            String curatorLastName = scanner.nextLine();
 
+            System.out.println("Enter the primary specialty of the curator: ");
+            String curatorPrimarySpecialty = scanner.nextLine();
 
+            // Created new curator Person object with info provided
+            curator = new Person(curatorFirstName, curatorLastName, curatorPrimarySpecialty);
         }
 
-
+        // Created the Artifact object with all info provided
+        
 
     }
 }
