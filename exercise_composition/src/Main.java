@@ -56,7 +56,8 @@ public class Main {
         }
 
         // Created the Artifact object with all info provided
-        Artifact artifact = new Artifact(artifactName, )
+        Artifact artifact = new Artifact(artifactName, year, discoverer, curator);
+        
 
     }
 }
