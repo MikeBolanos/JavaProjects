@@ -22,7 +22,7 @@ public class Main {
                 case 2 -> removeMedia.execute();
                 case 3 -> playMedia.execute();
                 case 4 -> listAllMedia.execute();
-                case 5 -> utils.displayMessage("Thank you for using the Media List. Goodbye!");
+                case 5 -> utils.displayMessage("Thank you for using the Media List Application. Goodbye!");
             }
 
         } while (choice != 5);

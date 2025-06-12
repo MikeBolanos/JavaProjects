@@ -12,7 +12,7 @@ public class TerminalUtils {
 
     // displayMenu() - shows the main menu options
     public void displayMenu() {
-        System.out.println("\n~*~*~*~Media Library~*~*~*~");
+        System.out.println("\n~*~*~*~Media List Application~*~*~*~");
         System.out.println("1. Add Media");
         System.out.println("2. Remove Media");
         System.out.println("3. Play Media");
