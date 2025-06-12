@@ -21,11 +21,10 @@ public class ListAllMediaCommand {
         return;
         }
 
-        // Display media list
-        utils.displayMessage("~*~*~Media List~*~*~");
         // Call copy of list items method
         List<Media> allMedia = service.getAllMedia();
-
+        
+        // Display media list
         utils.displayMediaList(allMedia);
     }
 }
