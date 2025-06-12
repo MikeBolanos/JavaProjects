@@ -25,7 +25,7 @@ public class Main {
                 case 5 -> utils.displayMessage("Thank you for using the Media List. Goodbye!");
             }
 
-        }
+        } while (choice != 5);
     }
 }
 
