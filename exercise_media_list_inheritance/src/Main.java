@@ -15,7 +15,7 @@ public class Main {
 
         do {
             utils.displayMenu();
-            utils.getMenuChoice();
+            choice = utils.getMenuChoice();
 
             switch (choice) {
                 case 1 -> addMedia.execute();
