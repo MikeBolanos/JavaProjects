@@ -6,14 +6,14 @@ public class Main {
         MediaService service = new MediaService();
         TerminalUtils utils = new TerminalUtils();
 
-        //  New AddMediaCommand with above instances
+        //  New command class object with above instances
         AddMediaCommand addMedia = new AddMediaCommand(service, utils);
         RemoveMediaCommand removeMedia = new RemoveMediaCommand(service, utils);
         PlayMediaCommand playMedia = new PlayMediaCommand(service, utils);
         ListAllMediaCommand listAllMedia = new ListAllMediaCommand(service, utils);
 
-        //
-        
+        // Do-while loop to display menu at least once
+        int choice;
     }
 }
 
