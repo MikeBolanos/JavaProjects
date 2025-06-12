@@ -11,7 +11,7 @@ public class Main {
 
         // 2. Enter the year of its discovery.
         System.out.println("Enter the year it was discovered: ");
-        int Year = scanner.nextInt();
+        int year = scanner.nextInt();
         scanner.nextLine();
 
         // 3. Enter the name and primary specialty of the discoverer.
@@ -56,7 +56,7 @@ public class Main {
         }
 
         // Created the Artifact object with all info provided
-        
+        Artifact artifact = new Artifact(artifactName, )
 
     }
 }
