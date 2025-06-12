@@ -38,8 +38,11 @@ public class Main {
         Person curator;
 
         if (response.equalsIgnoreCase("Y")) {
-            curator = discoverer;
+            curator = discoverer; // If "Yes" curator is the discoverer
 
+        }else { // Otherwise ask for curator info
+            System.out.println("Enter the name of the curator: ");
+            
 
         }
 
