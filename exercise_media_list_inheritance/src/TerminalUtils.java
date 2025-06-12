@@ -25,7 +25,7 @@ public class TerminalUtils {
         int choice;
         while (true) {
             choice = getInt("Select an option by number: ");
-            if (choice > 1 && choice < 5) {
+            if (choice >= 1 && choice <= 5) {
                 return choice;
             } else {
                 System.out.println("Invalid selection. Please choose an option by its number");
