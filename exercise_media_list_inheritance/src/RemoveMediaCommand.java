@@ -14,8 +14,7 @@ public class RemoveMediaCommand {
         this.utils = utils;
     }
 
-    // Methods
-
+    // Method to execute removeMedia
     public void execute() {
         if (service.isEmpty()) { // Check if media list is empty
             utils.displayMessage("No media present to remove.");

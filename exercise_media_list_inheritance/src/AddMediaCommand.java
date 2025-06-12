@@ -13,9 +13,7 @@ public class AddMediaCommand {
         this.utils = utils;
     }
 
-    // Methods
-
-    // execute
+    // Method to execute addMedia
     public void execute() {
         utils.displayMessage("\n~*~*~Add New Media~*~*~");
         utils.displayMessage("1. Video");
