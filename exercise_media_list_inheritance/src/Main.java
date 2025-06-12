@@ -10,6 +10,6 @@ public class Main {
         // Calling addMedia execute method to test
         addMedia.execute();
 
-        
+        utils.displayMediaList(service.getAllMedia());
     }
 }
