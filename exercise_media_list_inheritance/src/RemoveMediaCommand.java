@@ -22,8 +22,12 @@ public class RemoveMediaCommand {
             return;
         }
         utils.displayMessage("~*~*~Remove Media~*~*~");
-        ("Enter the name of the media being removed: ");
+        String name = ("Enter the name of the media being removed: ");
 
+        // Remove media
         boolean removed = service.removeMedia(name);
+
+        // Display whether the media was removed or not successful
+        if (removed) {
     }
 }
