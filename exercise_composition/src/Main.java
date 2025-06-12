@@ -27,15 +27,18 @@ public class Main {
         System.out.println("Enter the primary specialty of the discoverer: ");
         String discovererPrimarySpecialty = scanner.nextLine();
 
+        // Created new discoverer Person object
         Person discoverer = new Person(discovererFirstName, discovererLastName, discovererPrimarySpecialty);
 
         // 4. Ask whether the discoverer is also the curator.
         System.out.println("Is the discoverer also the curator? (Y/N): ");
         String response = scanner.nextLine();
 
+        // Need curator variable to use in if statement
         Person curator;
-        
+
         if (response.equalsIgnoreCase("Y")) {
+            curator = discoverer;
 
 
         }
