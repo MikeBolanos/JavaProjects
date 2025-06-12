@@ -23,7 +23,7 @@ public class ListAllMediaCommand {
 
         // Call copy of list items method
         List<Media> allMedia = service.getAllMedia();
-        
+
         // Display media list
         utils.displayMediaList(allMedia);
     }
