@@ -11,7 +11,7 @@ public class Warrior extends Character {
     public void attack() {
         System.out.printf("\n" + getName() + " the Warrior makes an attack with %s", weaponType);
     }
-    
+
     public String getWeaponType() {
         return weaponType;
     }
