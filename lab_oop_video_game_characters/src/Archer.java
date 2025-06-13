@@ -8,7 +8,7 @@ public class Archer extends Character {
     // Override attack method to fit with Mage class
     @Override
     public void attack() {
-        System.out.printf("The Mage attacks with %s!", bowType);
+        System.out.printf("\nThe Archer attacks with %s!", bowType);
     }
 
     public String getBowType() {

@@ -8,7 +8,7 @@ public class Mage extends Character  {
     // Override attack method to fit with Mage class
     @Override
     public void attack() {
-        System.out.printf("The Mage attacks with %s!", spell);
+        System.out.printf("\nThe Mage attacks with %s!", spell);
     }
 
     public String getSpell() {
