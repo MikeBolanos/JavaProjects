@@ -14,7 +14,7 @@ public class Character {
 
     // Method for attack action
     public void attack() {
-        System.out.printf("\nThe %s performs an attack", name);
+        System.out.println("\nThe character performs an attack!");
     }
 
     // Getters
