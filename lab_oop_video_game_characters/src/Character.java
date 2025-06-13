@@ -30,4 +30,5 @@ public class Character {
     public int getAttackPower() {
         return attackPower;
     }
+
 }
