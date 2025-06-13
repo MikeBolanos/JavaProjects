@@ -18,5 +18,16 @@ public class Character {
     }
 
     // Getters
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
 }
