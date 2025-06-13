@@ -9,7 +9,7 @@ public class Warrior extends Character {
     // Override attack method to fit with Warrior class
     @Override
     public void attack() {
-        System.out.printf("\n" + getName() + " the Warrior makes an attack with %s", weaponType);
+        System.out.printf("\n" + getName() + " the Warrior charges and swings with a %s!\n", weaponType);
     }
 
     public String getWeaponType() {
