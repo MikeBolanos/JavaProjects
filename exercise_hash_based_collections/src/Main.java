@@ -27,10 +27,27 @@ public class Main {
         }
 
         // Create a HashMap<String, List<String>> and load it with a card deck
-        HashMap<String, List<String>> Deck = new HashMap<>();
+        HashMap<String, List<String>> deck = new HashMap<>();
         // List of card ranks
         List<String> cards = new ArrayList<>();
-        Deck.put("Hearts", 
+        cards.add("Ace");
+        cards.add("2");
+        cards.add("3");
+        cards.add("4");
+        cards.add("5");
+        cards.add("6");
+        cards.add("7");
+        cards.add("8");
+        cards.add("9");
+        cards.add("10");
+        cards.add("Jack");
+        cards.add("Queen");
+        cards.add("King");
+
+        // Put card list into lists of suits
+        List<String> Hearts = new ArrayList<>(cards);
+        List<String> Spades = new ArrayList<>(cards);
+        
 
     }
 }
