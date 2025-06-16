@@ -14,6 +14,6 @@ public class Main {
         students.add("Heather");
 
         // Use .get() to print the third student in the list
-        students.get()
+        System.out.println("\nThird student: " + students.get(2));
     }
 }
