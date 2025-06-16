@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
@@ -36,7 +38,14 @@ public class Main {
             System.out.println("\nBox " + (i +1) + " contains: " + box.getT());
         }
 
-        
+        // Create a Queue that holds Box<String> objects
+        // Queue Constructor
+        Queue<Box<String>> queueBox = new LinkedList<>();
+
+        // Add 3 box objects to queue
+        Box<String> box1st = new Box<>();
+
+        // Print queue
 
     }
 }
