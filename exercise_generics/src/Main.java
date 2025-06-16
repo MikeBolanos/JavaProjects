@@ -13,15 +13,32 @@ public class Main {
         stringBox.setT("Hello, Generics!");
         System.out.println("Message Box contains: " + stringBox.getT());
 
-    }
 
         // ArrayList Constructor
-      ArrayList<Box<Integer>> boxes = new ArrayList<>();
+        ArrayList<Box<Integer>> boxes = new ArrayList<>();
 
+        // Box objects in list
+        Box<Integer> box1 = new Box<>();
+        box1.setT(10);
+        boxes.add(box1);
 
+        Box<Integer> box2 = new Box<>();
+        box2.setT(20);
+        boxes.add(box2);
 
+        Box<Integer> box3 = new Box<>();
+        box3.setT(30);
+        boxes.add(box3);
 
+        // Print list using for loop:
+        for (int i = 0; i < boxes.size(); i++) {
+            Box<Integer> box = boxes.get(i);
+            System.out.println("\nBox " + (i +1) + " contains: " + box.getT());
+        }
 
+        
+
+    }
 }
 
 
