@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         // Declare an ArrayList<String> named students
+
         ArrayList<String> students = new ArrayList<String>();
         // Add at least five student names to the list using .add()
         students.add("Larry");
@@ -21,5 +22,14 @@ public class Main {
 
         // Remove the second student from the list using .remove()
         System.out.println("Total remaining students: " + students.size());
+
+        // Use .isEmpty() to determine if the list has students.
+        // Print true if the list is empty, otherwise print false.
+        System.out.print("List is empty: " + students.isEmpty());
+
+        
+
+        }
+
     }
 }
