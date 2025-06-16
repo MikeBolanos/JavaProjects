@@ -53,14 +53,14 @@ public class Main {
 
         Box<String> box3rd = new Box<>();
         box3rd.setT("Third in line");
-        queueBox.add("")
+        queueBox.add(box3rd);
 
 
         // Print queue
         System.out.println("\nProcessing queue...");
         while (!queueBox.isEmpty()) {
             Box<String> box = queueBox.poll();
-            System.out.println("");
+            System.out.println
         }
 
     }
