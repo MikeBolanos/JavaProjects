@@ -1,8 +1,6 @@
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,29 +24,31 @@ public class Main {
             System.out.println("Month #" + key + " is " + monthMap.get(key));
         }
 
+        System.out.println();
+
         // Create a HashMap<String, List<String>> and load it with a card deck
         HashMap<String, List<String>> deck = new HashMap<>();
         // List of card ranks
-        List<String> cards = new ArrayList<>();
-        cards.add("Ace");
-        cards.add("2");
-        cards.add("3");
-        cards.add("4");
-        cards.add("5");
-        cards.add("6");
-        cards.add("7");
-        cards.add("8");
-        cards.add("9");
-        cards.add("10");
-        cards.add("Jack");
-        cards.add("Queen");
-        cards.add("King");
+        List<String> cardRank = new ArrayList<>();
+        cardRank.add("Ace");
+        cardRank.add("2");
+        cardRank.add("3");
+        cardRank.add("4");
+        cardRank.add("5");
+        cardRank.add("6");
+        cardRank.add("7");
+        cardRank.add("8");
+        cardRank.add("9");
+        cardRank.add("10");
+        cardRank.add("Jack");
+        cardRank.add("Queen");
+        cardRank.add("King");
 
         // Put card list into lists of suits
-        List<String> hearts = new ArrayList<>(cards);
-        List<String> spades = new ArrayList<>(cards);
-        List<String> diamonds = new ArrayList<>(cards);
-        List<String> clubs = new ArrayList<>(cards);
+        List<String> hearts = new ArrayList<>(cardRank);
+        List<String> spades = new ArrayList<>(cardRank);
+        List<String> diamonds = new ArrayList<>(cardRank);
+        List<String> clubs = new ArrayList<>(cardRank);
 
         // Put suits into the deck HashMap
         deck.put("Hearts", hearts);
@@ -57,6 +57,11 @@ public class Main {
         deck.put("Clubs", clubs);
 
         // Print card deck formated as "[card rank] of [suit]"
-
+        for (String suit : deck.keySet()) {
+            List<String> cards = deck.get(suit);
+            for (String card : cards) {
+                System.out.println(card + " of " + suit);
+            }
+        }
     }
 }
