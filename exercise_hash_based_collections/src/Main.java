@@ -45,9 +45,18 @@ public class Main {
         cards.add("King");
 
         // Put card list into lists of suits
-        List<String> Hearts = new ArrayList<>(cards);
-        List<String> Spades = new ArrayList<>(cards);
-        
+        List<String> hearts = new ArrayList<>(cards);
+        List<String> spades = new ArrayList<>(cards);
+        List<String> diamonds = new ArrayList<>(cards);
+        List<String> clubs = new ArrayList<>(cards);
+
+        // Put suits into the deck HashMap
+        deck.put("Hearts", hearts);
+        deck.put("Spades", spades);
+        deck.put("Diamonds", diamonds);
+        deck.put("Clubs", clubs);
+
+        // Print card deck formated as "[card rank] of [suit]"
 
     }
 }
