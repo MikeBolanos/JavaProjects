@@ -25,7 +25,13 @@ public class Main {
 
         // Use .isEmpty() to determine if the list has students.
         // Print true if the list is empty, otherwise print false.
-        System.out.print("List is empty: " + students.isEmpty());
-        
+        System.out.println("List is empty: " + students.isEmpty());
+
+        // Sort the list alphabetically using java.util.Collections.sort()
+        java.util.Collections.sort(students);
+        //Print the sorted list
+        System.out.println("Sorted list: " + students);
+
+
     }
 }
