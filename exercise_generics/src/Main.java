@@ -46,6 +46,11 @@ public class Main {
         Box<String> box1st = new Box<>();
 
         // Print queue
+        System.out.println("\nProcessing queue...");
+        while (!queueBox.isEmpty()) {
+            Box<String> box = queueBox.poll();
+            System.out.println("");
+        }
 
     }
 }
