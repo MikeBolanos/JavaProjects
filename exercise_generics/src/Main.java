@@ -13,11 +13,15 @@ public class Main {
         stringBox.setT("Hello, Generics!");
         System.out.println("Message Box contains: " + stringBox.getT());
 
-
-        // ArrayList
-      
-
     }
+
+        // ArrayList Constructor
+      ArrayList<Box<Integer>> boxes = new ArrayList<>();
+
+
+
+
+
 }
 
 
