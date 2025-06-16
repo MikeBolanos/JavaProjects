@@ -57,12 +57,13 @@ public class Main {
 
 
         // Counter variable to print Box 1, Box 2, etc
-        
+        int boxNumber = 1;
         // Print queue
         System.out.println("\nProcessing queue...");
         while (!queueBox.isEmpty()) {
             Box<String> box = queueBox.poll();
-            System.out.println("Queue Box " +
+            System.out.println("Queue Box " + boxNumber + " contains: " + box.getT());
+            boxNumber++; // add 1 to boxNumber to get sequential boxes list.
         }
 
     }
