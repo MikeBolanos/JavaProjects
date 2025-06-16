@@ -44,6 +44,17 @@ public class Main {
 
         // Add 3 box objects to queue
         Box<String> box1st = new Box<>();
+        box1st.setT("First in line");
+        queueBox.add(box1st);
+
+        Box<String> box2nd = new Box<>();
+        box2nd.setT("Second in line");
+        queueBox.add(box2nd);
+
+        Box<String> box3rd = new Box<>();
+        box3rd.setT("Third in line");
+        queueBox.add("")
+
 
         // Print queue
         System.out.println("\nProcessing queue...");
