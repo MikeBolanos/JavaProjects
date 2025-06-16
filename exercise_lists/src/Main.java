@@ -26,10 +26,6 @@ public class Main {
         // Use .isEmpty() to determine if the list has students.
         // Print true if the list is empty, otherwise print false.
         System.out.print("List is empty: " + students.isEmpty());
-
         
-
-        }
-
     }
 }
