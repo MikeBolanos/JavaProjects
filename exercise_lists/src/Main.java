@@ -15,5 +15,11 @@ public class Main {
 
         // Use .get() to print the third student in the list
         System.out.println("\nThird student: " + students.get(2));
+
+        // Remove the second student from the list using .remove()
+        System.out.println("Removed student: " + students.remove(1));
+
+        // Remove the second student from the list using .remove()
+        System.out.println("Total remaining students: " + students.size());
     }
 }
