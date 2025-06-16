@@ -56,11 +56,13 @@ public class Main {
         queueBox.add(box3rd);
 
 
+        // Counter variable to print Box 1, Box 2, etc
+        
         // Print queue
         System.out.println("\nProcessing queue...");
         while (!queueBox.isEmpty()) {
             Box<String> box = queueBox.poll();
-            System.out.println
+            System.out.println("Queue Box " +
         }
 
     }
