@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
 public class CalculatorTests {
     private StringCalculator calc;
 
@@ -20,4 +21,23 @@ public class CalculatorTests {
          assertEquals(expected, actual);
 
      }
+
+     @Test
+     @DisplayName("Single number returns number")
+    void oneNumberReturnsNumber() {
+         int actual = calc.add("5");
+         int expected = 5;
+         assertEquals(expected, actual);
+     }
+
+
+     @Test
+    @DisplayName("Two numbers returns sum")
+         void twoNumbersReturnsSum() {
+            int actual = calc.add("5,3" );
+            int expected = 8;
+
+             assertEquals(expected, actual);
+
+         }
 }
