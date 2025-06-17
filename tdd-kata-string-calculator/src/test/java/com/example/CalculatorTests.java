@@ -58,11 +58,15 @@ public class CalculatorTests {
      }
 
      @Test
-    @DislayName("Support different delimiters")
+    @DisplayName("Support different delimiters")
         void supportDifferentDelimiters() {
-         int actual = calc.add("//;\n1;2;3");
+
+         int actual = calc.add("//.\n1.2.3");
+
          int expected = 6;
+
          assertEquals(expected, actual);
+
      }
 
 }

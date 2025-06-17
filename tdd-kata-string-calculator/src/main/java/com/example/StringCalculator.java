@@ -1,20 +1,31 @@
 package com.example;
 
+import java.util.regex.Pattern;
+
 public class StringCalculator {
     public int add(String numbers) {
         if (numbers.isEmpty()) {
             return 0;
-
-
-        } else if (!numbers.contains(",")) {
-            return Integer.parseInt(numbers);
-        } else {
-            String[] nums = numbers.split("[,\n]"); // [,\n] => combination of both symbols
-            return getSum(nums);
         }
-    }
+        String[] nums;
 
-    private int getSum(String[] nums) {
+
+//         else if (!numbers.contains(",")) {
+//            return Integer.parseInt(numbers);
+
+
+        if (numbers.startsWith("//")) {
+            String[] parts = numbers.split("\n", 2);
+            String delimiter = parts[0].substring(2);
+            nums = parts[1].split(Pattern.quote(delimiter));
+
+        } else {
+           nums = numbers.split("[,\n]"); // [,\n] => combination of both symbols
+//            return getSum(nums);
+        }
+
+
+//    private int getSum(String[] nums) {
         int sum = 0;
 
         for (String num : nums) {
@@ -22,6 +33,7 @@ public class StringCalculator {
         }
         return sum;
     }
+}
     //[delimiter]\n[numbers...]
 
     // 1) Detect if string starts with "//"
@@ -41,10 +53,16 @@ public class StringCalculator {
     // Need to use .substring to get delimiter "//;"
     // need to use Pattern.quote to split numbers using the delimiter
     //so for "//;\n1;2;3"
-    String[] parts = numbers.split("\n", 2);
-     String delimiter = parts [0].substring(2); // This gets the delimiter ";"
-    String[] nums = parts 
+//    String[] parts = numbers.split("\n", 2);
+//    String delimiter = parts [0].substring(2); // This gets the delimiter ";"
+//    String[] nums = parts[1].split(Pattern.quote(delimiter)); // Should split 1;2;3
 
 
 
-}
+    // Throw an exception if negative numbers present
+    // Include all negative numbers in the exception message
+    //
+
+
+
+
