@@ -11,10 +11,8 @@ public class StringCalculator {
         }
         String[] nums;
 
-
 //         else if (!numbers.contains(",")) {
 //            return Integer.parseInt(numbers);
-
 
         if (numbers.startsWith("//")) {
             String[] parts = numbers.split("\n", 2);
