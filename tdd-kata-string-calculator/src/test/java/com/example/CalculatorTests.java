@@ -69,4 +69,27 @@ public class CalculatorTests {
 
      }
 
+     @Test
+    @DisplayName("negativeNumbersThrowsException")
+        void negativeNumbersThrowsException() {                     // class refers to the type IAE, not a new instance
+                                                                    // -> is a lambda expression that allows a way to pass code as an argument
+         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+             calc.add("-1,2,3,4"); // calling add method with one negative number "-1"
+         });
+
+        // Expected result with single negative number, actual result
+         assertEquals("Negatives not allowed: -1,", exception.getMessage());
+
+
+         exception = assertThrows(IllegalArgumentException.class, () -> {
+             calc.add("1,-2,3,-4");
+         });
+
+
+         // Expected result with multiple negative numbers, actual result
+         assertEquals("Negatives not allowed: -2, -4", exception.getMessage());
+
+     }
+
+
 }

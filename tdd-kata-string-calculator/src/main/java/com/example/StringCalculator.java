@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
@@ -27,6 +29,7 @@ public class StringCalculator {
 
 //    private int getSum(String[] nums) {
         int sum = 0;
+        List<Integer> negatives = new ArrayList<>()
 
         for (String num : nums) {
             sum += Integer.parseInt(num);
@@ -60,8 +63,8 @@ public class StringCalculator {
 
 
     // Throw an exception if negative numbers present
-    // Include all negative numbers in the exception message
-    //
+    // Include all negative numbers in the exception message. Example: "Negatives not allowed: -5, -1
+    // Need ArrayList of negatives
 
 
 
