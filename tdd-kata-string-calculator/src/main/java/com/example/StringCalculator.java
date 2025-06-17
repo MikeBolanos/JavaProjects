@@ -29,12 +29,34 @@ public class StringCalculator {
 
 //    private int getSum(String[] nums) {
         int sum = 0;
-        List<Integer> negatives = new ArrayList<>()
-
+        List<Integer> negatives = new ArrayList<>();
+        // Weed out negatives
         for (String num : nums) {
-            sum += Integer.parseInt(num);
+            int number = Integer.parseInt(num); // convert strings to ints
+            if (number < 0) {
+                negatives.add(number); // store negative numbers
+            } else {
+                sum += number; // add remaining positive integers
+            }
+        }
+
+        // Check for negatives
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException("Negatives not allowed: " + showNegatives(negatives));
         }
         return sum;
+
+    }
+    // helper method to find negatives
+    private String showNegatives(List<Integer> negatives) {
+        String result = "";
+        for (int i = 0; i <negatives.size(); i++) {
+            result += negatives.get(i); // add the negative to the string
+            if (i < negatives.size() -1) {
+                result += ", "; // add a comma delimiter unless it's the last number
+            }
+        }
+        return  result;
     }
 }
     //[delimiter]\n[numbers...]
@@ -63,7 +85,7 @@ public class StringCalculator {
 
 
     // Throw an exception if negative numbers present
-    // Include all negative numbers in the exception message. Example: "Negatives not allowed: -5, -1
+    // Include all negative numbers in the exception message. Example: "Negatives not allowed: -5, -1"
     // Need ArrayList of negatives
 
 

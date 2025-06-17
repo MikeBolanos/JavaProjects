@@ -78,7 +78,7 @@ public class CalculatorTests {
          });
 
         // Expected result with single negative number, actual result
-         assertEquals("Negatives not allowed: -1,", exception.getMessage());
+         assertEquals("Negatives not allowed: -1", exception.getMessage());
 
 
          exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -89,6 +89,14 @@ public class CalculatorTests {
          // Expected result with multiple negative numbers, actual result
          assertEquals("Negatives not allowed: -2, -4", exception.getMessage());
 
+     }
+
+     @Test
+    @DisplayName("Numbers Greater Than 1000 are Ignorged")
+    void numberGreaterThan1000Ignored() {
+         int actual = calc.add("5,1010");
+         int expected = 5;
+         assertEquals(expected, actual);
      }
 
 
