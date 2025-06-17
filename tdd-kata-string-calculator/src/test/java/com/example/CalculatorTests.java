@@ -34,10 +34,20 @@ public class CalculatorTests {
      @Test
     @DisplayName("Two numbers returns sum")
          void twoNumbersReturnsSum() {
-            int actual = calc.add("5,3" );
-            int expected = 8;
+         int actual = calc.add("5,3");
+         int expected = 8;
 
-             assertEquals(expected, actual);
+         assertEquals(expected, actual);
+     }
 
-         }
+     @Test
+    @DisplayName ("Multiple numbers return sum")
+        void multipleNumbersReturnsSum() {
+         int actual = calc.add ("1,2,3,4");
+         int expected = 10;
+         assertEquals(expected, actual);
+
+     }
+
+
 }
