@@ -49,5 +49,20 @@ public class CalculatorTests {
 
      }
 
+     @Test
+    @DisplayName("Allow new line between numbers")
+        void allowNewLineBetweenNumbers() {
+         int actual = calc.add("1\n2,3");
+         int expected = 6;
+         assertEquals(expected, actual);
+     }
+
+     @Test
+    @DislayName("Support different delimiters")
+        void supportDifferentDelimiters() {
+         int actual = calc.add("//;\n1;2;3");
+         int expected = 6;
+         assertEquals(expected, actual);
+     }
 
 }
