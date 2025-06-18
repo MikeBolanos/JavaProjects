@@ -13,6 +13,7 @@ public class App {
             String incantation = scanner.nextLine();
             spellbook.tryIncantation(incantation);
         }
+        while (true);
 
     }
 }
