@@ -10,7 +10,7 @@ public class Protego implements Spell {
         return "Protego";
     }
 
-    public String gethelp() {
+    public String getHelp() {
         return String.format("%-15s %-30s", getIncantation(), "Cast a hole to exit the application through.");
     }
 }

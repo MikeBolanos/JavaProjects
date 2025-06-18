@@ -17,6 +17,10 @@ public class SpellBook {
 
     }
 public void tryIncantation(String incantation) {
+        if (incantation.equalsIgnoreCase("help")) {
+            help();
+            return;
+        }
         for (Spell spell : spells) {
             if (spell.getIncantation().equalsIgnoreCase(incantation)) {
                spell.cast();
@@ -28,7 +32,9 @@ public void tryIncantation(String incantation) {
 
     public void help() {
         System.out.printf("%n %-15s %-15s%n", "Incantation", "Effect");
-
+        for(Spell spell : spells) {
+            System.out.println(spell.getHelp());
+        }
     }
 
 
