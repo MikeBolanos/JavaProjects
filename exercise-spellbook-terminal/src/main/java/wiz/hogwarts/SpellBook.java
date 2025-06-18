@@ -1,7 +1,5 @@
 package wiz.hogwarts;
-
 import wiz.hogwarts.spells.*;
-
 import java.util.ArrayList;
 
 public class SpellBook {
