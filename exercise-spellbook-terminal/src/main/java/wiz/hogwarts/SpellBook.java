@@ -31,7 +31,7 @@ public void tryIncantation(String incantation) {
     }
 
     public void help() {
-        System.out.printf("%n%-15s %-15s%n", "Incantation", "Effect");
+        System.out.printf("%n%-15s %s%n", "Incantation", "Effect");
         for(Spell spell : spells) {
             System.out.println(spell.getHelp());
         }

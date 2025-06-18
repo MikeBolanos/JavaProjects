@@ -2,7 +2,7 @@ package wiz.hogwarts.spells;
 
 public class Incendio implements Spell {
     public void cast() {
-        System.out.println("You conjure fire to ignite your target in a searing blaze!");
+        System.out.println("Flames erupt from the ground to ignite your target in a searing blaze!");
     }
 
     public String getIncantation() {
@@ -10,6 +10,6 @@ public class Incendio implements Spell {
     }
 
     public String getHelp() {
-        return String.format("%-15s %-30s", getIncantation(), "Cast a hole to exit the application through.");
+        return String.format("%-15s %s", getIncantation(), "Conjure wild flames at an area of your choosing.");
     }
 }

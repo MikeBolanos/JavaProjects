@@ -2,7 +2,7 @@ package wiz.hogwarts.spells;
 
 public class Stupefy implements Spell {
     public void cast() {
-        System.out.println("You stun your target, freezing them in their tracks and rendering them unconscious!");
+        System.out.println("Your target rigidly freezes mid-action, falling unconscious!");
     }
 
     public String getIncantation() {
@@ -10,6 +10,6 @@ public class Stupefy implements Spell {
     }
 
     public String getHelp() {
-        return String.format("%-15s %-30s", getIncantation(), "Cast a hole to exit the application through.");
+        return String.format("%-15s %s", getIncantation(), "Stuns a target, rendering them unconscious and frozen in place.");
     }
 }

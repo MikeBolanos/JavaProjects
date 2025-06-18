@@ -3,7 +3,7 @@ package wiz.hogwarts.spells;
 public class Protego implements Spell {
 
     public void cast() {
-    System.out.println("You conjure a shimmering, translucent shield to float a couple of feet in front of you.");
+    System.out.println("A shimmering, translucent shield appears and floats a couple of feet in front of you.");
     }
 
     public String getIncantation() {
@@ -11,6 +11,6 @@ public class Protego implements Spell {
     }
 
     public String getHelp() {
-        return String.format("%-15s %-30s", getIncantation(), "Cast a hole to exit the application through.");
+        return String.format("%-15s %s", getIncantation(), "Conjure a shield of protection to float in the air directly in front of you.");
     }
 }

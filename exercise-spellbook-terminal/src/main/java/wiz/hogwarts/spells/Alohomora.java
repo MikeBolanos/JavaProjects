@@ -11,6 +11,6 @@ public class Alohomora implements Spell {
     }
 
     public String getHelp() {
-        return String.format("%-15s %-30s", getIncantation(), "Cast a hole to exit the application through.");
+        return String.format("%-15s %s", getIncantation(), "Cast on a lock to unlock it.");
     }
 }

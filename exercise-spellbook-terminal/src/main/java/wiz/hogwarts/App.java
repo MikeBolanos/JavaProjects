@@ -9,7 +9,7 @@ public class App {
         SpellBook spellbook = new SpellBook();
 
         do {
-            System.out.println("Recite a spell: ");
+            System.out.println("\nRecite a spell: ");
             String incantation = scanner.nextLine();
             spellbook.tryIncantation(incantation);
         }
