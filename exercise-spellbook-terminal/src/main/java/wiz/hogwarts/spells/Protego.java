@@ -6,7 +6,7 @@ public class Protego implements Spell {
     System.out.println("You conjure a shimmering, translucent shield to protect you from other spells.");
     }
 
-    public String getIncantation () {
+    public String getIncantation() {
         return "Protego";
     }
 }
