@@ -9,6 +9,10 @@ public class SpellBook {
 
     public SpellBook() {
     spells = new ArrayList<>();
+    spells.add(new Alohomora());
+    spells.add(new Incendio());
+    spells.add(new Protego());
+    spells.add(new Stupefy());
     spells.add(new ExitSpell());
 
     }
@@ -20,6 +24,6 @@ public void tryIncantation(String incantation) {
             }
         }
         System.out.println("The spell fizzled out. Try again!");
-}
+    }
 
 }
