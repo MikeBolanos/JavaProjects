@@ -5,5 +5,6 @@ public interface Spell {
 
     String getIncantation();
 
+    String gethelp();
 
 }

@@ -9,4 +9,8 @@ public class ExitSpell implements Spell {
     public String getIncantation() {
         return "quit";
     }
+
+    public String gethelp() {
+        return String.format("%-15s %-30s", getIncantation(), "Cast a hole to exit the application through.");
+    }
 }
