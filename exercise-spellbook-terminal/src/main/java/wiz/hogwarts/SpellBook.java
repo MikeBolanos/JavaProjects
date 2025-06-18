@@ -26,4 +26,10 @@ public void tryIncantation(String incantation) {
         System.out.println("The spell fizzled out. Try again!");
     }
 
+    public void help() {
+        System.out.printf("%n %-15s %-15s%n", "Incantation", "Effect");
+
+    }
+
+
 }
