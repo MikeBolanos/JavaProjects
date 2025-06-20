@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Catalogue {
-    private Map<String, Item> items;
+    private final Map<String, Item> items;
 
     // Constructor
     public Catalogue() {
