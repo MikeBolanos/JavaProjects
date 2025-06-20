@@ -11,7 +11,10 @@ public class CartServiceTest {
         Item milk = catalog.getItemByName("Milk");
 
         // Act
-        
+        cartService.addItem(milk, 2);
+
         // Assert
+        int quantity = cartService.
+
     }
 }

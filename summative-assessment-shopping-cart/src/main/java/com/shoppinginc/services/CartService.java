@@ -32,6 +32,10 @@ public class CartService implements CartCommands {
             currentItems = 0;
         }
     }
+    // helper method to test addItem
+    public int getCartQuantity(String name) {
+        return cartItems.getOrDefault(name, 0);
+    }
 
 
 }
