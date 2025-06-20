@@ -23,6 +23,6 @@ public class Item {
 
     //Override toString to print item details
     public String toString() {
-        return name + ": $" + price;
+        return String.format("%-20s$%.2f", name, price);
     }
 }

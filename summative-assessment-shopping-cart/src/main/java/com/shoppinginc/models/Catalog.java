@@ -52,6 +52,7 @@ public class Catalog {
     }
 
     public void displayCatalog() {
+        System.out.println("\n~*~*~*~*~Catalog~*~*~*~*~");
         for (String name : items.keySet()) {
             Item item = items.get(name);
             System.out.println(item);
