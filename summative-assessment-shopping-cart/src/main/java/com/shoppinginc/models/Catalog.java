@@ -2,11 +2,11 @@ package com.shoppinginc.models;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Catalogue {
+public class Catalog {
     private final Map<String, Item> items;
 
     // Constructor
-    public Catalogue() {
+    public Catalog() {
         items = new HashMap<>();
         productMap();
 
@@ -51,10 +51,10 @@ public class Catalogue {
         return items.get(name);
     }
 
-    public void displayCatalogue() {
+    public void displayCatalog() {
         for (String name : items.keySet()) {
             Item item = items.get(name);
-            System.out.println(name + ": $" + item.getPrice());
+            System.out.println(item);
         }
     }
 }
