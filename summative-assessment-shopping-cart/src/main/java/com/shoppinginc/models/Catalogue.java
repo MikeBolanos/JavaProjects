@@ -51,7 +51,7 @@ public class Catalogue {
         return items.get(name);
     }
 
-    public void displayAllItems() {
+    public void displayCatalogue() {
         for (String name : items.keySet()) {
             Item item = items.get(name);
             System.out.println(name + ": $" + item.getPrice());
