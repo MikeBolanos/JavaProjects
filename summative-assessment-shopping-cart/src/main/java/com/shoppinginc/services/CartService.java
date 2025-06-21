@@ -48,6 +48,8 @@ public class CartService implements CartCommands {
         } return;
 
         // Prompt for item name to remove
+        Utils.promptString("Which item would you like to remove?")
+                
         //  Check if item is in the cart
         // If item is not in cart, display error message
         // If item is in cart, prompt for quantity to remove

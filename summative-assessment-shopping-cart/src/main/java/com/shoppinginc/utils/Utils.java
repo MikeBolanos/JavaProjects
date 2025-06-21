@@ -1,7 +1,5 @@
 package com.shoppinginc.utils;
 
-import org.ietf.jgss.GSSName;
-
 import java.util.Scanner;
 
 public class Utils {
@@ -13,9 +11,9 @@ public class Utils {
     }
 
     // Prompt for String
-    public static String promptString(String prompt) {
+    public static void promptString(String prompt) {
         System.out.println(prompt);
-        return scanner.nextLine();
+        scanner.nextLine();
     }
 
     // Prompt for int
