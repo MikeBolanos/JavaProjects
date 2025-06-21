@@ -1,4 +1,5 @@
 package com.shoppinginc.services;
+
 import com.shoppinginc.models.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,8 +27,14 @@ public class CartServiceTest {
     public void testRemoveFullItem() {
         Catalog catalog = new Catalog();
         CartService cartService = new CartService(catalog);
-        Item Apple = catalog.getItemByName("Apple");
+        Item apple = catalog.getItemByName("Apple");
+
+        cartService.addItem(apple, 5);
+
+        cartService.removeItem("Apple", 5);
+
+        int remainder  CartService.getCartQuantity("Apple");
     }
-    
+
 }
 
