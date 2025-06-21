@@ -11,9 +11,12 @@ public class Utils {
     }
 
     // Prompt for String
-    public static void String 
+    public static String promptString(String prompt) {
+        System.out.println(prompt);
+        return scanner.nextLine();
+    }
 
-
+    
 
 }
 
