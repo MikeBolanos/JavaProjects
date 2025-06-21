@@ -27,7 +27,11 @@ public class Utils {
         if (scanner.hasNextInt()) {
             number = scanner.nextInt();
             valid = true;
+        } else {
+            System.out.println("That is not a valid number. Please try again.");
         }
+
+        return number;
     }
 
 }
