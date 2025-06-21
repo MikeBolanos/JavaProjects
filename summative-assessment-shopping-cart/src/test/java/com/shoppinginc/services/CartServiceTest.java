@@ -86,6 +86,8 @@ public class CartServiceTest {
 
         String output = outputStream.toString(); // turns the captured text into a String
         assertTrue(output.contains("Yogurt"));
+        assertTrue(output.contains("x4"));
+        assertTrue(output.contains("2.39"));
 
 
 
