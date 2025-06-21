@@ -37,6 +37,8 @@ public class CartService implements CartCommands {
     // need removeItem method to be able to test
     @Override
     public void removeItem(String itemName, int quantity) {
+        displayCart();
+
 
     }
 
