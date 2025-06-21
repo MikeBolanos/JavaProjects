@@ -63,10 +63,13 @@ public class CartService implements CartCommands {
         }
     }
 
-    // need checkout method to be able to test
+    // Display Cart Method
     @Override
     public void displayCart() {
-
+        if (cartItems.isEmpty()) {
+            Utils.print("The cart is empty");
+            return;
+        }
     }
 
     // need checkout method to be able to test
