@@ -59,7 +59,7 @@ public class CartService implements CartCommands {
             // Else subtract quantity with confirmation message
         } else {
             cartItems.put(itemName, currentQuantity - quantity);
-            Utils.print("Removed " + quantity + " of " + itemName + " from the cart");
+            Utils.print("Removed " + quantity + " of " + itemName + " items from the cart");
         }
     }
 

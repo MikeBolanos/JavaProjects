@@ -19,7 +19,7 @@ public class CartServiceTest {
         cartService.addItem(milk, 6);
         // Assert
         int quantity = cartService.getCartQuantity("Milk");
-        assertEquals(8,quantity);
+        assertEquals(8, quantity);
 
     }
 
@@ -36,5 +36,30 @@ public class CartServiceTest {
         assertEquals(0, remainder);
     }
 
+    @Test
+    public void testRemovePartialItem() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
+        Item bread = catalog.getItemByName("Bread");
+
+        cartService.addItem(bread, 5);
+        cartService.removeItem("Bread", 3);
+
+        int remainder = cartService.getCartQuantity("Bread");
+        assertEquals(2, remainder);
+    }
+
+    @Test
+    public void testRemoveMoreThanItemQuantityInCart() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
+        Item coffee = catalog.getItemByName("Coffee");
+
+        cartService.addItem(coffee, 3);
+        cartService.removeItem("Coffee", 6);
+
+        int remainder = cartService.getCartQuantity("Coffee");
+        assertEquals(0, remainder);
+    }
 }
 
