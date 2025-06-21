@@ -26,16 +26,30 @@ public class CartService implements CartCommands {
 
         int currentItems;
 
-        if (cartItems.containsKey(name)) {
-            currentItems = cartItems.get(name);
-        } else {
-            currentItems = 0;
-        }
+        currentItems = cartItems.getOrDefault(name, 0);
+        cartItems.put(name, currentItems + quantity);
     }
     // helper method to test addItem
     public int getCartQuantity(String name) {
         return cartItems.getOrDefault(name, 0);
     }
 
+    // need removeItem method to be able to test
+    @Override
+    public void removeItem(String itemName, int quantity) {
+
+    }
+
+    // need checkout method to be able to test
+    @Override
+    public void displayCart() {
+
+    }
+
+    // need checkout method to be able to test
+    @Override
+    public void checkout() {
+        System.out.println();
+    }
 
 }

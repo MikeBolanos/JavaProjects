@@ -1,6 +1,8 @@
 package com.shoppinginc.services;
 import com.shoppinginc.models.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 
 public class CartServiceTest {
@@ -13,10 +15,10 @@ public class CartServiceTest {
 
         // Act
         cartService.addItem(milk, 2);
-
+        cartService.addItem(milk, 6);
         // Assert
         int quantity = cartService.getCartQuantity("Milk");
-        assertEquals
+        assertEquals(8,quantity);
 
     }
 }
