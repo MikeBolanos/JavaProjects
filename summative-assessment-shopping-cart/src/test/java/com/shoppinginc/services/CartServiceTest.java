@@ -30,10 +30,10 @@ public class CartServiceTest {
         Item apple = catalog.getItemByName("Apple");
 
         cartService.addItem(apple, 5);
-
         cartService.removeItem("Apple", 5);
 
-        int remainder  CartService.getCartQuantity("Apple");
+        int remainder = cartService.getCartQuantity("Apple");
+        assertEquals(0, remainder);
     }
 
 }

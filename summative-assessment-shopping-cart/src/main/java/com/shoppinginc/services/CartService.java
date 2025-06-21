@@ -38,7 +38,7 @@ public class CartService implements CartCommands {
         displayCart();
 
         // If cart is empty, display message
-        if(!cartItems.isEmpty()) {
+        if(cartItems.isEmpty()) {
             Utils.print("This cart is empty.");
             return;
         }
