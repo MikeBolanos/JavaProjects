@@ -72,6 +72,12 @@ public class CartService implements CartCommands {
         }
         for (Map.Entry<String, Integer> entry : cartItems.entrySet()) {
             String name = entry.getKey();
+            int quantity = entry.getValue();
+            Item item = catalog.getItemByName(name);
+            double price = item.getPrice();
+            double productsTotal = price * quantity;
+            
+
         }
     }
 
