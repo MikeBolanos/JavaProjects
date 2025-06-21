@@ -70,8 +70,8 @@ public class CartService implements CartCommands {
             Utils.print("The cart is empty");
             return;
         }
-        for (Map.Entry<String, Integer>) entry : cartItems.entrySet()) {
-            String name = entry.getKey;
+        for (Map.Entry<String, Integer> entry : cartItems.entrySet()) {
+            String name = entry.getKey();
         }
     }
 
