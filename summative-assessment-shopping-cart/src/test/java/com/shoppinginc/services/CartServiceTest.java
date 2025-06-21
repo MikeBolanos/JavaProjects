@@ -21,4 +21,13 @@ public class CartServiceTest {
         assertEquals(8,quantity);
 
     }
+
+    @Test
+    public void testRemoveFullItem() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
+        Item Apple = catalog.getItemByName("Apple");
+    }
+    
 }
+

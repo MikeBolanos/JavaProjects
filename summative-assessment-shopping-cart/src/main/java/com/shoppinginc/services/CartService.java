@@ -31,11 +31,6 @@ public class CartService implements CartCommands {
         cartItems.put(name, currentItems + quantity);
     }
 
-    // helper method to test addItem
-    public int getCartQuantity(String name) {
-        return cartItems.getOrDefault(name, 0);
-    }
-
     // Remove item method
     @Override
     public void removeItem(String itemName, int quantity) {
@@ -45,16 +40,27 @@ public class CartService implements CartCommands {
         // If cart is empty, display message
         if(!cartItems.isEmpty()) {
             Utils.print("This cart is empty.");
-        } return;
+            return;
+        }
 
-        // Prompt for item name to remove
-        Utils.promptString("Which item would you like to remove?")
-                
         //  Check if item is in the cart
-        // If item is not in cart, display error message
-        // If item is in cart, prompt for quantity to remove
-        // if quantity to remove >= currentItems  remove item(s) from cart
-        // Else subtract quantity with confirmation message
+        if (!cartItems.containsKey(itemName)) { // If item is not in cart, display error message
+            Utils.print("That item was not found in your cart. Please try again");
+            return;
+        }
+
+        // current quantity
+        int currentQuantity = cartItems.get(itemName);
+
+        // if quantity to remove >= currentQuantity remove item(s) from cart
+        if (quantity >= currentQuantity) {
+            cartItems.remove(itemName);
+            Utils.print("Removed all " + itemName + " items from the cart");
+            // Else subtract quantity with confirmation message
+        } else {
+            cartItems.put(itemName, currentQuantity - quantity);
+            Utils.print("Removed " + quantity + " of " + itemName + " from the cart");
+        }
     }
 
     // need checkout method to be able to test
@@ -69,4 +75,8 @@ public class CartService implements CartCommands {
         Utils.print("");
     }
 
+    // helper method to test commands
+    public int getCartQuantity(String name) {
+        return cartItems.getOrDefault(name, 0);
+    }
 }
