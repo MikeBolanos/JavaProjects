@@ -47,6 +47,12 @@ public class CartService implements CartCommands {
             Utils.print("This cart is empty.");
         } return;
 
+        // Prompt for item name to remove
+        //  Check if item is in the cart
+        // If item is not in cart, display error message
+        // If item is in cart, prompt for quantity to remove
+        // if quantity to remove >= currentItems  remove item(s) from cart
+        // Else subtract quantity with confirmation message
     }
 
     // need checkout method to be able to test
