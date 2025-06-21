@@ -2,6 +2,7 @@ package com.shoppinginc.services;
 import com.shoppinginc.models.*;
 import org.junit.jupiter.api.Test;
 
+
 public class CartServiceTest {
     @Test
     public void testAddItem() {
@@ -14,7 +15,8 @@ public class CartServiceTest {
         cartService.addItem(milk, 2);
 
         // Assert
-        int quantity = cartService.
+        int quantity = cartService.getCartQuantity("Milk");
+        assertEquals
 
     }
 }
