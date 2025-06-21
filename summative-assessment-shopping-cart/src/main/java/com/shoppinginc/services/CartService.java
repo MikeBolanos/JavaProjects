@@ -76,7 +76,7 @@ public class CartService implements CartCommands {
             Item item = catalog.getItemByName(name);
             double price = item.getPrice();
             double productsTotal = price * quantity;
-            
+            System.out.printf("%-20s $%5.2f x%-3d = %6.2f%n", name, price, quantity, productsTotal);
 
         }
     }
@@ -84,7 +84,7 @@ public class CartService implements CartCommands {
     // need checkout method to be able to test
     @Override
     public void checkout() {
-        Utils.print("");
+
     }
 
     // helper method to test commands

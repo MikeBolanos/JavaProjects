@@ -16,6 +16,7 @@ public class Utils {
         scanner.nextLine();
     }
 
+
     // Prompt for int
     public static int promptInt(String prompt) {
         int number = 0;

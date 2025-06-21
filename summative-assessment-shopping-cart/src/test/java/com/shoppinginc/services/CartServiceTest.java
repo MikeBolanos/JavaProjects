@@ -2,9 +2,11 @@ package com.shoppinginc.services;
 
 import com.shoppinginc.models.*;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.jupiter.api.Assertions.*;
-
-
 
 public class CartServiceTest {
     @Test
@@ -60,6 +62,31 @@ public class CartServiceTest {
 
         int remainder = cartService.getCartQuantity("Coffee");
         assertEquals(0, remainder);
+    }
+
+    @Test
+    public void testDisplayCart() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
+        Item yogurt = catalog.getItemByName("Yogurt");
+
+        cartService.addItem(yogurt, 4);
+
+        // Need to capture output using ByteArrayOutputStream and System.out
+        // BAOS acts as a text bucket, catching whatever is printed
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        PrintStream originalOutput = System.out; // Storing the original output print stream
+        // Print output here instead of in console
+        System.setOut(new PrintStream(output));
+
+        cartService.displayCart();
+        
+
+
+
+
+
+
     }
 }
 
