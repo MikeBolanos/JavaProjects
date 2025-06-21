@@ -1,6 +1,7 @@
 package com.shoppinginc.services;
 import com.shoppinginc.models.*;
 import com.shoppinginc.interfaces.CartCommands;
+import com.shoppinginc.utils.Utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,16 +30,22 @@ public class CartService implements CartCommands {
         currentItems = cartItems.getOrDefault(name, 0);
         cartItems.put(name, currentItems + quantity);
     }
+
     // helper method to test addItem
     public int getCartQuantity(String name) {
         return cartItems.getOrDefault(name, 0);
     }
 
-    // need removeItem method to be able to test
+    // Remove item method
     @Override
     public void removeItem(String itemName, int quantity) {
+        // Display cart to see if the cart is empty first
         displayCart();
 
+        // If cart is empty, display message
+        if(!cartItems.isEmpty()) {
+            Utils.print("This cart is empty.");
+        } return;
 
     }
 
@@ -51,7 +58,7 @@ public class CartService implements CartCommands {
     // need checkout method to be able to test
     @Override
     public void checkout() {
-        System.out.println();
+        Utils.print("");
     }
 
 }

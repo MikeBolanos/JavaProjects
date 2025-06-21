@@ -1,4 +1,6 @@
 package com.shoppinginc.models;
+import com.shoppinginc.utils.Utils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -53,10 +55,10 @@ public class Catalog {
 
     // Display the Catalog if needed
     public void displayCatalog() {
-        System.out.println("\n~*~*~*~*~Catalog~*~*~*~*~");
+        Utils.print("\n~*~*~*~*~Catalog~*~*~*~*~");
         for (String name : items.keySet()) {
             Item item = items.get(name);
-            System.out.println(item);
+            Utils.print(item.toString());
         }
     }
 }
