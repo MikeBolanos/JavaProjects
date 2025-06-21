@@ -74,14 +74,18 @@ public class CartServiceTest {
 
         // Need to capture output using ByteArrayOutputStream and System.out
         // BAOS acts as a text bucket, catching whatever is printed
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream originalOutput = System.out; // Storing the original output print stream
         // Print output here instead of in console
-        System.setOut(new PrintStream(output));
+        System.setOut(new PrintStream(outputStream));
 
         cartService.displayCart();
-        
 
+        // Restore System.out so future tests can print to the console again
+        System.setOut(originalOutput);
+
+        String output = outputStream.toString(); // turns the captured text into a String
+        assertTrue(output.contains("Yogurt"));
 
 
 
