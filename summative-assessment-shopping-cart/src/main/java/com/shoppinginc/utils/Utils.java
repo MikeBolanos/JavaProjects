@@ -5,7 +5,7 @@ import org.ietf.jgss.GSSName;
 import java.util.Scanner;
 
 public class Utils {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     // Print method
     public static void print(String message) {
@@ -22,15 +22,18 @@ public class Utils {
     public static int promptInt(String prompt) {
         int number = 0;
         boolean valid = false;
-        System.out.println(prompt);
 
-        if (scanner.hasNextInt()) {
-            number = scanner.nextInt();
-            valid = true;
-        } else {
-            System.out.println("That is not a valid number. Please try again.");
+        while (!valid) {
+            System.out.println(prompt);
+
+            if (scanner.hasNextInt()) {
+                number = scanner.nextInt();
+                valid = true;
+            } else {
+                System.out.println("That is not a valid number. Please try again.");
+            }
+
         }
-
         return number;
     }
 
