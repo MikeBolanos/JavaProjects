@@ -69,6 +69,7 @@ public class CartService implements CartCommands {
         if (cartItems.isEmpty()) {
             Utils.print("The cart is empty");
             return;
+            
         }
         for (Map.Entry<String, Integer> entry : cartItems.entrySet()) {
             String name = entry.getKey();

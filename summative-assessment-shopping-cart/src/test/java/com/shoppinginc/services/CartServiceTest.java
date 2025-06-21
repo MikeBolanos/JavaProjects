@@ -65,7 +65,7 @@ public class CartServiceTest {
     }
 
     @Test
-    public void testDisplayCart() {
+    public void testDisplayCartOneItem() {
         Catalog catalog = new Catalog();
         CartService cartService = new CartService(catalog);
         Item yogurt = catalog.getItemByName("Yogurt");
@@ -88,11 +88,49 @@ public class CartServiceTest {
         assertTrue(output.contains("Yogurt"));
         assertTrue(output.contains("x4"));
         assertTrue(output.contains("2.39"));
+    }
 
+    @Test
+    public void testIsDisplayCartEmpty() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
+        PrintStream originalOutput = System.out;
+        System.setOut(new PrintStream(outputStream));
 
+        cartService.displayCart();
 
+        System.setOut(originalOutput);
+
+        String output = outputStream.toString();
+        assertTrue(output.contains("The cart is empty"));
+    }
+
+    @Test
+    public void testIsDisplayCartMultipleItems() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
+        Item rice = catalog.getItemByName("Rice");
+        Item cheese = catalog.getItemByName("Cheese");
+
+        cartService.addItem(rice, 3);
+        cartService.addItem(cheese, 2);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        PrintStream originalOutput = System.out;
+        System.setOut(new PrintStream(outputStream));
+
+        cartService.displayCart();
+
+        System.setOut(originalOutput);
+
+        String output = outputStream.toString();
+        assertTrue(output.contains("Rice") && output.contains("$ 2.99") && output.contains("x3"));
+        assertTrue(output.contains("Cheese") && output.contains("$ 4.49") && output.contains("x2"));
 
     }
+
 }
 
