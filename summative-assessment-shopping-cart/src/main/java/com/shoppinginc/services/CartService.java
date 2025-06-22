@@ -83,18 +83,21 @@ public class CartService implements CartCommands {
             Utils.print("The cart is empty");
             return;
         }
-        double subtotal = 0.0;
 
         Map<String, Integer> itemCounts = new HashMap<>(); // item counts
         Map<String, Double> itemtotals = new HashMap<>(); // item price totals
         for (Item item : cartItems) {
             String name = item.getName();
-            int quantity = entry.getValue();
-            
-            subtotal += productsTotal;
+            double price = item.getPrice();
 
-            System.out.printf("%-20s $%5.2f x%-3d = %6.2f%n", name, price, quantity, productsTotal);
+            itemCounts.put(name, itemCounts.getOrDefault(name, 0) + 1);
+            itemtotals.put(name, itemtotals.getOrDefault(name, 0.0) + price);
+
         }
+            double subtotal = 0.0;
+
+
+            System.out.printf("%-20s $%5.2f x%-3d = %6.2f%n", name, price, quantity, total);
     System.out.printf("\nSubtotal:%31.2f%n", subtotal);
     }
 
