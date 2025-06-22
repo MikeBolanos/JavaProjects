@@ -132,5 +132,34 @@ public class CartServiceTest {
         assertTrue(output.contains("Subtotal"));
     }
 
+    @Test
+    public void testCheckoutCalculation() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
+
+        Item peanutButter = catalog.getItemByName("Peanut Butter");
+        Item jelly = catalog.getItemByName("Jelly");
+
+        cartService.addItem(peanutButter, 2);
+        cartService.addItem(jelly, 2);
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        PrintStream originalOutput = System.out;
+        System.setOut(new PrintStream(outputStream));
+
+        cartService.checkout();
+
+        System.setOut(originalOutput);
+
+        String output = outputStream.toString();
+
+        assertTrue(output.contains("Subtotal:"));
+        assertTrue(output.contains("Sales Tax:"));
+        assertTrue(output.contains("Total:"));
+        assertTrue(output.contains("$  14.76")
+
+    }
+
 }
 
