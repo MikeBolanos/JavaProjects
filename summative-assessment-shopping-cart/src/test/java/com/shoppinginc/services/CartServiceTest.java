@@ -176,8 +176,9 @@ public class CartServiceTest {
         System.setOut(originalOutput);
 
         String output = outputStream.toString();
-
-        
+        assertTrue(output.contains("The cart is empty"));
+        assertFalse(output.contains("Subtotal"));
+        assertFalse(output.contains("Total"));
     }
 }
 
