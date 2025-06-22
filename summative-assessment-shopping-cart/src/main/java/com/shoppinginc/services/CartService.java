@@ -56,14 +56,17 @@ public class CartService implements CartCommands {
 
         if (currentQuantity == 0) {
             Utils.print("That item was not found in your cart. Please try again");
+            return;
         }
-
-        int itemToRemove = Math.min(quantity, currentQuantity);
+        
         int removedCount = 0;
 
             Utils.print("Removed all " + itemName + " items from the cart");
 
         List<Item> itemsToRemove = new ArrayList<>();
+        for (Item item : cartItems) {
+
+            }
             cartItems.put(itemName, currentQuantity - quantity);
             Utils.print("Removed " + quantity + " of " + itemName + " items from the cart");
         }
