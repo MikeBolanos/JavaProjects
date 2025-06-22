@@ -3,21 +3,23 @@ import com.shoppinginc.models.*;
 import com.shoppinginc.interfaces.CartCommands;
 import com.shoppinginc.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CartService implements CartCommands {
     // fields
+
     // Catalog of all items in store
     private final Catalog catalog;
+    private final List<Item> cartItems;
 
 
-    // Cart map
-    private final Map<String, Integer> cartItems;
     // Constructor
     public CartService(Catalog catalog) {
         this.catalog = catalog;
-        this.cartItems = new HashMap<>();
+        this.cartItems = new ArrayList<>();
     }
 
     // Add item method
@@ -27,8 +29,9 @@ public class CartService implements CartCommands {
 
         int currentItems;
 
-        currentItems = cartItems.getOrDefault(name, 0);
-        cartItems.put(name, currentItems + quantity);
+        for (int i = 0; i < quantity; i++); {
+            cartItems.add(item);
+        }
     }
 
     // Remove item method
