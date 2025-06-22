@@ -59,10 +59,11 @@ public class CartService implements CartCommands {
         }
 
         int itemToRemove = Math.min(quantity, currentQuantity);
+        int removedCount = 0;
 
             Utils.print("Removed all " + itemName + " items from the cart");
-            // Else subtract quantity with confirmation message
-        } else {
+
+        List<Item> itemsToRemove = new ArrayList<>();
             cartItems.put(itemName, currentQuantity - quantity);
             Utils.print("Removed " + quantity + " of " + itemName + " items from the cart");
         }
