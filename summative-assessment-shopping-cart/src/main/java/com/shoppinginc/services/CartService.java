@@ -85,12 +85,12 @@ public class CartService implements CartCommands {
         }
         double subtotal = 0.0;
 
-        for (Map.Entry<String, Integer> entry : cartItems.entrySet()) {
-            String name = entry.getKey();
+        Map<String, Integer> itemCounts = new HashMap<>(); // item counts
+        Map<String, Double> itemtotals = new HashMap<>(); // item price totals
+        for (Item item : cartItems) {
+            String name = item.getName();
             int quantity = entry.getValue();
-            Item item = catalog.getItemByName(name);
-            double price = item.getPrice();
-            double productsTotal = price * quantity;
+            
             subtotal += productsTotal;
 
             System.out.printf("%-20s $%5.2f x%-3d = %6.2f%n", name, price, quantity, productsTotal);
