@@ -129,7 +129,7 @@ public class CartServiceTest {
         String output = outputStream.toString();
         assertTrue(output.contains("Rice") && output.contains("$ 2.99") && output.contains("x3"));
         assertTrue(output.contains("Cheese") && output.contains("$ 4.49") && output.contains("x2"));
-
+        assertTrue(output.contains("Subtotal"));
     }
 
 }

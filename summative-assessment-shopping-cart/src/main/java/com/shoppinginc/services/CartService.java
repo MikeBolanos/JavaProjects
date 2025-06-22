@@ -80,12 +80,14 @@ public class CartService implements CartCommands {
             double productsTotal = price * quantity;
             System.out.printf("%-20s $%5.2f x%-3d = %6.2f%n", name, price, quantity, productsTotal);
         }
-    System.out.printf("\nSubtotal:%31.2f%n");
+    System.out.printf("\nSubtotal:%31.2f%n", subtotal);
     }
 
     // need checkout method to be able to test
     @Override
     public void checkout() {
+        displayCart();
+        
 
     }
 
