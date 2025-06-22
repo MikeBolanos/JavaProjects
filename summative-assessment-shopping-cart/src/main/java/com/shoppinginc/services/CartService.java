@@ -110,6 +110,9 @@ public class CartService implements CartCommands {
         System.out.printf("\nSubtotal:     $%6.2f%n", subtotal);
         System.out.printf("Sales Tax:     $%6.2f%n", salesTax);
         System.out.printf("Total:     $%6.2f%n", total);
+
+        cartItems.clear();
+        Utils.print("\nCheckout process complete.");
     }
 
     // helper method to test commands
