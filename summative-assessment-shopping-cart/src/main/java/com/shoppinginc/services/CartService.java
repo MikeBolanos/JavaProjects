@@ -67,10 +67,13 @@ public class CartService implements CartCommands {
                 i--;
                 removedCount++;
 
+                if (removedCount == quantity) {
+                    break;
+                }
             }
-            cartItems.put(itemName, currentQuantity - quantity);
-            Utils.print("Removed " + quantity + " of " + itemName + " items from the cart");
         }
+        Utils.print("Removed " + quantity + " of " + itemName + " items from the cart");
+
     }
 
     // Display Cart Method
@@ -95,7 +98,7 @@ public class CartService implements CartCommands {
     System.out.printf("\nSubtotal:%31.2f%n", subtotal);
     }
 
-    // need checkout method to be able to test
+
     @Override
     public void checkout() {
         if (cartItems.isEmpty()) {
