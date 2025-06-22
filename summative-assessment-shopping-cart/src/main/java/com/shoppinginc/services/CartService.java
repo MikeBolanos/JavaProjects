@@ -46,18 +46,20 @@ public class CartService implements CartCommands {
             return;
         }
 
-        //  Check if item is in the cart
-        if  (currentQuantity == 0)
-            for (Item item : cartItems) {
-                
+        // Adding count of existing cart items to cart
+        int currentQuantity = 0;
+        for (Item item : cartItems) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                currentQuantity++;
+            }
         }
 
-        // current quantity
-        int currentQuantity = cartItems.get(itemName);
+        if (currentQuantity == 0) {
+            Utils.print("That item was not found in your cart. Please try again");
+        }
 
         // if quantity to remove >= currentQuantity remove item(s) from cart
-        if (quantity >= currentQuantity) {
-            cartItems.remove(itemName);
+        
             Utils.print("Removed all " + itemName + " items from the cart");
             // Else subtract quantity with confirmation message
         } else {
