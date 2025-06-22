@@ -158,9 +158,26 @@ public class CartServiceTest {
         assertTrue(output.contains("Sales Tax:"));
         assertTrue(output.contains("Total:"));
         assertTrue(output.contains("$ 14.76"));
-
-
+        assertTrue(output.contains("$  1.21"));
+        assertTrue(output.contains("$ 15.97"));
     }
+    @Test
+    public void testCheckoutIfCartIsEmpty() {
+        Catalog catalog = new Catalog();
+        CartService cartService = new CartService(catalog);
 
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        PrintStream originalOutput = System.out;
+        System.setOut(new PrintStream(outputStream));
+
+        cartService.checkout();
+
+        System.setOut(originalOutput);
+
+        String output = outputStream.toString();
+
+        
+    }
 }
 

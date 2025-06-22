@@ -105,7 +105,7 @@ public class CartService implements CartCommands {
 
         double taxRate = 0.082;
         double salesTax = subtotal * taxRate;
-        double total = subtotal * salesTax;
+        double total = subtotal + salesTax;
 
         System.out.printf("\nSubtotal:     $%6.2f%n", subtotal);
         System.out.printf("Sales Tax:     $%6.2f%n", salesTax);
