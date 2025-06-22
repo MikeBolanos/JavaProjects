@@ -78,10 +78,10 @@ public class CartService implements CartCommands {
 
     // Display Cart Method
     @Override
-    public void displayCart() {
+    public double displayCart() {
         if (cartItems.isEmpty()) {
             Utils.print("The cart is empty");
-            return;
+            return 0.0;
         }
 
         Map<String, Item> mapItem = new HashMap<>(); // item from HashMap
@@ -115,6 +115,7 @@ public class CartService implements CartCommands {
         subtotal += total;
         }
         System.out.printf("\nSubtotal:%31.2f%n", subtotal);
+        return subtotal;
     }
 
 
@@ -124,38 +125,17 @@ public class CartService implements CartCommands {
             Utils.print("The cart is empty");
             return;
         }
-        Map<String, Item> mapItem = new HashMap<>();
-        Map<String, Integer> itemCounts = new HashMap<>();
 
-        for (Item item : cartItems) {
-            String name = item.getName();
+        double subtotal = displayCart();
+        double taxRate = 0.082;
+        double salesTax = subtotal * taxRate;
+        double total = subtotal + salesTax;
 
-            if (catalog.getItemByName(name) == null) {
-                continue;
-            }
-            if (!mapItem.containsKey(name)) {
-                mapItem.put(name, item);
-            }
-        }
-        double subtotal = 0.0;
-
-        Utils.print("\n~*~*~*~Checkout Summary~*~*~*~");
-        for(String name : itemCounts.keySet()) {
-            int quantity = itemCounts.get(name);
-            Item item = mapItem.get(name);
-            double price = item.getPrice();
-            double total = quantity * price;
-
-        System.out.printf("\nSubtotal:     $%6.2f%n", subtotal);
-        System.out.printf("Sales Tax:     $%6.2f%n", salesTax);
-        System.out.printf("Total:     $%6.2f%n", total);
+        System.out.printf(" Sales Tax (8.2%%): %20.2f%n", salesTax);
+        System.out.printf("Total: %20.2f%n", total);
 
         cartItems.clear();
         Utils.print("\nCheckout process complete.");
     }
-
-    // helper method to test commands
-    public int getCartQuantity(String name) {
-        return cartItems.getOrDefault(name, 0);
-    }
+    
 }
