@@ -78,7 +78,10 @@ public class CartService implements CartCommands {
 
     // Display Cart Method
     @Override
-    public double displayCart() {
+    public void displayCart() {
+        displayCartWithSubtotal();
+    }
+    public double displayCartWithSubtotal() {
         if (cartItems.isEmpty()) {
             Utils.print("The cart is empty");
             return 0.0;
@@ -119,6 +122,7 @@ public class CartService implements CartCommands {
     }
 
 
+
     @Override
     public void checkout() {
         if (cartItems.isEmpty()) {
@@ -126,7 +130,7 @@ public class CartService implements CartCommands {
             return;
         }
 
-        double subtotal = displayCart();
+        double subtotal = displayCartWithSubtotal();
         double taxRate = 0.082;
         double salesTax = subtotal * taxRate;
         double total = subtotal + salesTax;
@@ -137,5 +141,5 @@ public class CartService implements CartCommands {
         cartItems.clear();
         Utils.print("\nCheckout process complete.");
     }
-    
+
 }
