@@ -157,7 +157,8 @@ public class CartServiceTest {
         assertTrue(output.contains("Subtotal:"));
         assertTrue(output.contains("Sales Tax:"));
         assertTrue(output.contains("Total:"));
-        assertTrue(output.contains("$  14.76")
+        assertTrue(output.contains("$ 14.76"));
+
 
     }
 
