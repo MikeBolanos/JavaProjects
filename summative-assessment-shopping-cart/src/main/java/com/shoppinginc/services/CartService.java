@@ -47,9 +47,9 @@ public class CartService implements CartCommands {
         }
 
         //  Check if item is in the cart
-        if (!cartItems.containsKey(itemName)) { // If item is not in cart, display error message
-            Utils.print("That item was not found in your cart. Please try again");
-            return;
+        if  (currentQuantity == 0)
+            for (Item item : cartItems) {
+                
         }
 
         // current quantity
