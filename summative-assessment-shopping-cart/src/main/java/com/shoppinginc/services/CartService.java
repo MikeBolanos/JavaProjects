@@ -78,6 +78,8 @@ public class CartService implements CartCommands {
             Item item = catalog.getItemByName(name);
             double price = item.getPrice();
             double productsTotal = price * quantity;
+            subtotal += productsTotal;
+
             System.out.printf("%-20s $%5.2f x%-3d = %6.2f%n", name, price, quantity, productsTotal);
         }
     System.out.printf("\nSubtotal:%31.2f%n", subtotal);
@@ -86,8 +88,20 @@ public class CartService implements CartCommands {
     // need checkout method to be able to test
     @Override
     public void checkout() {
-        displayCart();
-        
+        if (cartItems.isEmpty()) {
+            Utils.print("The cart is empty");
+            return;
+        }
+        double subtotal = 0.0;
+
+        for (Map.Entry<String, Integer> entry : cartItems.entrySet()) {
+            String name = entry.getKey();
+            int quantity = entry.getValue();
+            Item item = catalog.getItemByName(name);
+            double price = item.getPrice();
+            double productsTotal = price * quantity;
+            subtotal += productsTotal;
+        }
 
     }
 
