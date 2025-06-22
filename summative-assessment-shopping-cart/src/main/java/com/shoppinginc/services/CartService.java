@@ -11,9 +11,9 @@ public class CartService implements CartCommands {
     // Catalog of all items in store
     private final Catalog catalog;
 
+
     // Cart map
     private final Map<String, Integer> cartItems;
-
     // Constructor
     public CartService(Catalog catalog) {
         this.catalog = catalog;

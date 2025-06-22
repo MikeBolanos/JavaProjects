@@ -11,9 +11,9 @@ public class Utils {
     }
 
     // Prompt for String
-    public static void promptString(String prompt) {
+    public static String promptString(String prompt) {
         System.out.println(prompt);
-        scanner.nextLine();
+        return scanner.nextLine();
     }
 
 
