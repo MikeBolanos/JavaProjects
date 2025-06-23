@@ -142,4 +142,9 @@ public class CartService implements CartCommands {
         Utils.print("\nCheckout process complete.");
     }
 
+    // getter for CartItems for use in tests
+    public List<Item> getCartItems() {
+        return cartItems;
+    }
+
 }

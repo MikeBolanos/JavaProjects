@@ -27,7 +27,13 @@ public class CartServiceTest {
         cartService.addItem(apple, 1);
 
         // Assert
-        int actual = 1;
+        int actual = 0;
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Apple")) {
+                actual++;
+            }
+        }
+
         int expected = 1;
         assertEquals(expected, actual);
 
