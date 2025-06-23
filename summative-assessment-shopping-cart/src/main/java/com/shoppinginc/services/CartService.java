@@ -43,12 +43,12 @@ public class CartService implements CartCommands {
         displayCart();
 
         // If cart is empty, display message
-        if(cartItems.isEmpty()) {
+        if (cartItems.isEmpty()) {
             Utils.print("This cart is empty.");
             return;
         }
 
-        // Adding count of existing cart items to cart
+        // Count of item quantities in current cart
         int currentQuantity = 0;
         for (Item item : cartItems) {
             if (item.getName().equalsIgnoreCase(itemName)) {
@@ -62,7 +62,7 @@ public class CartService implements CartCommands {
         }
 
         int removedCount = 0;
-        for (int i = 0; i <cartItems.size(); i++) {
+        for (int i = 0; i < cartItems.size(); i++) {
             Item item = cartItems.get(i);
             if (item.getName().equalsIgnoreCase(itemName)) {
                 cartItems.remove(i);
@@ -74,8 +74,11 @@ public class CartService implements CartCommands {
                 }
             }
         }
-        Utils.print("Removed " + quantity + " of " + itemName + " items from the cart");
-
+        if (removedCount == currentQuantity) {
+            Utils.print("Removed all " + itemName + " items from the cart.");
+        } else {
+            Utils.print("Removed " + quantity + " " + itemName + " items from the cart");
+        }
     }
 
     // Display Cart Method
