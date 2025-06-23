@@ -3,6 +3,7 @@ package com.shoppinginc.services;
 import com.shoppinginc.models.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,6 +86,24 @@ public class CartServiceTest {
 
         assertEquals(expectedBananaCount, bananaCount);
         assertEquals(expectedCoffeeCount, coffeeCount);
+    }
+
+    @Test
+    public void testAddingNegativeQuantity(){
+        Item pb = catalog.getItemByName("Peanut Butter");
+
+        cartService.addItem(pb, -1);
+
+        int count = 0;
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Peanut Butter")) {
+                count++;
+            }
+        }
+
+        int expectedPbCount = 0;
+
+        assertEquals(expectedPbCount, count);
     }
 }
 
