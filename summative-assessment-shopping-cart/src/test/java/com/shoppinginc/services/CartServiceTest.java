@@ -100,25 +100,33 @@ public class CartServiceTest {
                 count++;
             }
         }
-
         int expectedPbCount = 0;
 
         assertEquals(expectedPbCount, count);
     }
-}
 
-//    @Test
-//    public void testRemoveFullItem() {
-//        Catalog catalog = new Catalog();
-//        CartService cartService = new CartService(catalog);
-//        Item apple = catalog.getItemByName("Apple");
-//
-//        cartService.addItem(apple, 5);
-//        cartService.removeItem("Apple", 5);
-//
-//        int remainder = cartService.getCartQuantity("Apple");
-//        assertEquals(0, remainder);
-//    }
+
+
+    @Test
+    public void testRemoveFullItem() {
+
+        Item apple = catalog.getItemByName("Apple");
+
+        cartService.addItem(apple, 1);
+        cartService.removeItem("Apple", 1);
+
+        int count = 0;
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Apple")) {
+                count++;
+            }
+        }
+
+        int expected = 0;
+
+        assertEquals(expected, count);
+    }
+}
 //
 //    @Test
 //    public void testRemovePartialItem() {
