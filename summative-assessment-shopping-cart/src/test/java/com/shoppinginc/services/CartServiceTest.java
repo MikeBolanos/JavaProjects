@@ -45,15 +45,18 @@ public class CartServiceTest {
 
         Item milk = catalog.getItemByName("Milk");
 
-        int actual = 0;
         cartService.addItem(milk, 4);
+
+        int count = 0;
+
         for (Item item : cartService.getCartItems()) {
             if (item.getName().equals("Milk")) {
-                actual++;
+                count++;
             }
             int expected = 4;
+            int actual = count;
             assertEquals(expected, actual);
-        }
+        
     }
 }
 
