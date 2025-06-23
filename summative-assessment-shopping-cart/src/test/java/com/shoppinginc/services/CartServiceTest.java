@@ -38,6 +38,23 @@ public class CartServiceTest {
         assertEquals(expected, actual);
 
     }
+
+
+    @Test
+    public void testAddMultipleItems() {
+
+        Item milk = catalog.getItemByName("Milk");
+
+        int actual = 0;
+        cartService.addItem(milk, 4);
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Milk")) {
+                actual++;
+            }
+            int expected = 4;
+            assertEquals(expected, actual);
+        }
+    }
 }
 
 //    @Test
