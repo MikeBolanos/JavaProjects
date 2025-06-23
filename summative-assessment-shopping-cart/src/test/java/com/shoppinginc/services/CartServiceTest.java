@@ -19,15 +19,14 @@ public class CartServiceTest {
     }
 
     @Test
-    public void testAddItem() {
+    public void testAddSingleItem() {
         // Arrange
-        Catalog catalog = new Catalog();
-        CartService cartService = new CartService(catalog);
-        Item milk = catalog.getItemByName("Milk");
+        Item apple = catalog.getItemByName("Apple");
 
         // Act
-        cartService.addItem(milk, 2);
-        cartService.addItem(milk, 6);
+        cartService.addItem(apple, 1);
+
+
         // Assert
         int quantity = cartService.getCartQuantity("Milk");
         assertEquals(8, quantity);
