@@ -11,7 +11,6 @@ import java.util.Map;
 public class CartService implements CartCommands {
     // fields
 
-    // Catalog of all items in store
     private final Catalog catalog;
     private final List<Item> cartItems;
 
@@ -81,6 +80,7 @@ public class CartService implements CartCommands {
     public void displayCart() {
         displayCartWithSubtotal();
     }
+
     public double displayCartWithSubtotal() {
         if (cartItems.isEmpty()) {
             Utils.print("The cart is empty");
@@ -114,10 +114,10 @@ public class CartService implements CartCommands {
             double price = item.getPrice();
             double total = quantity * price;
 
-        System.out.printf("%-20s $%5.2f x%-3d = %6.2f%n", name, price, quantity, total);
+        System.out.printf("%-20s $%5.2f x%-3d = $%6.2f%n", name, price, quantity, total);
         subtotal += total;
         }
-        System.out.printf("\nSubtotal:%31.2f%n", subtotal);
+        System.out.printf("\nSubtotal:$%32.2f%n", subtotal);
         return subtotal;
     }
 
@@ -135,8 +135,8 @@ public class CartService implements CartCommands {
         double salesTax = subtotal * taxRate;
         double total = subtotal + salesTax;
 
-        System.out.printf(" Sales Tax (8.2%%): %20.2f%n", salesTax);
-        System.out.printf("Total: %20.2f%n", total);
+        System.out.printf(" Sales Tax (8.2%%): $%20.2f%n", salesTax);
+        System.out.printf("Total: $%20.2f%n", total);
 
         cartItems.clear();
         Utils.print("\nCheckout process complete.");
