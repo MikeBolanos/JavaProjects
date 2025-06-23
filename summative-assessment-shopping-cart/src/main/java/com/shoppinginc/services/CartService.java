@@ -41,6 +41,10 @@ public class CartService implements CartCommands {
     public void removeItem(String itemName, int quantity) {
         // Display cart to see if the cart is empty first
         displayCart();
+        double subtotal = displayCartWithSubtotal();
+        if (subtotal == 0.0) {
+            return;
+        }
 
         // Count of item quantities in current cart
         int currentQuantity = 0;
@@ -71,7 +75,7 @@ public class CartService implements CartCommands {
         if (removedCount == currentQuantity) {
             Utils.print("Removed all " + itemName + " items from the cart.");
         } else {
-            Utils.print("Removed " + quantity + " " + itemName + " items from the cart");
+            Utils.print("Removed " + removedCount + " " + itemName + " items from the cart");
         }
     }
 
