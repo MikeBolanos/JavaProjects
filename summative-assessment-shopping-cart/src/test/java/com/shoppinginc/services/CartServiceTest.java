@@ -3,7 +3,7 @@ package com.shoppinginc.services;
 import com.shoppinginc.models.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
+
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -89,7 +89,7 @@ public class CartServiceTest {
     }
 
     @Test
-    public void testAddingNegativeQuantity(){
+    public void testAddingNegativeQuantity() {
         Item pb = catalog.getItemByName("Peanut Butter");
 
         cartService.addItem(pb, -1);
@@ -104,7 +104,6 @@ public class CartServiceTest {
 
         assertEquals(expectedPbCount, count);
     }
-
 
 
     @Test
@@ -126,21 +125,26 @@ public class CartServiceTest {
 
         assertEquals(expected, count);
     }
+
+    @Test
+    public void testRemovePartialItem() {
+        Item bread = catalog.getItemByName("Bread");
+
+        cartService.addItem(bread, 5);
+        cartService.removeItem("Bread", 3);
+
+        int count = 0;
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Bread")) {
+                count++;
+            }
+        }
+        int expected = 2;
+
+        assertEquals(expected, count);
+    }
 }
-//
-//    @Test
-//    public void testRemovePartialItem() {
-//        Catalog catalog = new Catalog();
-//        CartService cartService = new CartService(catalog);
-//        Item bread = catalog.getItemByName("Bread");
-//
-//        cartService.addItem(bread, 5);
-//        cartService.removeItem("Bread", 3);
-//
-//        int remainder = cartService.getCartQuantity("Bread");
-//        assertEquals(2, remainder);
-//    }
-//
+
 //    @Test
 //    public void testRemoveMoreThanItemQuantityInCart() {
 //        Catalog catalog = new Catalog();
