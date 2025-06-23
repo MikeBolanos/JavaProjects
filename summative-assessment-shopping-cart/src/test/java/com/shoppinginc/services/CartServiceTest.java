@@ -164,6 +164,22 @@ public class CartServiceTest {
 
         assertEquals(expected, count);
     }
+
+    @Test
+    public void testRemoveNonExistentItem() {
+        cartService.removeItem("Tea", 2);
+
+        int count = 0;
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Tea")) {
+                count++;
+            }
+        }
+
+        int expected = 0;
+
+        assertEquals(expected, count);
+    }
 }
 //    @Test
 //    public void testDisplayCartOneItem() {

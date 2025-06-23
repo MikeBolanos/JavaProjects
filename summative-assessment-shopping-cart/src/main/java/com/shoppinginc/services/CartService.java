@@ -42,12 +42,6 @@ public class CartService implements CartCommands {
         // Display cart to see if the cart is empty first
         displayCart();
 
-        // If cart is empty, display message
-        if (cartItems.isEmpty()) {
-            Utils.print("This cart is empty.");
-            return;
-        }
-
         // Count of item quantities in current cart
         int currentQuantity = 0;
         for (Item item : cartItems) {
@@ -131,12 +125,11 @@ public class CartService implements CartCommands {
 
     @Override
     public void checkout() {
-        if (cartItems.isEmpty()) {
-            Utils.print("The cart is empty");
-            return;
-        }
 
         double subtotal = displayCartWithSubtotal();
+        if (subtotal == 0.0) {
+            return;
+        }
         double taxRate = 0.082;
         double salesTax = subtotal * taxRate;
         double total = subtotal + salesTax;
