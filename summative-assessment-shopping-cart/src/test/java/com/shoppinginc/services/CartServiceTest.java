@@ -1,6 +1,7 @@
 package com.shoppinginc.services;
 
 import com.shoppinginc.models.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
@@ -11,7 +12,11 @@ public class CartServiceTest {
     private CartService cartService;
     private Catalog catalog;
 
-    
+    @BeforeEach
+    void setUp() {
+        catalog = new Catalog();
+        cartService = new CartService(catalog);
+    }
 
     @Test
     public void testAddItem() {
