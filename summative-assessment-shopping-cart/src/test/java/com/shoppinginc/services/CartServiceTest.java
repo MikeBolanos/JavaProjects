@@ -60,7 +60,36 @@ public class CartServiceTest {
         assertEquals(expected, actual);
     }
 
-    
+    @Test
+    public void testAddMultipleItemTypes() {
+        Item banana = catalog.getItemByName("Banana");
+        Item coffee = catalog.getItemByName("Coffee");
+
+        cartService.addItem(banana, 2);
+        cartService.addItem(coffee, 3);
+
+        int bananaCount = 0;
+        int coffeeCount = 0;
+
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Banana")) {
+                bananaCount++;
+            }
+            if (item.getName().equals("Coffee")) {
+                coffeeCount++;
+
+            }
+        }
+        int expectedBananaCount = 2;
+        int expectedCoffeeCount = 3;
+
+        int actualBananaCount = 2;
+        int actualCoffeeCount =3;
+
+        assertEquals(expectedBananaCount, actualBananaCount);
+        assertEquals(expectedCoffeeCount, actualCoffeeCount);
+
+    }
 }
 
 //    @Test
