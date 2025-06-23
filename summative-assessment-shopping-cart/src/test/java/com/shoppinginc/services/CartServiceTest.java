@@ -83,12 +83,8 @@ public class CartServiceTest {
         int expectedBananaCount = 2;
         int expectedCoffeeCount = 3;
 
-        int actualBananaCount = 2;
-        int actualCoffeeCount =3;
-
-        assertEquals(expectedBananaCount, actualBananaCount);
-        assertEquals(expectedCoffeeCount, actualCoffeeCount);
-
+        assertEquals(expectedBananaCount, bananaCount);
+        assertEquals(expectedCoffeeCount, coffeeCount);
     }
 }
 
