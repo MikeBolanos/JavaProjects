@@ -2,8 +2,8 @@ package com.shoppinginc.models;
 
 public class Item {
     // fields
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
 
     // Constructor
     public Item(String name, double price) {
