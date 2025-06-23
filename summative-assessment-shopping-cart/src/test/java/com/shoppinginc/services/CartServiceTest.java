@@ -53,11 +53,14 @@ public class CartServiceTest {
             if (item.getName().equals("Milk")) {
                 count++;
             }
-            int expected = 4;
-            int actual = count;
-            assertEquals(expected, actual);
-        
+        }
+
+        int expected = 4;
+        int actual = count;
+        assertEquals(expected, actual);
     }
+
+    
 }
 
 //    @Test

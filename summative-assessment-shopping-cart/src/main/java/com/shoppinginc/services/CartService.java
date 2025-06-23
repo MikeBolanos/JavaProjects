@@ -28,7 +28,7 @@ public class CartService implements CartCommands {
 
         int currentItems;
 
-        for (int i = 0; i < quantity; i++); {
+        for (int i = 0; i < quantity; i++) {
             cartItems.add(item);
         }
     }
