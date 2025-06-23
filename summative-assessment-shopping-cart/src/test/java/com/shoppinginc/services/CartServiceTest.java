@@ -128,6 +128,7 @@ public class CartServiceTest {
 
     @Test
     public void testRemovePartialItem() {
+
         Item bread = catalog.getItemByName("Bread");
 
         cartService.addItem(bread, 5);
@@ -143,21 +144,27 @@ public class CartServiceTest {
 
         assertEquals(expected, count);
     }
-}
 
-//    @Test
-//    public void testRemoveMoreThanItemQuantityInCart() {
-//        Catalog catalog = new Catalog();
-//        CartService cartService = new CartService(catalog);
-//        Item coffee = catalog.getItemByName("Coffee");
-//
-//        cartService.addItem(coffee, 3);
-//        cartService.removeItem("Coffee", 6);
-//
-//        int remainder = cartService.getCartQuantity("Coffee");
-//        assertEquals(0, remainder);
-//    }
-//
+
+    @Test
+    public void testRemoveMoreThanItemQuantityInCart() {
+
+        Item coffee = catalog.getItemByName("Coffee");
+
+        cartService.addItem(coffee, 3);
+        cartService.removeItem("Coffee", 6);
+
+        int count = 0;
+        for (Item item : cartService.getCartItems()) {
+            if (item.getName().equals("Coffee")) {
+                count++;
+            }
+        }
+        int expected = 0;
+
+        assertEquals(expected, count);
+    }
+}
 //    @Test
 //    public void testDisplayCartOneItem() {
 //        Catalog catalog = new Catalog();
