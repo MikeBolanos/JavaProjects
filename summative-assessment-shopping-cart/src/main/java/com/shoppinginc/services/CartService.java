@@ -25,8 +25,9 @@ public class CartService implements CartCommands {
     @Override
     public void addItem(Item item, int quantity) {
         String name = item.getName();
-
-        int currentItems;
+        if (quantity <= 0) {
+            Utils.print("Cannot add zero or negative quantities. Please try again.");
+        }
 
         for (int i = 0; i < quantity; i++) {
             cartItems.add(item);
