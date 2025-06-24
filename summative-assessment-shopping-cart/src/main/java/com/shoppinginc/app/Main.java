@@ -28,6 +28,7 @@ public class Main {
 
             switch (choice) {
                 // 1. View Catalog
+                case 1 -> catalog.displayCatalog();
 
                 // 2. Add Item
 
@@ -40,8 +41,12 @@ public class Main {
                 // 6. Exit
                 case 6 -> {
                     Utils.print("Thank you for shopping with Shopping Inc!");
+                    break;
                 }
+                default -> Utils.print("Invalid choice. Please try again.");
             }
+            looping = (choice != 6);
+
         } while (looping);
 
     }
