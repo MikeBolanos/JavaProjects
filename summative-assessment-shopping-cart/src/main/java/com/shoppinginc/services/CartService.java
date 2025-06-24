@@ -40,7 +40,6 @@ public class CartService implements CartCommands {
     @Override
     public void removeItem(String itemName, int quantity) {
         // Display cart to see if the cart is empty first
-        displayCart();
         double subtotal = displayCartWithSubtotal();
         if (subtotal == 0.0) {
             return;
@@ -116,10 +115,10 @@ public class CartService implements CartCommands {
             int quantity = itemCounts.get(name);
             Item item = mapItem.get(name);
             double price = item.getPrice();
-            double total = quantity * price;
+            double result = quantity * price;
 
-        System.out.printf("%-20s $%5.2f x%-3d = $%6.2f%n", name, price, quantity, total);
-        subtotal += total;
+        System.out.printf("%-20s $%5.2f x%-3d = $%6.2f%n", name, price, quantity, result);
+        subtotal += result;
         }
         System.out.printf("\nSubtotal:$%32.2f%n", subtotal);
         return subtotal;

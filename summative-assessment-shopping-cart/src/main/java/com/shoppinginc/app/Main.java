@@ -42,15 +42,24 @@ public class Main {
                         cart.addItem(item, quantity);
                     }
                 }
+
                 // 3. Remove item
-//                case 3 -> {
-//                    String name = Utils.promptString("Enter an item to remove from the Cart: ");
-//                    int quantity = Utils.promptInt("Enter the quantity to remove: ")
-//                }
+                case 3 -> {
+                    cart.displayCart();
+                    String name = Utils.promptString("Enter an item to remove from the Cart: ");
+                    int quantity = Utils.promptInt("Enter the quantity to remove: ");
+                    cart.removeItem(name, quantity);
+                }
 
                 // 4. View Cart
+                case 4 -> {
+                    cart.displayCart();
+                }
 
                 // 5. Checkout
+                case 5 -> {
+                cart.checkout();
+                }
 
                 // 6. Exit
                 case 6 -> {
