@@ -45,7 +45,10 @@ public class Main {
 
                 // 3. Remove item
                 case 3 -> {
-                    cart.displayCart();
+                    if (cart.isCartEmpty()) {
+                        Utils.print("The cart is empty.");
+                        break;
+                    }
                     String name = Utils.promptString("Enter an item to remove from the Cart: ").trim();
                     int quantity = Utils.promptInt("Enter the quantity to remove: ");
                     cart.removeItem(name, quantity);

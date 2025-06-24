@@ -21,6 +21,11 @@ public class CartService implements CartCommands {
         this.cartItems = new ArrayList<>();
     }
 
+    @Override
+    public boolean isCartEmpty() {
+        return cartItems.isEmpty();
+    }
+
     // Add item method
     @Override
     public void addItem(Item item, int quantity) {
@@ -40,9 +45,8 @@ public class CartService implements CartCommands {
     // Remove item method
     @Override
     public void removeItem(String itemName, int quantity) {
-        // Display cart to see if the cart is empty first
-        double subtotal = displayCartWithSubtotal();
-        if (subtotal == 0.0) {
+        if (isCartEmpty()) {
+            Utils.print("The cart is empty");
             return;
         }
 
@@ -86,7 +90,7 @@ public class CartService implements CartCommands {
     }
 
     public double displayCartWithSubtotal() {
-        if (cartItems.isEmpty()) {
+        if (isCartEmpty()) {
             Utils.print("The cart is empty");
             return 0.0;
         }
@@ -121,7 +125,7 @@ public class CartService implements CartCommands {
         System.out.printf("%-20s $%5.2f x%-3d = $%6.2f%n", name, price, quantity, result);
         subtotal += result;
         }
-        System.out.printf("\nSubtotal:$%32.2f%n", subtotal);
+        System.out.printf("\nSubtotal:%36s%n", String.format("$%.2f", subtotal));
         return subtotal;
     }
 
@@ -130,16 +134,17 @@ public class CartService implements CartCommands {
     @Override
     public void checkout() {
 
-        double subtotal = displayCartWithSubtotal();
-        if (subtotal == 0.0) {
+        if (isCartEmpty()) {
+            Utils.print("The cart is empty");
             return;
         }
+        double subtotal = displayCartWithSubtotal();
         double taxRate = 0.082;
         double salesTax = subtotal * taxRate;
         double total = subtotal + salesTax;
 
-        System.out.printf(" Sales Tax (8.2%%): $%20.2f%n", salesTax);
-        System.out.printf("Total: $%20.2f%n", total);
+        System.out.printf("Sales Tax (8.2%%): %25s%n", String.format("$%.2f", salesTax));
+        System.out.printf("Total:%39s%n", String.format("$%.2f", total));
 
         cartItems.clear();
         Utils.print("\nCheckout process complete.");

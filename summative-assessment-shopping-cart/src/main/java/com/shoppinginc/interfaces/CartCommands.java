@@ -15,4 +15,7 @@ public interface CartCommands {
 
     // Checkout method
     void checkout();
+
+    // Check if cart is empty method
+    boolean isCartEmpty();
 }

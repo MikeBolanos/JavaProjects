@@ -5,6 +5,7 @@ public class Item {
     private final String name;
     private final double price;
 
+
     // Constructor
     public Item(String name, double price) {
         this.name = name;
@@ -25,4 +26,5 @@ public class Item {
     public String toString() {
         return String.format("%-20s$%.2f", name, price);
     }
+
 }
