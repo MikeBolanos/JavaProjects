@@ -1,6 +1,6 @@
 package com.shoppinginc.app;
 
-import com.shoppinginc.interfaces.CartCommands;
+import com.shoppinginc.commands.*;
 import com.shoppinginc.utils.Utils;
 import com.shoppinginc.models.*;
 import com.shoppinginc.services.CartService;
@@ -9,7 +9,7 @@ import com.shoppinginc.services.CartService;
 public class Main {
     public static void main(String[] args) {
         Catalog catalog = new Catalog();
-        CartCommands cart = new CartService();
+        CartService cartService = new CartService();
 
         boolean looping;
 
@@ -39,29 +39,34 @@ public class Main {
                         Utils.print("Item not found");
                     } else {
                         int quantity = Utils.promptInt("Enter quantity: ");
-                        cart.addItem(item, quantity);
+                        Command<Void> addCommand = new AddItemCommand(cartService, item, quantity);
+                        addCommand.execute();
                     }
                 }
 
                 // 3. Remove item
                 case 3 -> {
-                    if (cart.isCartEmpty()) {
+                    Command<Boolean> isEmptyCommand = new IsCartEmptyCommand(cartService);
+                    if (isEmptyCommand.execute()) {
                         Utils.print("The cart is empty.");
                         break;
                     }
                     String name = Utils.promptString("Enter an item to remove from the Cart: ").trim();
                     int quantity = Utils.promptInt("Enter the quantity to remove: ");
-                    cart.removeItem(name, quantity);
+                    Command<Void> removeCommand = new RemoveItemCommand(cartService, name, quantity);
+                    removeCommand.execute();
                 }
 
                 // 4. View Cart
                 case 4 -> {
-                    cart.displayCart();
+                    Command<Void> displayCommand = new DisplayCartCommand(cartService);
+                    displayCommand.execute();
                 }
 
                 // 5. Checkout
                 case 5 -> {
-                cart.checkout();
+                    Command<Void> checkoutCommand = new CheckoutCommand(cartService);
+                checkoutCommand.execute();
                 }
 
                 // 6. Exit

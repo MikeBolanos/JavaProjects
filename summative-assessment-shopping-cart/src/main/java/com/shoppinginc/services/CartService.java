@@ -1,6 +1,5 @@
 package com.shoppinginc.services;
 import com.shoppinginc.models.*;
-import com.shoppinginc.interfaces.CartCommands;
 import com.shoppinginc.utils.Utils;
 import com.shoppinginc.result.Result;
 
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CartService implements CartCommands {
+public class CartService {
 
 
     private final List<Item> cartItems;
@@ -20,13 +19,12 @@ public class CartService implements CartCommands {
         this.cartItems = new ArrayList<>();
     }
 
-    @Override
+
     public boolean isCartEmpty() {
         return cartItems.isEmpty();
     }
 
 
-    @Override
     public void addItem(Item item, int quantity) {
         String name = item.getName();
 
@@ -41,7 +39,7 @@ public class CartService implements CartCommands {
         Utils.print(quantity + " " + item.getName() + " items added to your Cart");
     }
 
-    @Override
+
     public void removeItem(String itemName, int quantity) {
         if (isCartEmpty()) {
             Utils.print("The cart is empty");
@@ -103,7 +101,7 @@ public class CartService implements CartCommands {
         System.out.printf("\nSubtotal:%32s%n", String.format("$%6.2f", subtotal));
     }
 
-    @Override
+
     public void checkout() {
 
         if (isCartEmpty()) {
