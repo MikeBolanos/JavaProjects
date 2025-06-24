@@ -26,5 +26,4 @@ public class Item {
     public String toString() {
         return String.format("%-20s$%.2f", name, price);
     }
-
 }
