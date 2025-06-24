@@ -10,15 +10,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CartService implements CartCommands {
-    // fields
 
-    private final Catalog catalog;
+
     private final List<Item> cartItems;
 
 
-    // Constructor
-    public CartService(Catalog catalog) {
-        this.catalog = catalog;
+
+    public CartService() {
         this.cartItems = new ArrayList<>();
     }
 
@@ -27,7 +25,7 @@ public class CartService implements CartCommands {
         return cartItems.isEmpty();
     }
 
-    // Add item method
+
     @Override
     public void addItem(Item item, int quantity) {
         String name = item.getName();
@@ -43,7 +41,6 @@ public class CartService implements CartCommands {
         Utils.print(quantity + " " + item.getName() + " items added to your Cart");
     }
 
-    // Remove item method
     @Override
     public void removeItem(String itemName, int quantity) {
         if (isCartEmpty()) {
@@ -51,7 +48,6 @@ public class CartService implements CartCommands {
             return;
         }
 
-        // Count of item quantities in current cart
         int currentQuantity = 0;
         for (Item item : cartItems) {
             if (item.getName().equalsIgnoreCase(itemName)) {
@@ -84,7 +80,7 @@ public class CartService implements CartCommands {
         }
     }
 
-    // Display Cart Method
+
     public void displayCart() {
         if (isCartEmpty()) {
             Utils.print("The cart is empty");
@@ -106,7 +102,6 @@ public class CartService implements CartCommands {
         }
         System.out.printf("\nSubtotal:%32s%n", String.format("$%6.2f", subtotal));
     }
-
 
     @Override
     public void checkout() {
@@ -157,5 +152,4 @@ public class CartService implements CartCommands {
     public List<Item> getCartItems() {
         return cartItems;
     }
-
 }

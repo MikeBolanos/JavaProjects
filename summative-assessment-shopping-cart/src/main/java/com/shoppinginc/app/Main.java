@@ -9,7 +9,7 @@ import com.shoppinginc.services.CartService;
 public class Main {
     public static void main(String[] args) {
         Catalog catalog = new Catalog();
-        CartCommands cart = new CartService(catalog);
+        CartCommands cart = new CartService();
 
         boolean looping;
 

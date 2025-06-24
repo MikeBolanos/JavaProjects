@@ -20,7 +20,7 @@ public class CartServiceTest {
     @BeforeEach
     void setUp() {
         catalog = new Catalog();
-        cartService = new CartService(catalog);
+        cartService = new CartService();
     }
 
     @Test

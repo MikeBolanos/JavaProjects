@@ -4,8 +4,8 @@ import com.shoppinginc.models.Item;
 import java.util.Map;
 
 public class Result {
-    private Map<Item, Integer> itemQuantities;
-    private double subtotal;
+    private final Map<Item, Integer> itemQuantities;
+    private final double subtotal;
 
     public Result(Map<Item, Integer> itemQuantities, double subtotal) {
         this.itemQuantities = itemQuantities;
