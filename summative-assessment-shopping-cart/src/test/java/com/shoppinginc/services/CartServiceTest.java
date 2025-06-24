@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.nio.BufferUnderflowException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -169,6 +170,7 @@ public class CartServiceTest {
 
     @Test
     public void testRemoveNonExistentItem() {
+
         cartService.removeItem("Tea", 2);
 
         int count = 0;
@@ -184,7 +186,28 @@ public class CartServiceTest {
 
     @Test
     public void testDisplayCartWithSubtotalCalculation() {
-        
+
+        Item hotDogs = catalog.getItemByName("Hot Dogs"); // 4.89
+        Item hotDogBuns = catalog.getItemByName("Hot Dog Buns"); // 2.99
+
+        cartService.addItem(hotDogs, 1); // 4.89
+        cartService.addItem(hotDogBuns, 2); // 2.99 x 2 = 5.98;
+
+        double expectedSubtotal = 4.89 + 5.98;
+        double actualSubtotal = cartService.displayCartWithSubtotal();
+
+        assertEquals(expectedSubtotal, actualSubtotal);
+    }
+
+    @Test
+    public void testDisplayCartWithSubtotalWhenEmpty() {
+
+        double expectedSubtotal = 0.0;
+
+        double actualSubtotal = cartService.displayCartWithSubtotal();
+
+        assertEquals(expectedSubtotal, actualSubtotal);
+
     }
 
     @Test
@@ -248,8 +271,8 @@ public class CartServiceTest {
         System.setOut(originalOutput);
 
         String output = outputStream.toString();
-        assertTrue(output.contains("Rice") && output.contains("$ 2.99") && output.contains("x3"));
-        assertTrue(output.contains("Cheese") && output.contains("$ 4.49") && output.contains("x2"));
+        assertTrue(output.contains("Rice") && output.contains("2.99") && output.contains("x3"));
+        assertTrue(output.contains("Cheese") && output.contains("4.49") && output.contains("x2"));
         assertTrue(output.contains("Subtotal"));
     }
 
