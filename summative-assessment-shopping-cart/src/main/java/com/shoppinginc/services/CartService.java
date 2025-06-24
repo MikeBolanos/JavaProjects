@@ -91,13 +91,19 @@ public class CartService implements CartCommands {
             return;
         }
 
+        Result result = calculateSubtotal();
+        Map<Item, Integer> items = result.getItemQuantities();
+        double subtotal = result.getSubtotal();
+
         Utils.print("~*~*~*~Shopping Cart~*~*~*~");
 
-        for (Item item : cartItems) {
+        for (Map.Entry<Item, Integer> entry : items.entrySet()) {
+            Item item = entry.getKey();
+            int quantity = entry.getValue();
+            double total = item.getPrice() * quantity;
 
 
-        System.out.printf("%-20s $%5.2f x%-3d= $%6.2f%n", item.getName(), price, quantity, result);
-        subtotal += result;
+        System.out.printf("%-20s $%5.2f x%-3d= $%6.2f%n", item.getName(), item.getPrice(), quantity, total);
         }
         System.out.printf("\nSubtotal:%32s%n", String.format("$%6.2f", subtotal));
     }
