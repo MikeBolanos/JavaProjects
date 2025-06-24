@@ -90,16 +90,10 @@ public class CartService implements CartCommands {
             return;
         }
 
-        Map<Item, Integer> cartSubtotal = getCartSubtotal();
-
-        double subtotal = 0.0;
-
         Utils.print("~*~*~*~Shopping Cart~*~*~*~");
 
-        for(Item item : cartSubtotal.keySet()) {
-            int quantity = cartSubtotal.get(item);
-            double price = item.getPrice();
-            double result = quantity * price;
+        for (Item item : cartItems) {
+
 
         System.out.printf("%-20s $%5.2f x%-3d= $%6.2f%n", item.getName(), price, quantity, result);
         subtotal += result;
@@ -115,7 +109,10 @@ public class CartService implements CartCommands {
             Utils.print("The cart is empty");
             return;
         }
-        double subtotal = displayCart();
+        displayCart();
+
+        double subtotal = 0.0;
+
         double taxRate = 0.082;
         double salesTax = subtotal * taxRate;
         double total = subtotal + salesTax;
@@ -127,10 +124,10 @@ public class CartService implements CartCommands {
         Utils.print("\nCheckout process complete.");
     }
 
-    public Map<Item, Integer> getCartSubtotal() {
-        Map<Item, Integer> subtotal = new HashMap<>();
-        for (Item item : cartItems) {
-            subtotal.put(item, subtotal.getOrDefault(item, 0)+1);
+    public double calculateSubtotal() {
+        double subtotal = 0.0;
+        for(Item item : cartItems) {
+            subtotal += item.getPrice();
         }
         return subtotal;
     }
