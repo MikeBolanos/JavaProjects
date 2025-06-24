@@ -4,7 +4,7 @@ import com.shoppinginc.interfaces.CartCommands;
 import com.shoppinginc.utils.Utils;
 import com.shoppinginc.models.*;
 import com.shoppinginc.services.CartService;
-import jdk.jshell.execution.Util;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -56,7 +56,6 @@ public class Main {
                 case 6 -> {
                     Utils.print("Thank you for shopping with Shopping Inc!");
                     Utils.print("Goodbye!");
-                    break;
                 }
                 default -> Utils.print("Invalid choice. Please try again.");
             }
