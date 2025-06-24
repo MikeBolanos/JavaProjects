@@ -84,33 +84,13 @@ public class CartService implements CartCommands {
     }
 
     // Display Cart Method
-    @Override
-    public void displayCart() {
-        displayCartWithSubtotal();
-    }
-
-    public double displayCartWithSubtotal() {
+    public void displayCartWithSubtotal() {
         if (isCartEmpty()) {
             Utils.print("The cart is empty");
-            return 0.0;
+            return;
         }
 
-        Map<String, Item> mapItem = new HashMap<>(); // item from HashMap
-        Map<String, Integer> itemCounts = new HashMap<>(); // item counts
-
-        for (Item item : cartItems) {
-            String name = item.getName();
-
-            if (catalog.getItemByName(name) == null) {
-                continue;
-            }
-            // Count quantity of items
-            itemCounts.put(name, itemCounts.getOrDefault(name, 0) + 1);
-
-            if (!mapItem.containsKey(name)) {
-                mapItem.put(name, item);
-            }
-        }
+        Map<Item, Integer> subtotal = getCartSubtotal();
 
         double subtotal = 0.0;
 
@@ -126,7 +106,6 @@ public class CartService implements CartCommands {
         subtotal += result;
         }
         System.out.printf("\nSubtotal:%32s%n", String.format("$%6.2f", subtotal));
-        return subtotal;
     }
 
 
@@ -150,7 +129,11 @@ public class CartService implements CartCommands {
     }
 
     public Map<Item, Integer> getCartSubtotal() {
-        
+        Map<Item, Integer> subtotal = new HashMap<>();
+        for (Item item : cartItems) {
+            subtotal.put(item, subtotal.getOrDefault(item, 0)+1);
+        }
+        return subtotal;
     }
 
     // getter for CartItems for use in tests
