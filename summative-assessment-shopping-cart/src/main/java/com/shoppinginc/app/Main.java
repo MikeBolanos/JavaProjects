@@ -33,7 +33,7 @@ public class Main {
 
                 // 2. Add Item
                 case 2 -> {
-                    String name = Utils.promptString("Enter an item from the Catalog: ");
+                    String name = Utils.promptString("Enter an item from the Catalog: ").trim();
                     Item item = catalog.getItemByName(name);
                     if (item == null) {
                         Utils.print("Item not found");
@@ -46,7 +46,7 @@ public class Main {
                 // 3. Remove item
                 case 3 -> {
                     cart.displayCart();
-                    String name = Utils.promptString("Enter an item to remove from the Cart: ");
+                    String name = Utils.promptString("Enter an item to remove from the Cart: ").trim();
                     int quantity = Utils.promptInt("Enter the quantity to remove: ");
                     cart.removeItem(name, quantity);
                 }

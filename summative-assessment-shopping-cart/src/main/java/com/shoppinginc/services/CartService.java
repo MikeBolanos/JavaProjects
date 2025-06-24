@@ -34,6 +34,7 @@ public class CartService implements CartCommands {
         for (int i = 0; i < quantity; i++) {
             cartItems.add(item);
         }
+        Utils.print(quantity + " " + item.getName() + " items added to your Cart");
     }
 
     // Remove item method
