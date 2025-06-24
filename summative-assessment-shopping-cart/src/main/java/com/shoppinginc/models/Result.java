@@ -1,6 +1,5 @@
-package com.shoppinginc.result;
+package com.shoppinginc.models;
 
-import com.shoppinginc.models.Item;
 import java.util.Map;
 
 public class Result {

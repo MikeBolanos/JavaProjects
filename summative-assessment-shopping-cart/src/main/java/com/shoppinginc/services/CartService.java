@@ -1,7 +1,7 @@
 package com.shoppinginc.services;
 import com.shoppinginc.models.*;
 import com.shoppinginc.utils.Utils;
-import com.shoppinginc.result.Result;
+import com.shoppinginc.models.Result;
 
 import java.util.ArrayList;
 import java.util.List;

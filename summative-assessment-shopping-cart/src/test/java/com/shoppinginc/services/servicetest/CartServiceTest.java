@@ -1,7 +1,7 @@
 package com.shoppinginc.services.servicetest;
 
 import com.shoppinginc.models.*;
-import com.shoppinginc.result.Result;
+import com.shoppinginc.models.Result;
 import com.shoppinginc.services.CartService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
