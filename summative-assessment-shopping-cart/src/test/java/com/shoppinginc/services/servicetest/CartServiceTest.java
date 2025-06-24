@@ -1,6 +1,7 @@
 package com.shoppinginc.services.servicetest;
 
 import com.shoppinginc.models.*;
+import com.shoppinginc.result.Result;
 import com.shoppinginc.services.CartService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -185,7 +186,7 @@ public class CartServiceTest {
     }
 
     @Test
-    public void testDisplayCartWithSubtotalCalculation() {
+    public void testCalculateSubtotal() {
 
         Item hotDogs = catalog.getItemByName("Hot Dogs"); // 4.89
         Item hotDogBuns = catalog.getItemByName("Hot Dog Buns"); // 2.99
@@ -194,7 +195,7 @@ public class CartServiceTest {
         cartService.addItem(hotDogBuns, 2); // 2.99 x 2 = 5.98;
 
         double expectedSubtotal = 4.89 + 5.98;
-        double actualSubtotal = cartService.displayCart();
+        Result actualSubtotal = cartService.calculateSubtotal();
 
         assertEquals(expectedSubtotal, actualSubtotal);
     }
