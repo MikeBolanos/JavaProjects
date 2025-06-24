@@ -1,4 +1,4 @@
-package com.shoppinginc.Result;
+package com.shoppinginc.result;
 
 import com.shoppinginc.models.Item;
 import java.util.Map;

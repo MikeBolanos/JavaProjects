@@ -2,6 +2,7 @@ package com.shoppinginc.services;
 import com.shoppinginc.models.*;
 import com.shoppinginc.interfaces.CartCommands;
 import com.shoppinginc.utils.Utils;
+import com.shoppinginc.result.Result;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,12 +125,15 @@ public class CartService implements CartCommands {
         Utils.print("\nCheckout process complete.");
     }
 
-    public double calculateSubtotal() {
+    public Result calculateSubtotal() {
+        Map<Item, Integer> itemQuantities = new HashMap<>();
         double subtotal = 0.0;
+
         for(Item item : cartItems) {
+            itemQuantities.put(item, itemQuantities.getOrDefault(item, 0) +1);
             subtotal += item.getPrice();
         }
-        return subtotal;
+        return new Result(itemQuantities, subtotal);
     }
 
     // getter for CartItems for use in tests
