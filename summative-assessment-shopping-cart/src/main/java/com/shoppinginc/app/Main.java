@@ -31,7 +31,10 @@ public class Main {
                 case 1 -> catalog.displayCatalog();
 
                 // 2. Add Item
-
+                case 2 -> {
+                    String name = Utils.promptString("Enter an item from the Catalog");
+                    Item item = catalog.getItemByName(name);
+                }
                 // 3. Remove item
 
                 // 4. View Cart
