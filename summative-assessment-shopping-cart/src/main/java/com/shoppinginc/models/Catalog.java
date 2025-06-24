@@ -10,11 +10,12 @@ public class Catalog {
     // Constructor
     public Catalog() {
         items = new HashMap<>();
+        loadCatalog();
 
 
     }
     // Catalogue of products
-    private void productMap() {
+    private void loadCatalog() {
         items.put("Apple", new Item("Apple", 0.99));
         items.put("Banana", new Item("Banana", 0.89));
         items.put("Carrot", new Item("Carrot", 0.99));
