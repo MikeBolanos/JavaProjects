@@ -52,4 +52,10 @@ public class MenuHandler {
         }
         return true;
     }
+    public void displayMenu() {
+        Utils.print("\n~*~*~*~ Shopping Inc Menu ~*~*~*~");
+        for (MenuOption option : MenuOption.values()) {
+            Utils.print(option.toString());
+        }
+    }
 }
