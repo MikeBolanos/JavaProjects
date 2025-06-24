@@ -50,7 +50,12 @@ public class Catalog {
 
     // Getters
     public Item getItemByName(String name) {
-        return items.get(name);
+        for (String key : items.keySet()) {
+            if (key.equalsIgnoreCase(name)) {
+                return items.get(key);
+            }
+        }
+        return null;
     }
 
     // Display the Catalog if needed
