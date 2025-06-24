@@ -122,10 +122,10 @@ public class CartService implements CartCommands {
             double price = item.getPrice();
             double result = quantity * price;
 
-        System.out.printf("%-20s $%5.2f x%-3d = $%6.2f%n", name, price, quantity, result);
+        System.out.printf("%-20s $%5.2f x%-3d= $%6.2f%n", name, price, quantity, result);
         subtotal += result;
         }
-        System.out.printf("\nSubtotal:%36s%n", String.format("$%.2f", subtotal));
+        System.out.printf("\nSubtotal:%32s%n", String.format("$%6.2f", subtotal));
         return subtotal;
     }
 
@@ -143,8 +143,8 @@ public class CartService implements CartCommands {
         double salesTax = subtotal * taxRate;
         double total = subtotal + salesTax;
 
-        System.out.printf("Sales Tax (8.2%%): %25s%n", String.format("$%.2f", salesTax));
-        System.out.printf("Total:%39s%n", String.format("$%.2f", total));
+        System.out.printf("Sales Tax (8.2%%): %23s%n", String.format("$%6.2f", salesTax));
+        System.out.printf("Total:%35s%n", String.format("$%6.2f", total));
 
         cartItems.clear();
         Utils.print("\nCheckout process complete.");
