@@ -4,6 +4,7 @@ import com.shoppinginc.interfaces.CartCommands;
 import com.shoppinginc.utils.Utils;
 import com.shoppinginc.models.*;
 import com.shoppinginc.services.CartService;
+import jdk.jshell.execution.Util;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,6 +35,12 @@ public class Main {
                 case 2 -> {
                     String name = Utils.promptString("Enter an item from the Catalog");
                     Item item = catalog.getItemByName(name);
+                    if (item == null) {
+                        Utils.print("Item not found");
+                    } else {
+                        int quantity = Utils.promptInt("Enter quantity");
+                        cart.addItem(item, quantity);
+                    }
                 }
                 // 3. Remove item
 
