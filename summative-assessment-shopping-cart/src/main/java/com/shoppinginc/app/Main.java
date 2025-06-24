@@ -25,19 +25,25 @@ public class Main {
             Utils.print("6. Exit");
 
             int choice = Utils.promptInt("Enter your choice via number(1-6)");
-            // 1. View Catalog
 
-            // 2. Add Item
+            switch (choice) {
+                // 1. View Catalog
 
-            // 3. Remove item
+                // 2. Add Item
 
-            // 4. View Cart
+                // 3. Remove item
 
-            // 5. Checkout
+                // 4. View Cart
 
-            // 6. Exit
-        }
+                // 5. Checkout
 
+                // 6. Exit
+                case 6 -> {
+                    Utils.print("Thank you for shopping with Shopping Inc!");
+                }
+            }
+        } while (looping);
 
     }
+}
 
