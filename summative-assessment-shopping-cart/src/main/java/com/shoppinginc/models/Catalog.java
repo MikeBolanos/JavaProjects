@@ -10,7 +10,7 @@ public class Catalog {
     // Constructor
     public Catalog() {
         items = new HashMap<>();
-        productMap();
+
 
     }
     // Catalogue of products
@@ -58,7 +58,7 @@ public class Catalog {
         return null;
     }
 
-    // Display the Catalog if needed
+    // Display the Catalog
     public void displayCatalog() {
         Utils.print("\n~*~*~*~*~Catalog~*~*~*~*~");
         for (String name : items.keySet()) {
