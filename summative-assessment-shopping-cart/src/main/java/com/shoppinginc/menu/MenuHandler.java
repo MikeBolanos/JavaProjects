@@ -26,7 +26,30 @@ public class MenuHandler {
                 } else {
                     int quantity = Utils.promptInt("Enter quantity: ");
                     new AddItemCommand(cartService, item, quantity).execute();
+                }
             }
+            case REMOVE_ITEM -> {
+                if (new IsCartEmptyCommand(cartService).execute()) {
+                    Utils.print("The cart is empty");
+                    return true;
+                }
+
+                String name = Utils.promptString("Enter an item to remove from the Cart: ").trim();
+                int quantity = Utils.promptInt("Enter the quantity to remove: ");
+                new RemoveItemCommand(cartService, name, quantity).execute();
+            }
+
+            case VIEW_CART -> new DisplayCartCommand(cartService).execute();
+
+            case CHECKOUT -> new CheckoutCommand(cartService).execute();
+
+            case EXIT -> {
+                Utils.print("Thank you for shopping with Shopping Inc!");
+                Utils.print("Goodbye!");
+                return false;
+            }
+            default -> Utils.print("Invalid choice. Please try again.");
         }
+        return true;
     }
 }
