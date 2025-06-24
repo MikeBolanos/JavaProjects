@@ -149,6 +149,10 @@ public class CartService implements CartCommands {
         Utils.print("\nCheckout process complete.");
     }
 
+    public Map<Item, Integer> getCartSubtotal() {
+        
+    }
+
     // getter for CartItems for use in tests
     public List<Item> getCartItems() {
         return cartItems;
