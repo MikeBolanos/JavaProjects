@@ -84,25 +84,24 @@ public class CartService implements CartCommands {
     }
 
     // Display Cart Method
-    public void displayCartWithSubtotal() {
+    public void displayCart() {
         if (isCartEmpty()) {
             Utils.print("The cart is empty");
             return;
         }
 
-        Map<Item, Integer> subtotal = getCartSubtotal();
+        Map<Item, Integer> cartSubtotal = getCartSubtotal();
 
         double subtotal = 0.0;
 
         Utils.print("~*~*~*~Shopping Cart~*~*~*~");
 
-        for(String name : itemCounts.keySet()) {
-            int quantity = itemCounts.get(name);
-            Item item = mapItem.get(name);
+        for(Item item : cartSubtotal.keySet()) {
+            int quantity = cartSubtotal.get(item);
             double price = item.getPrice();
             double result = quantity * price;
 
-        System.out.printf("%-20s $%5.2f x%-3d= $%6.2f%n", name, price, quantity, result);
+        System.out.printf("%-20s $%5.2f x%-3d= $%6.2f%n", item.getName(), price, quantity, result);
         subtotal += result;
         }
         System.out.printf("\nSubtotal:%32s%n", String.format("$%6.2f", subtotal));
@@ -116,7 +115,7 @@ public class CartService implements CartCommands {
             Utils.print("The cart is empty");
             return;
         }
-        double subtotal = displayCartWithSubtotal();
+        double subtotal = displayCart();
         double taxRate = 0.082;
         double salesTax = subtotal * taxRate;
         double total = subtotal + salesTax;

@@ -194,7 +194,7 @@ public class CartServiceTest {
         cartService.addItem(hotDogBuns, 2); // 2.99 x 2 = 5.98;
 
         double expectedSubtotal = 4.89 + 5.98;
-        double actualSubtotal = cartService.displayCartWithSubtotal();
+        double actualSubtotal = cartService.displayCart();
 
         assertEquals(expectedSubtotal, actualSubtotal);
     }
@@ -204,7 +204,7 @@ public class CartServiceTest {
 
         double expectedSubtotal = 0.0;
 
-        double actualSubtotal = cartService.displayCartWithSubtotal();
+        double actualSubtotal = cartService.displayCart();
 
         assertEquals(expectedSubtotal, actualSubtotal);
 
