@@ -197,17 +197,18 @@ public class CartServiceTest {
         double expectedSubtotal = 4.89 + 5.98;
         Result actualSubtotal = cartService.calculateSubtotal();
 
-        assertEquals(expectedSubtotal, actualSubtotal);
+        assertEquals(expectedSubtotal, actualSubtotal.getSubtotal());
     }
 
     @Test
-    public void testDisplayCartWithSubtotalWhenEmpty() {
+    public void testCalculateSubtotalWithEmptyCart() {
 
         double expectedSubtotal = 0.0;
 
-        double actualSubtotal = cartService.displayCart();
+        Result actualSubtotal = cartService.calculateSubtotal();
 
-        assertEquals(expectedSubtotal, actualSubtotal);
+        assertEquals(expectedSubtotal, actualSubtotal.getSubtotal());
+        assertTrue(actualSubtotal.getItemQuantities().isEmpty());
 
     }
 
