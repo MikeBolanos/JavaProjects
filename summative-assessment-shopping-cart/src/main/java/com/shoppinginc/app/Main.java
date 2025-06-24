@@ -25,7 +25,7 @@ public class Main {
             Utils.print("5. Checkout");
             Utils.print("6. Exit");
 
-            int choice = Utils.promptInt("Enter your choice via number(1-6)");
+            int choice = Utils.promptInt("\nEnter your choice via number (1-6): ");
 
             switch (choice) {
                 // 1. View Catalog
@@ -33,16 +33,20 @@ public class Main {
 
                 // 2. Add Item
                 case 2 -> {
-                    String name = Utils.promptString("Enter an item from the Catalog");
+                    String name = Utils.promptString("Enter an item from the Catalog: ");
                     Item item = catalog.getItemByName(name);
                     if (item == null) {
                         Utils.print("Item not found");
                     } else {
-                        int quantity = Utils.promptInt("Enter quantity");
+                        int quantity = Utils.promptInt("Enter quantity: ");
                         cart.addItem(item, quantity);
                     }
                 }
                 // 3. Remove item
+//                case 3 -> {
+//                    String name = Utils.promptString("Enter an item to remove from the Cart: ");
+//                    int quantity = Utils.promptInt("Enter the quantity to remove: ")
+//                }
 
                 // 4. View Cart
 
@@ -51,6 +55,7 @@ public class Main {
                 // 6. Exit
                 case 6 -> {
                     Utils.print("Thank you for shopping with Shopping Inc!");
+                    Utils.print("Goodbye!");
                     break;
                 }
                 default -> Utils.print("Invalid choice. Please try again.");
