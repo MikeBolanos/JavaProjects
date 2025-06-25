@@ -1,6 +1,5 @@
 package com.shoppinginc.commands;
 
-
 import com.shoppinginc.services.CartService;
 
 public class CheckoutCommand implements Command {
@@ -15,5 +14,4 @@ public class CheckoutCommand implements Command {
         cartService.checkout();
         return null;
     }
-
 }

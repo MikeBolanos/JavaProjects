@@ -10,20 +10,15 @@ import java.util.Map;
 
 public class CartService {
 
-
     private final List<Item> cartItems;
-
-
 
     public CartService() {
         this.cartItems = new ArrayList<>();
     }
 
-
     public boolean isCartEmpty() {
         return cartItems.isEmpty();
     }
-
 
     public void addItem(Item item, int quantity) {
         String name = item.getName();
@@ -38,7 +33,6 @@ public class CartService {
         }
         Utils.print(quantity + " " + item.getName() + " items added to your Cart");
     }
-
 
     public void removeItem(String itemName, int quantity) {
         if (isCartEmpty()) {
@@ -78,7 +72,6 @@ public class CartService {
         }
     }
 
-
     public void displayCart() {
         if (isCartEmpty()) {
             Utils.print("The cart is empty");
@@ -100,7 +93,6 @@ public class CartService {
         }
         System.out.printf("\nSubtotal:%32s%n", String.format("$%6.2f", subtotal));
     }
-
 
     public void checkout() {
 

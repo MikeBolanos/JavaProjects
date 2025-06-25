@@ -15,7 +15,7 @@ public class Main {
         CartService cartService = new CartService();
         MenuHandler menu = new MenuHandler(catalog, cartService);
 
-        boolean looping;
+        boolean looping = true;
 
         while (looping) {
             menu.displayMenu();

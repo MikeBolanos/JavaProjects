@@ -9,8 +9,7 @@ public enum MenuOption {
     REMOVE_ITEM(3, "Remove Item from Cart"),
     VIEW_CART(4, "View Cart"),
     CHECKOUT(5, "Checkout"),
-    EXIT(6, "Exit"),
-    ;
+    EXIT(6, "Exit");
 
     private final int number;
     private final String tag;

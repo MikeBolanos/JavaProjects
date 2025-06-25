@@ -12,7 +12,6 @@ public class Catalog {
         items = new HashMap<>();
         loadCatalog();
 
-
     }
     // Catalogue of products
     private void loadCatalog() {

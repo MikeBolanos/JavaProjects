@@ -16,7 +16,6 @@ public class Utils {
         return scanner.nextLine();
     }
 
-
     // Prompt for int
     public static int promptInt(String prompt) {
         int number = 0;
@@ -33,10 +32,8 @@ public class Utils {
                 System.out.println("That is not a valid number. Please try again.");
                 scanner.nextLine();
             }
-
         }
         return number;
     }
-
 }
 
