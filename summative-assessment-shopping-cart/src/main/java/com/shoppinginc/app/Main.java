@@ -1,13 +1,9 @@
 package com.shoppinginc.app;
 
-
 import com.shoppinginc.menu.*;
 import com.shoppinginc.utils.Utils;
 import com.shoppinginc.models.*;
 import com.shoppinginc.services.CartService;
-
-
-
 
 public class Main {
     public static void main(String[] args) {
