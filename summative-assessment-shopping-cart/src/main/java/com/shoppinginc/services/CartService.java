@@ -31,7 +31,7 @@ public class CartService {
         for (int i = 0; i < quantity; i++) {
             cartItems.add(item);
         }
-        Utils.print(quantity + " " + item.getName() + " items added to your Cart");
+        Utils.print(quantity + " " + name + " items added to your Cart");
     }
 
     public void removeItem(String itemName, int quantity) {
