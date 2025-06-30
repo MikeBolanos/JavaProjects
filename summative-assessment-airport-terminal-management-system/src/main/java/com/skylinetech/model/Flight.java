@@ -1,5 +1,6 @@
 package com.skylinetech.model;
 
+import javax.sound.sampled.FloatControl;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -8,4 +9,27 @@ public class Flight {
     private LocalDate departureDate;
     private BigDecimal ticketPrice;
     private Aircraft aircraft;
+
+    public Flight(String flightNumber, LocalDate departureDate, BigDecimal ticketPrice, Aircraft aircraft) {
+        this.flightNumber = flightNumber;
+        this.departureDate = departureDate;
+        this.ticketPrice = ticketPrice;
+        this.aircraft = aircraft;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public LocalDate getDepartureDate() {
+        return departureDate;
+    }
+
+    public BigDecimal getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public Aircraft getAircraft() {
+        return aircraft;
+    }
 }
