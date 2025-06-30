@@ -1,6 +1,5 @@
-package com.skylinetech.model;
+package com.airport.domain.model;
 
-import javax.sound.sampled.FloatControl;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -32,4 +31,6 @@ public class Flight {
     public Aircraft getAircraft() {
         return aircraft;
     }
+
+
 }

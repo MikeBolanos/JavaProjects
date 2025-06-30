@@ -1,4 +1,4 @@
-package com.skylinetech.model;
+package com.airport.domain.model;
 
 public class PrivateJet extends Aircraft {
     private boolean hasLuxuryService;

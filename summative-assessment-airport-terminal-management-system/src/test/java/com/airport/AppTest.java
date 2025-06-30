@@ -1,4 +1,4 @@
-package com.skylinetech;
+package com.airport;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

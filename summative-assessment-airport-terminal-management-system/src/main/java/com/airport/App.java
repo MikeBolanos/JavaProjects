@@ -1,4 +1,4 @@
-package com.skylinetech;
+package com.airport;
 
 /**
  * Hello world!

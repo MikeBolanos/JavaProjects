@@ -1,4 +1,4 @@
-package com.skylinetech.model;
+package com.airport.domain.model;
 
 public class Aircraft {
     private String model;

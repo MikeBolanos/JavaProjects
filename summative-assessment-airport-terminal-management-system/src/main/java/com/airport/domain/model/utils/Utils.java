@@ -1,4 +1,4 @@
-package com.skylinetech.utils;
+package com.airport.domain.model.utils;
 
 import java.util.Scanner;
 
