@@ -19,6 +19,6 @@ public class AddPassengerCommand {
         system.addReservation(flight, passenger);
     }
 
-    
+
 
 }

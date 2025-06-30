@@ -1,18 +1,18 @@
 package com.airport.domain.model;
 
 public class Aircraft {
-    private String model;
+    private String aircraftModel;
     private int capacity;
     private double fuelCapacity; // in liters
 
-    public Aircraft(String model, int capacity, double fuelCapacity) {
-        this.model = model;
+    public Aircraft(String aircraftModel, int capacity, double fuelCapacity) {
+        this.aircraftModel = aircraftModel;
         this.capacity = capacity;
         this.fuelCapacity = fuelCapacity;
     }
 
     public String getModel() {
-        return model;
+        return aircraftModel;
     }
 
     public int getCapacity() {
