@@ -1,4 +1,4 @@
-package com.airport.domain.model.utils;
+package com.airport.domain.utils;
 
 import java.util.Scanner;
 

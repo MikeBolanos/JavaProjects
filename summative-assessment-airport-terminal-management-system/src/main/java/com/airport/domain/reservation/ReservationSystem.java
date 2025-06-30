@@ -1,4 +1,4 @@
-package com.airport.domain.model.reservation;
+package com.airport.domain.reservation;
 
 import com.airport.domain.model.*;
 
