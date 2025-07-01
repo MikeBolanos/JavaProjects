@@ -2,9 +2,7 @@ package com.airport.data;
 
 import com.airport.domain.model.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
@@ -49,7 +47,7 @@ public class CSVUtil {
                 if (!passengerName.equals("None")) {
                     Passenger passenger = new Passenger(passengerName, passportNumber);
 
-                    // Add passenger to map with flightNumber as key
+                    // Add passenger to HashMap with flightNumber as key
                  if (!reservations.containsKey(flightNumber)) {
                     reservations.put(flightNumber, new ArrayList<>());
                 }
@@ -63,9 +61,18 @@ public class CSVUtil {
         return reservations;
     }
 
-    // Save reservations from Map to CSV
-    public void saveReservationsToCSV(String filename, Map<String, List<Passenger>> reservations) {
-        
+    // Save reservations from HashMap to CSV
+    public void saveReservationsToCSV(String filename, Map<String, List<Passenger>> reservations,
+                                      Map<String, Flight> flightDetails) {
+                                    // ^^^ Added HashMap for flight details not included in reservations HashMap.
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename, true))) {
+            // For each flight number in reservations Map, get list of passengers.
+            for (String flightNumber : reservations.keySet()) {
+                List<Passenger> passengers = reservations.get(flightNumber);
+                Flight flight = flightDetails.get(flightNumber);
+
+            }
+        }
     }
 
 }
