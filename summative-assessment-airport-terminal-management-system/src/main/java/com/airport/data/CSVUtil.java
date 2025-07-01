@@ -27,9 +27,10 @@ public class CSVUtil {
                 String flightNumber = parts[0];
                 LocalDate date = LocalDate.parse(parts[1]);
                 BigDecimal price = new BigDecimal(parts[2]);
-                String passengerName = parts[3];
-                String aircraftModel = parts[4];
-                String aircraftType = parts[5];
+                String name = parts[3];
+                String passportNumber = parts [4];
+                String aircraftModel = parts[5];
+                String aircraftType = parts[6];
 
 
                 // Create a Flight object. (Requires Aircraft object)
@@ -41,13 +42,28 @@ public class CSVUtil {
                 } else {
                     aircraft = new PrivateJet(aircraftModel, 0, 0, false, 0);
                 }
-            }
 
+                Flight flight = new Flight(flightNumber, date, price, aircraft);
+
+                // Checking to see if passenger is "None" before creating passenger object.
+                if (!name.equals("None")) {
+                    Passenger passenger = new Passenger(name, passportNumber);
+
+                    // Add passenger to map with flightNumber as key
+                 if (!reservations.containsKey(flightNumber)) {
+                    reservations.put(flightNumber, new ArrayList<>());
+                }
+                reservations.get(flightNumber).add(passenger);
+            }
+        }
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Error reading CSV: " + e.getMessage());
         }
+        return reservations;
     }
 
+    //Save reservations from Map to CSV
+    public void
 
 }
