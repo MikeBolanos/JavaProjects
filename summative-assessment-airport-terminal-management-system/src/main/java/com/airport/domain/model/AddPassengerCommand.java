@@ -3,7 +3,7 @@ package com.airport.domain.model;
 import com.airport.domain.model.*;
 import com.airport.domain.reservation.ReservationSystem;
 
-public class AddPassengerCommand {
+public class AddPassengerCommand implements Command {
     private ReservationSystem system;
     private Flight flight;
     private Passenger passenger;
