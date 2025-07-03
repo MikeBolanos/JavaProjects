@@ -1,6 +1,7 @@
-package com.airport.domain.model;
+package com.airport.domain.command;
 
-import com.airport.domain.model.*;
+import com.airport.domain.model.Flight;
+import com.airport.domain.model.Passenger;
 import com.airport.domain.reservation.ReservationSystem;
 
 public class AddPassengerCommand implements Command {
