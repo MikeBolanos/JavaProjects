@@ -32,7 +32,6 @@ public class CSVUtil {
 
 
                 // Create a Flight object. (Requires Aircraft object)
-
                 Aircraft aircraft;
 
                 if (aircraftType.equalsIgnoreCase("Commercial")) {
@@ -71,8 +70,26 @@ public class CSVUtil {
                 List<Passenger> passengers = reservations.get(flightNumber);
                 Flight flight = flightDetails.get(flightNumber);
 
+                if (flight == null) continue;
+
+                // For each passenger in the list:
+                for (Passenger passenger : passengers) {
+                    String date = flight.getDepartureDate().toString();
+                    String price = flight.getTicketPrice().toString();
+                    String name = passenger.getName();
+                    String passport = passenger.getPassportNumber();
+                    String model = flight.getAircraft().getModel();
+                    String type;
+                    if (flight.getAircraft() instanceof CommercialAircraft) {
+                        type = "Commercial";
+                    } else {
+                        type = "PrivateJet";
+                    }
+                }
+
             }
+        } catch (IOException e) {
+            System.out.println("Error writing to CSV: " + e.getMessage());
         }
     }
-
 }
