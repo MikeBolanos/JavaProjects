@@ -22,7 +22,7 @@ public class ReservationSystem {
     }
 
     // Return all reservations
-    public Map<String, List<Passenger>> getReservations() {
+    public Map<String, List<Passenger>> getAllReservations() {
         return reservations;
     }
 
