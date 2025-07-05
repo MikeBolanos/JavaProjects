@@ -9,20 +9,21 @@ public class ReservationSystem {
     private Map<String, List<Passenger>> reservations = new HashMap<>();
 
     // Add passenger to a flight
-    public void addReservation(Flight flight, Passenger passenger) {
-        String flightNumber = flight.getFlightNumber();
+    public void addReservation(String flightNumber, Passenger passenger) {
 
         // If flight doesn't exit, create new passenger list.
-        if(!reservations.containsKey(flightNumber)) {
-            reservations.put(flightNumber, new ArrayList<>());
-        }
-        reservations.get(flightNumber).add(passenger);
+        reservations.computeIfAbsent(flightNumber, key -> new ArrayList<>()).add(passenger);
     }
 
     // Get all passengers on a flight
     public List<Passenger> getPassengersbyFlight(String flightNumber) {
-        return reservations.getOrDefault(flightNumber, Collections.emptyList());
+        return reservations.getOrDefault(flightNumber, new ArrayList<>());
+
     }
 
+    // Return all reservations
+    public Map<String, List<Passenger>> getReservations() {
+        return reservations;
+    }
 
 }
