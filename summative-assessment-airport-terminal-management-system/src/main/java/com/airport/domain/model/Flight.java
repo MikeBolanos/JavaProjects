@@ -40,7 +40,6 @@ public class Flight {
         } else {
             type = "Private Jet";
         }
-
         return String.format(
                 "Flight: %s | Date: %s | Price: %s | Aircraft: %s (%s)",
                 flightNumber,
