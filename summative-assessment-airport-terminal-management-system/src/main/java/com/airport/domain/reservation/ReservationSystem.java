@@ -5,7 +5,7 @@ import com.airport.domain.model.*;
 import java.util.*;
 
 public class ReservationSystem {
-    // Map= (key) Flight number : (value) List of passengers
+    // Map = (key) Flight number : (value) List of passengers
     private Map<String, List<Passenger>> reservations = new HashMap<>();
 
     // Add passenger to a flight
