@@ -18,7 +18,7 @@ public class AirportTerminalTest {
 
 
     @Test
-    public void testAddReservation() {
+    public void canAddAReservation() {
         // Create Passenger object
         Passenger passenger = new Passenger("Alice", "P12345");
 
@@ -39,7 +39,7 @@ public class AirportTerminalTest {
     }
 
     @Test
-    public void testGetPassengersForFlight() {
+    public void canGetPassengersForFlight() {
 
         // Create Passenger objects
         Passenger passenger1 = new Passenger("Alice", "P12345");
@@ -62,7 +62,7 @@ public class AirportTerminalTest {
     }
 
     @Test
-    public void testSaveAndLoadReservations() {
+    public void canSaveAndLoadReservations() {
         String testFilename = "src/test/resources/reservations.csv";
 
         Map<String, List<Passenger>> reservations = new HashMap<>();
