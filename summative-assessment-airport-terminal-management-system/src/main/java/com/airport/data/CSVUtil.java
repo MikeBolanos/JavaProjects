@@ -61,7 +61,8 @@ public class CSVUtil {
     }
 
     // Save reservations from HashMap to CSV
-    public void saveReservationsToCSV(String filename, Map<String, List<Passenger>> reservations,
+    public static void saveReservationsToCSV(String filename,
+                                      Map<String, List<Passenger>> reservations,
                                       Map<String, Flight> flightDetails) {
                                     // ^^^ Added HashMap for flight details not included in reservations HashMap.
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename, true))) {

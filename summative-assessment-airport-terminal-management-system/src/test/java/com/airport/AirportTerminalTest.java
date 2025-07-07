@@ -1,7 +1,11 @@
 package com.airport;
 
+import com.airport.domain.model.Flight;
 import com.airport.domain.reservation.ReservationSystem;
 import com.airport.domain.model.Passenger;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -19,10 +23,11 @@ public class AirportTerminalTest {
         ReservationSystem reservationSystem = new ReservationSystem();
 
         // Call the addReservation method
+        Flight flight = new Flight("AA101", LocalDate.of(2025, 8, 15), new BigDecimal("299.99"), aircraft);
         reservationSystem.addReservation("AA101",passenger);
 
         // Assert that the reservation was added correctly
-        List<Passenger> passengers = reservationSystem.getPassengersbyFlight("AA101");
+        List<Passenger> passengers = reservationSystem.getPassengersByFlight("AA101");
 
         // Check if passenger is in the list
         assertEquals(1, passengers.size(), "Should only be 1 passenger in the list");
@@ -46,7 +51,7 @@ public class AirportTerminalTest {
         reservationSystem.addReservation("AA101", passenger2);
 
         // Call the getPassengersByFlight method
-        List<Passenger> passengers = reservationSystem.getPassengersbyFlight("AA101");
+        List<Passenger> passengers = reservationSystem.getPassengersByFlight("AA101");
 
         // Assert that the correct list of passengers is returned
         assertEquals(2, passengers.size(), "There should be 2 passengers for flight AA101");

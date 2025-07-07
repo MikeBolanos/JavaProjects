@@ -35,7 +35,7 @@ public class AddPassengerCommand implements Command {
         String passport = Utils.prompt("Enter passport number: ");
 
         Passenger passenger = new Passenger(name, passport);
-        reservationSystem.addReservation(flightNumber, passenger);
+        reservationSystem.addReservation(String flightNumber, passenger);
         Utils.print("Passenger: (" + name + ") added to flight: " + flightNumber);
     }
 }

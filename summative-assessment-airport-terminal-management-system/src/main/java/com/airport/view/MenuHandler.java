@@ -1,5 +1,6 @@
 package com.airport.view;
 
+import com.airport.data.CSVUtil;
 import com.airport.domain.model.Flight;
 import com.airport.domain.model.Passenger;
 import com.airport.domain.repository.FlightRepository;
@@ -69,10 +70,41 @@ public class MenuHandler {
                 String name = Utils.prompt("Enter the passenger's name: ");
                 String passport = Utils.prompt("Enter passport number: ");
                 Passenger passenger = new Passenger(name, passport);
-                reservationSystem.addReservation(selectedFlight.getFlightNumber(), passenger);
+                reservationSystem.addReservation(selectedFlight, passenger);
 
-
+                Utils.print("Passenger: " + name + " added to flight: " + selectedFlight.getFlightNumber());
             }
+            case SAVE_RESERVATIONS -> {
+                CSVUtil.saveReservationsToCSV(
+                        csvFilename,
+                        reservationSystem.getAllReservations(),
+                        reservationSystem.getFlightDetails()
+                );
+                Utils.print("Reservations saved to CSV file.");
+            }
+            case LOAD_RESERVATIONS -> {
+                Map<String, List<Passenger>> loaded = CSVUtil.loadReservationsFromCSV(csvFilename);
+
+                loaded.forEach((flightNumber, passengerList) ->
+                        passengerList.forEach(p ->
+                                reservationSystem.addReservation(flightNumber, p)));
+                Utils.print("Reservations loaded from CSV file");
+            }
+
+            case VIEW_PASSENGERS -> {
+                Map<String, List<Passenger>> allPassengers = reservationSystem.getAllReservations();
+                if(allPassengers.isEmpty()) {
+                    Utils.print("No reservations found.");
+                }
+                allPassengers.forEach((flightNumber, passengers) -> {
+                    Utils.print("\nFlight: " + flightNumber);
+                    passengers.stream()
+                            .map(p -> "- " + p.getName() + " (Passport: " + p.getPassportNumber() + ")")
+                            .forEach(System.out::println);
+                });
+            }
+
+            case EXIT -> Utils.print("Thank you for using the Airport Terminal App! Goodbye!");
         }
     }
 }
