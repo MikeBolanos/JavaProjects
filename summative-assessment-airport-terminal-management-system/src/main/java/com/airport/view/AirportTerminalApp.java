@@ -10,7 +10,7 @@ public class AirportTerminalApp {
     public static void main(String[] args) {
         FlightRepository flightRepository = new SampleFlightRepository();
         ReservationSystem reservationSystem = new ReservationSystem();
-        String csvFilename = "src/main/resources/reservations.csv";
+        String csvFilename = "src/main/data/reservations.csv";
 
         MenuHandler menuHandler = new MenuHandler(
                 flightRepository,

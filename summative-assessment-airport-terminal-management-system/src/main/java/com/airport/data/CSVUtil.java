@@ -85,9 +85,17 @@ public class CSVUtil {
                         type = "Commercial";
                     } else {
                         type = "PrivateJet";
+
+                    writer.println(String.join(",",
+                            flightNumber,
+                            date,
+                            price,
+                            name,
+                            passport,
+                            model,
+                            type));
                     }
                 }
-
             }
         } catch (IOException e) {
             System.out.println("Error writing to CSV: " + e.getMessage());
