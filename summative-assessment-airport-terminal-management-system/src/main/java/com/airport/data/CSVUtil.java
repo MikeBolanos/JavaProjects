@@ -85,7 +85,7 @@ public class CSVUtil {
                         type = "Commercial";
                     } else {
                         type = "PrivateJet";
-
+                    }
                     writer.println(String.join(",",
                             flightNumber,
                             date,
@@ -94,11 +94,24 @@ public class CSVUtil {
                             passport,
                             model,
                             type));
-                    }
                 }
             }
         } catch (IOException e) {
             System.out.println("Error writing to CSV: " + e.getMessage());
+        }
+    }
+
+    public static void clearCSVFile(String filename) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename, false))) {
+            writer.println("FlightNumber," +
+                    "DepartureDate," +
+                    "TicketPrice," +
+                    "PassengerName," +
+                    "PassportNumber," +
+                    "AircraftModel," +
+                    "AircraftType");
+        } catch (IOException e) {
+            System.out.println("Error clearing CSV file: " + e.getMessage());
         }
     }
 }

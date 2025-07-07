@@ -1,6 +1,7 @@
 package com.airport.view;
 
 
+import com.airport.data.CSVUtil;
 import com.airport.data.repository.SampleFlightRepository;
 import com.airport.domain.repository.FlightRepository;
 import com.airport.domain.reservation.ReservationSystem;
@@ -11,11 +12,9 @@ public class AirportTerminalApp {
         FlightRepository flightRepository = new SampleFlightRepository();
         ReservationSystem reservationSystem = new ReservationSystem();
         String csvFilename = "src/main/data/reservations.csv";
+        CSVUtil.clearCSVFile(csvFilename);
 
-        MenuHandler menuHandler = new MenuHandler(
-                flightRepository,
-                reservationSystem,
-                csvFilename);
+        MenuHandler menuHandler = new MenuHandler(flightRepository, reservationSystem, csvFilename);
 
         boolean looping = true;
 
