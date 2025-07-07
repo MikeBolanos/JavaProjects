@@ -16,7 +16,9 @@ public class Utils {
             System.out.println("Enter a valid number: ");
             scanner.nextLine();
         }
-        return scanner.nextInt();
+        int value = scanner.nextInt();
+        scanner.nextLine();
+        return value;
 
     }
 
