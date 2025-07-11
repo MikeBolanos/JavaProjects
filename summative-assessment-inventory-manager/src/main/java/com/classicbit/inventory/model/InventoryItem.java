@@ -13,7 +13,7 @@ public class InventoryItem {
         this.price = price;
     }
 
-    public Console getConsole() { return console;}
+    public Console getConsole() {return console;}
 
     public int getQuantity() {return quantity;}
 

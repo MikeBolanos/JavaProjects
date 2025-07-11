@@ -16,4 +16,6 @@ public interface InventoryRepository {
     void update(InventoryItem item);
 
     void delete(String id);
+
+    InventoryItem getById(String id);
 }
