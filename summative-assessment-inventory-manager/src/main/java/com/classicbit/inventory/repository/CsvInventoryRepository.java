@@ -55,7 +55,7 @@ public class CsvInventoryRepository implements InventoryRepository {
             throw new IllegalArgumentException("Item with ID " + id + " not found");
         }
         inventory.put(id, item);
-        saveToFIle();
+        saveToFile();
     }
 
     @Override
