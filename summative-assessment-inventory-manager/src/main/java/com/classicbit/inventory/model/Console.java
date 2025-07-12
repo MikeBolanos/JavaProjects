@@ -1,6 +1,6 @@
 package com.classicbit.inventory.model;
 
-public record Console(String id, String name, String manufacturer, String releaseYear, String condition) {
+public record Console(String id, String name, String manufacturer, String releaseYear, String regionLock) {
 
     @Override
     public String toString() {
@@ -8,7 +8,7 @@ public record Console(String id, String name, String manufacturer, String releas
                 name,
                 manufacturer,
                 releaseYear,
-                condition);
+                regionLock);
     }
 
 }
