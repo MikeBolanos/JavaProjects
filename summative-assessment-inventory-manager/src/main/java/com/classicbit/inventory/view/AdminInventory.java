@@ -1,24 +1,52 @@
 package com.classicbit.inventory.view;
 
+import com.classicbit.inventory.service.InventoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AdminInventory {
     // Inject InventoryService and AdminInventoryIO
+    private final InventoryService inventoryService;
+    private final AdminInventoryIO adminIO;
+
+    @Autowired
+    public AdminInventory(InventoryService inventoryService, AdminInventoryIO adminIO);
 
     public void run() {
         // display welcome message
+        adminIO.displayWelcome();
 
         // loop until user chooses to quit:
-        // display menu and get user choice
+        boolean running = true;
+        while (running) {
+            // display menu and get user choice
+            int choice = adminIO.displayMenuAndGetChoice();
+            switch (choice) {
+                case 1:
+                    handleAddOrUpdateItem();
+                    break;
 
-        // switch(choice):
-        // case 1: handleAddOrUpdateItem()
-        // case 2: handleRemoveItem()
-        // case 3: handleViewItem()
-        //case 4: handleViewAllItems()
-        // case 5: display goodbye message, exit loop
-        // default: display invalid option
+                case 2:
+                    handleRemoveItem();
+                    break;
+
+                case 3:
+                    handleViewItem();
+                    break;
+
+                case 4:
+                    handleViewAllItems();
+                    break;
+
+                case 5:
+                    running = false;
+                    adminIO.displayGoodbye();
+                    break;
+                default:
+                    adminIO.displayError("Invalid choice. Please try again");
+            }
+        }
     }
 
     private void handleAddOrUpdateItem() {
