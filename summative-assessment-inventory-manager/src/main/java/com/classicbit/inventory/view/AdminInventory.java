@@ -50,6 +50,7 @@ public class AdminInventory {
                         adminIO.displayError("Command not found");
                     }
                 }
+
                 case 5 -> {
                     running = false;
                     adminIO.displayGoodbye();
