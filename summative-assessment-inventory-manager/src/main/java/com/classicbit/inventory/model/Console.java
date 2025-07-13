@@ -1,6 +1,12 @@
 package com.classicbit.inventory.model;
 
-public record Console(String id, String name, String manufacturer, String releaseYear, String regionLock) {
+public record Console(
+        String id,
+        String name,
+        String manufacturer,
+        String releaseYear,
+        String regionLock
+) implements Product {
 
     @Override
     public String toString() {
@@ -11,4 +17,8 @@ public record Console(String id, String name, String manufacturer, String releas
                 regionLock);
     }
 
+    @Override
+    public String getId() {
+        return id;
+    }
 }
