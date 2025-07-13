@@ -47,7 +47,7 @@ public class InventoryService {
         return inventoryRepository.getById(id);
     }
 
-    public List<InventoryItem> getAllItems(String id) {
+    public List<InventoryItem> getAllItems() {
         // Return all items
         return inventoryRepository.getAll();
     }
