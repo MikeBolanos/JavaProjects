@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class CartItem {
-    private final Console console;
+    private final Product console;
     private int quantity;
     private final BigDecimal price;
     private BigDecimal extendedPrice;
@@ -16,7 +16,7 @@ public class CartItem {
         this.extendedPrice = extendedPrice;
     }
 
-    public Console getConsole() {return console;}
+    public Product getConsole() {return console;}
 
     public int getQuantity() {return quantity;}
 
