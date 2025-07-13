@@ -14,7 +14,7 @@ public class ViewAllItemsCommand implements Command {
         this.inventoryService = inventoryService;
         this.adminIO = adminIO;
     }
-    
+
     @Override
     public void execute() {
         adminIO.displaySectionHeader("All Inventory Items");
