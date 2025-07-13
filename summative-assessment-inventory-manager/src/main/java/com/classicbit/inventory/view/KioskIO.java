@@ -158,5 +158,4 @@ public class KioskIO {
 
         return input.equals("y") || input.equals("yes");
     }
-
 }
