@@ -43,7 +43,7 @@ public class CsvInventoryRepository implements InventoryRepository {
         if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");
         }
-        inventory.put(item.getConsole().getId(), item);
+        inventory.put(item.getProduct().getId(), item);
         saveToFile();
     }
 
@@ -52,7 +52,7 @@ public class CsvInventoryRepository implements InventoryRepository {
         if (item == null) {
             throw new IllegalArgumentException("Item cannot be null");
         }
-        String id = item.getConsole().getId();
+        String id = item.getProduct().getId();
         if (!inventory.containsKey(id)) {
             throw new IllegalArgumentException("Item with ID " + id + " not found");
         }
@@ -135,7 +135,7 @@ public class CsvInventoryRepository implements InventoryRepository {
     private void saveToFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
             for (InventoryItem item : inventory.values()) {
-                Product product = item.getConsole();
+                Product product = item.getProduct();
 
                 if (product instanceof RareConsole rare) {
                     Console base = rare.getBaseConsole();

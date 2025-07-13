@@ -9,14 +9,14 @@ public class CartItem {
     private final BigDecimal price;
     private BigDecimal extendedPrice;
 
-    public CartItem(Console console, int quantity, BigDecimal price, BigDecimal extendedPrice) {
+    public CartItem(Product console, int quantity, BigDecimal price, BigDecimal extendedPrice) {
         this.console = console;
         this.quantity = quantity;
         this.price = price;
         this.extendedPrice = extendedPrice;
     }
 
-    public Product getConsole() {return console;}
+    public Product getProduct() {return console;}
 
     public int getQuantity() {return quantity;}
 
