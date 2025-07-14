@@ -25,7 +25,7 @@ public class InventoryManagerApp implements CommandLineRunner {
 	 * Example line in properties: classicbit.mode=admin
 	 */
 
-	@Value("${classicbit.mode:kiosk}")
+	@Value("${ui.mode:kiosk}")
 	private String mode;
 
 	public static void main(String[] args) {

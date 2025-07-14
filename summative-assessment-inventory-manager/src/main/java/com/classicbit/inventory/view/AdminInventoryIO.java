@@ -21,6 +21,7 @@ public class AdminInventoryIO {
 
     public void displayWelcome() {
         // print welcome header
+        System.out.println();
         System.out.println("================================================");
         System.out.println("  Welcome to the ClassicBit Inventory Manager!  ");
         System.out.println("================================================");
@@ -43,7 +44,7 @@ public class AdminInventoryIO {
         System.out.println("5. Quit");
         System.out.println();
         // return get user input as int
-        return getIntegerInputWithDefault("Please select an option (1-5); ", -1);
+        return getIntegerInputWithDefault("Please select an option (1-5): ", -1);
     }
     public void displaySectionHeader(String title) {
         // visually separate sections (like "=== ADD ITEM ===")
@@ -82,11 +83,11 @@ public class AdminInventoryIO {
     public void displayInventoryItems(List<InventoryItem> items) {
         // print table headers
         // print each item: ID, name, type, quantity, price, etc.
-        System.out.println("══════════════════════════════════════════════════════════════════════════════");
+        System.out.println("═════════════════════════════════════════════════════════════════════════════════════════");
         System.out.println("                                INVENTORY LIST");
-        System.out.println("══════════════════════════════════════════════════════════════════════════════");
-        System.out.printf("%-10s %-30s %-15s %-12s %5s %10s%n", "ID", "NAME", "MAKER", "REGION", "QTY", "PRICE");
-        System.out.println("──────────────────────────────────────────────────────────────────────────────");
+        System.out.println("═════════════════════════════════════════════════════════════════════════════════════════");
+        System.out.printf("%-10s %-30s %-15s %-12s %6s %10s%n", "ID", "NAME", "MAKER", "REGION", "QTY", "PRICE");
+        System.out.println("─────────────────────────────────────────────────────────────────────────────────────────");
 
         for (InventoryItem item : items) {
             Product product = item.getProduct();
@@ -109,17 +110,21 @@ public class AdminInventoryIO {
             int quantity = item.getQuantity();
             BigDecimal price = item.getPrice();
 
+            if (name.length() > 30) {
+                name = name.substring(0, 27) + "...";
+            }
+
             System.out.printf("%-10s %-30s %-15s %-12s %5d   $%8.2f%n",
                     id, name, maker, region, quantity, price);
         }
 
-        System.out.println("══════════════════════════════════════════════════════════════════════════════");
+        System.out.println("═════════════════════════════════════════════════════════════════════════════════════════");
 
     }
 
     public void displaySingleItem(InventoryItem item) {
         // print detailed view of one item
-        System.out.println("══════════════════════════════════════════════════════════════════════════════");
+        System.out.println("\n══════════════════════════════════════════════════════════════════════════════");
         System.out.println("                               ITEM DETAILS");
         System.out.println("══════════════════════════════════════════════════════════════════════════════");
 
@@ -135,17 +140,17 @@ public class AdminInventoryIO {
             return;
         }
 
-        System.out.printf("ID:           %s%n", console.id());
-        System.out.printf("Name:         %s%n", console.name());
-        System.out.printf("Manufacturer: %s%n", console.manufacturer());
-        System.out.printf("Release Year: %s%n", console.releaseYear());
-        System.out.printf("Region Lock:  %s%n", console.regionLock());
-        System.out.printf("Quantity:     %d%n", item.getQuantity());
-        System.out.printf("Price:        $%.2f%n", item.getPrice());
+        System.out.printf("ID:              %s%n", console.id());
+        System.out.printf("Name:            %s%n", console.name());
+        System.out.printf("Manufacturer:    %s%n", console.manufacturer());
+        System.out.printf("Release Year:    %s%n", console.releaseYear());
+        System.out.printf("Region Lock:     %s%n", console.regionLock());
+        System.out.printf("Quantity:        %d%n", item.getQuantity());
+        System.out.printf("Price:           $%.2f%n", item.getPrice());
 
         if (product instanceof RareConsole rare) {
-            System.out.printf("Rarity:       %s%n", rare.rarity());
-            System.out.printf("Certificate:  %s%n", rare.certificate());
+            System.out.printf("Rarity:          %s%n", rare.rarity());
+            System.out.printf("Certificate:     %s%n", rare.certificate());
         }
 
         System.out.println("══════════════════════════════════════════════════════════════════════════════");
