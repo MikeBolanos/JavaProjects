@@ -86,14 +86,12 @@ public class CsvInventoryRepository implements InventoryRepository {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             boolean isFirstLine = true;
+
             while ((line = reader.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
                     continue;
                 }
-            }
-
-            while ((line = reader.readLine()) != null) {
                 if (line.trim().isEmpty()) {
                     continue;
                 }

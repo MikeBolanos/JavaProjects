@@ -46,6 +46,7 @@ public class CSVInventoryTests {
     @Test
     void canLoadDataFromCsv() {
         List<InventoryItem> items = inventoryRepository.getAll();
+        items.forEach(item -> System.out.println(item.getProduct().getId()));
         assertEquals(3, items.size(), "CSV should load exactly 3 items from seed file");
     }
 

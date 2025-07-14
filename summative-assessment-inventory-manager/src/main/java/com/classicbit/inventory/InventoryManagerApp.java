@@ -36,7 +36,6 @@ public class InventoryManagerApp implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
-		if (Arrays.stream(args).anyMatch(arg -> arg.contains("test"))) return;
 
 		if (mode.equalsIgnoreCase("admin")) {
 			adminInventory.run();
