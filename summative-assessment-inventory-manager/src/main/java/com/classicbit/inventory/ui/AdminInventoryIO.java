@@ -1,4 +1,4 @@
-package com.classicbit.inventory.view;
+package com.classicbit.inventory.ui;
 
 import com.classicbit.inventory.model.Console;
 import com.classicbit.inventory.model.InventoryItem;

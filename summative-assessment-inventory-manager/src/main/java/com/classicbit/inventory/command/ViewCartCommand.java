@@ -3,7 +3,7 @@ package com.classicbit.inventory.command;
 import com.classicbit.inventory.model.CartItem;
 import com.classicbit.inventory.model.Result;
 import com.classicbit.inventory.service.CartService;
-import com.classicbit.inventory.view.KioskIO;
+import com.classicbit.inventory.ui.KioskIO;
 
 import java.math.BigDecimal;
 import java.util.List;

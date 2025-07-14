@@ -1,14 +1,12 @@
 package com.classicbit.inventory;
 
-import com.classicbit.inventory.view.AdminInventory;
-import com.classicbit.inventory.view.Kiosk;
+import com.classicbit.inventory.ui.AdminInventory;
+import com.classicbit.inventory.ui.Kiosk;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Arrays;
 
 @SpringBootApplication // Enables component scanning and auto-configuration
 public class InventoryManagerApp implements CommandLineRunner {

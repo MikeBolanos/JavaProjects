@@ -2,7 +2,7 @@ package com.classicbit.inventory.command;
 
 import com.classicbit.inventory.model.InventoryItem;
 import com.classicbit.inventory.service.InventoryService;
-import com.classicbit.inventory.view.AdminInventoryIO;
+import com.classicbit.inventory.ui.AdminInventoryIO;
 
 import java.util.List;
 

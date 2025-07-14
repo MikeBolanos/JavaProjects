@@ -5,7 +5,7 @@ import com.classicbit.inventory.model.InventoryItem;
 import com.classicbit.inventory.model.Product;
 import com.classicbit.inventory.model.RareConsole;
 import com.classicbit.inventory.service.InventoryService;
-import com.classicbit.inventory.view.AdminInventoryIO;
+import com.classicbit.inventory.ui.AdminInventoryIO;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
