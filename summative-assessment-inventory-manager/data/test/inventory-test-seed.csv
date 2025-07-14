@@ -1,0 +1,4 @@
+id,name,manufacturer,releaseYear,regionLock,quantity,price,rarity,certificate
+RareVB,Virtual Boy JP Model,Nintendo,1995,NTSC-J,1,1399.99,Legendary,COA-9988
+GBA,Game Boy Advance,Nintendo,2001,Region-Free,7,89.99,,
+GCN,GameCube,Nintendo,2001,NTSC-U,5,119.99,,

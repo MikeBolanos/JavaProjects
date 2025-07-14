@@ -8,6 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+
 @SpringBootApplication // Enables component scanning and auto-configuration
 public class InventoryManagerApp implements CommandLineRunner {
 
@@ -34,6 +36,8 @@ public class InventoryManagerApp implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) {
+		if (Arrays.stream(args).anyMatch(arg -> arg.contains("test"))) return;
+
 		if (mode.equalsIgnoreCase("admin")) {
 			adminInventory.run();
 		} else {
