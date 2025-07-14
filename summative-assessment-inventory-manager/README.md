@@ -1,178 +1,126 @@
+# ClassicBit Inventory Manager
 
-# 🎮 ClassicBit Inventory Manager
-
-**ClassicBit Inventory Manager** is a Spring Boot console application designed to manage and simulate an inventory of retro video game consoles. It supports two interactive modes:
-
-- 🧑‍💼 **Admin Mode** – for managing inventory: add, update, remove, or view items.
-- 🛒 **Kiosk Mode** – for customers to browse consoles, add them to a cart, and checkout.
+The **ClassicBit Inventory Manager** is a Java + Spring Boot application for managing an inventory of retro video game consoles. It supports both an **Admin Mode** (for managing inventory) and a **Kiosk Mode** (for customers to shop and checkout). The application supports both **in-memory** and **CSV-based** inventory repositories.
 
 ---
 
-## 📦 Project Structure
+## 🗂 Project Structure
 
 ```
-classicbit.inventory/
-├── config/               # Inventory configuration (switch CSV/in-memory)
-├── model/                # Product models: Console, RareConsole, etc.
-├── repository/           # Repository interfaces and implementations
-├── service/              # Business logic for inventory and cart
-├── view/                 # AdminInventory, Kiosk, and IO classes
-├── command/              # Command pattern implementation
-├── InventoryManagerApp.java # Main Spring Boot application class
-├── application.properties    # Mode and repo configuration
-└── data/inventory.csv        # CSV inventory (optional, auto-created)
+com.classicbit.inventory
+│
+├── config          # Configuration for selecting repository (memory or csv)
+├── model           # Data models: Console, RareConsole, InventoryItem, CartItem, etc.
+├── repository      # Inventory repository interfaces and implementations
+├── service         # Business logic: CartService and InventoryService
+├── view            # User Interfaces for Admin (AdminInventory) and Kiosk (Kiosk)
+├── command         # Command pattern implementation for handling user actions
+└── InventoryManagerApp.java  # Entry point using Spring Boot
 ```
 
 ---
 
-## 🛠 Requirements
+## 💡 How It Works
 
-- **Java 21**
-- **Maven 3.9+**
-- Terminal / command line access
+### Launching the App
 
----
-
-## 🚀 Running the App
-
-1. **Clone the repo:**
-
-```bash
-git clone https://github.com/your-username/classicbit-inventory.git
-cd classicbit-inventory
-```
-
-2. **Configure the mode and repository:**
-
-Edit `src/main/resources/application.properties`:
+The app starts in either Admin or Kiosk mode, depending on this setting in `application.properties`:
 
 ```properties
-# Choose "admin" or "kiosk"
-ui.mode=admin
-
-# Choose "csv" or "memory"
-inventory.repository.type=csv
-
-# If using CSV, set the filepath
-inventory.csv.filepath=data/inventory.csv
+ui.mode=admin       # or kiosk
+inventory.repository.type=csv   # or memory
 ```
 
-> ✅ The app defaults to `kiosk` mode with CSV-based inventory.
-
-3. **Build and run:**
+Run the app using:
 
 ```bash
 mvn spring-boot:run
 ```
 
+### Admin Mode
+Use this to manage the inventory (add, update, remove, view consoles).
+
+### Kiosk Mode
+Use this for customer-facing interaction (add to cart, remove from cart, checkout).
+
 ---
 
-## 🧑‍💼 Admin Mode
+## 📦 Packages Overview
 
-Run with `ui.mode=admin`
+### `config`
+- **InventoryConfig** – Configures which repository implementation is used (CSV or in-memory) via `application.properties`.
 
-### 📋 Features:
+### `model`
+- **Console** – Represents a base console with attributes like name, manufacturer, year, region.
+- **RareConsole** – Wraps a Console with extra rarity and certificate information.
+- **Product (interface)** – Implemented by Console and RareConsole.
+- **InventoryItem** – Associates a Product with quantity and price in the inventory.
+- **CartItem** – Represents an item placed in the customer's shopping cart.
+- **Result<T>** – Encapsulates the result of service operations (success/failure messages).
 
-- Add or update console inventory
-- Remove consoles by ID
-- View a specific console
-- View full inventory list
+### `repository`
+- **InventoryRepository (interface)** – Defines CRUD methods for managing inventory.
+- **InMemoryInventoryRepository** – In-memory version with sample consoles preloaded.
+- **CsvInventoryRepository** – Reads/writes inventory to a CSV file.
 
-### 🧪 Sample Flow:
+### `service`
+- **InventoryService** – Provides methods to add, update, remove, and retrieve inventory items.
+- **CartService** – Manages the customer’s cart and checkout process.
 
+### `view`
+- **AdminInventory** – Admin menu handler, tied to the Command pattern.
+- **AdminInventoryIO** – Handles admin input/output and console display formatting.
+- **Kiosk** – Customer-facing menu handler.
+- **KioskIO** – Handles customer input/output for cart and checkout.
+
+### `command`
+- **Command (interface)** – Base interface for all user actions.
+- **AddOrUpdateItemCommand, RemoveItemCommand, etc.** – Execute specific actions for admin or kiosk.
+
+---
+
+## 📋 Sample `application.properties`
+
+```properties
+# App metadata
+spring.application.name=summative-assessment-inventory-manager
+
+# Choose UI mode: admin or kiosk
+ui.mode=kiosk
+
+# Choose inventory repository type: memory or csv
+inventory.repository.type=csv
+
+# Path to CSV file (used if CSV mode is selected)
+inventory.csv.filepath=data/inventory.csv
 ```
-=== ADMIN INVENTORY MANAGEMENT MENU ===
-1. Add or Update inventory item
-2. Remove inventory item
-3. View inventory item by ID
-4. View all inventory items
-5. Quit
-
-Please select an option (1-5): 1
-Enter console ID: NES
-Enter name: Nintendo Entertainment System
-...
-✓ Successfully updated 'NES'
-```
 
 ---
 
-## 🛒 Kiosk Mode
+## ✅ Features
 
-Run with `ui.mode=kiosk`
+### Admin Features
+- Add or update an inventory item
+- Remove an inventory item
+- View details of a single item
+- View all inventory items
 
-### 🛍 Features:
-
-- Add console to shopping cart
-- Remove from cart
-- View cart
-- Checkout and update stock
-
-### 💳 Sample Flow:
-
-```
-=== MAIN MENU ===
-1. Add console to cart
-2. Remove console from cart
-3. View cart
-4. Checkout
-5. Quit
-
-Please select an option (1-5): 1
-Enter console ID to add to cart: SNES
-Enter quantity: 2
-✓ Added 2 of 'Super Nintendo Entertainment System' to cart
-```
+### Kiosk Features
+- Add a console to cart
+- Remove a console from cart
+- View cart contents
+- Checkout and update inventory
 
 ---
 
-## 🗃 CSV Inventory Format
+## 📦 Inventory Sample Types
 
-The file at `data/inventory.csv` stores both regular and rare consoles:
-
-- Regular Console:
-  ```
-  NES,Nintendo Entertainment System,Nintendo,1985,NTSC-U,5,89.99
-  ```
-
-- Rare Console:
-  ```
-  Rare,RareNES,Nintendo Entertainment System,Nintendo,1985,NTSC-U,Gold Edition,Certificate #NES123,1,899.99
-  ```
-
-The system will automatically create or update this file on inventory changes.
+- **Console:** Regular classic systems (NES, SNES, Sega Genesis, etc.)
+- **RareConsole:** Limited editions or developer/test variants with rarity and certificate details
 
 ---
 
-## 🧪 Testing Options
-
-To simplify testing:
-
-- Set `inventory.repository.type=memory` for sample data (no CSV file required).
-- Change `ui.mode` in `application.properties` to switch modes.
-
----
-
-## 📚 Technologies Used
-
-- Java 21
-- Spring Boot 3.4.7
-- Maven
-- Command-line interface (Scanner-based)
-- Command Pattern
-- Object-Oriented Design (Inheritance, Polymorphism)
-
----
-
-## 🕹 Sample Rare Consoles (Memory Mode)
-
-| ID         | Name                                | Rarity            | Certificate              |
-|------------|-------------------------------------|-------------------|--------------------------|
-| RareNES    | Nintendo Entertainment System       | Gold Edition      | Certificate #NES123      |
-| RareSNES   | Super Nintendo Dev Kit              | Developer Unit    | Verified SNES Dev Unit   |
-| RareVB     | Virtual Boy JP Model                | Low Production    | Signed by Designer       |
-| RareXBOX   | Xbox Halo Edition                   | Limited Edition   | Certificate #117         |
-
-To try these out, use `inventory.repository.type=memory`.
-
----
+## 📎 Notes
+- CSV files are stored in `data/inventory.csv` (modifiable)
+- All inputs are validated for correctness and quantity/stock limits
+- Uses Command pattern to handle user actions
