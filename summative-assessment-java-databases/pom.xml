@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.jdbc</groupId>
-	<artifactId>summative</artifactId>
+	<artifactId>summative-java-databases</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>summative</name>
 	<description>Summative project for databases in Java</description>
