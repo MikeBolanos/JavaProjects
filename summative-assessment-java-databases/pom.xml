@@ -11,7 +11,7 @@
 	<groupId>com.example.jdbc</groupId>
 	<artifactId>summative-java-databases</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>summative</name>
+	<name>summative-assessment-java-databases</name>
 	<description>Summative project for databases in Java</description>
 	<url/>
 	<licenses>
