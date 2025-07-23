@@ -1,8 +1,8 @@
 package com.example.jdbc.summative.service;
 
-import com.example.jdbc.summative.data.*;
 import com.example.jdbc.summative.data.exceptions.InternalErrorException;
 import com.example.jdbc.summative.data.exceptions.RecordNotFoundException;
+import com.example.jdbc.summative.data.interfaces.*;
 import com.example.jdbc.summative.model.*;
 import org.springframework.stereotype.Service;
 

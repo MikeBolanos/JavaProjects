@@ -1,4 +1,4 @@
-package com.example.jdbc.summative.data;
+package com.example.jdbc.summative.data.interfaces;
 
 import com.example.jdbc.summative.data.exceptions.InternalErrorException;
 import com.example.jdbc.summative.model.PaymentType;
