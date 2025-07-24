@@ -6,6 +6,14 @@ public class InternalErrorException extends Exception {
         e.printStackTrace();
     }
 
+    public InternalErrorException(String message) {
+        super(message);
+    }
+
+    public InternalErrorException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
     public InternalErrorException() {
         super(new Exception("Database error."));
     }
