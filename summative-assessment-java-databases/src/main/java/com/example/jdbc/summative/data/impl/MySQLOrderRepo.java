@@ -23,28 +23,33 @@ import java.util.List;
 
 @Repository
 public class MySQLOrderRepo implements OrderRepo {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    private OrderRowMapper orderRowMapper;
+    private final JdbcTemplate jdbcTemplate;
+    private final OrderRowMapper orderRowMapper;
+    private final ServerRowMapper serverRowMapper;
+    private final OrderItemRowMapper orderItemRowMapper;
+    private final PaymentRowMapper paymentRowMapper;
 
-    @Autowired
-    private ServerRowMapper serverRowMapper;
+    public MySQLOrderRepo(JdbcTemplate jdbcTemplate,
+                          OrderRowMapper orderRowMapper,
+                          ServerRowMapper serverRowMapper,
+                          OrderItemRowMapper orderItemRowMapper,
+                          PaymentRowMapper paymentRowMapper) {
 
-    @Autowired
-    private OrderItemRowMapper orderItemRowMapper;
-
-    @Autowired
-    private PaymentRowMapper paymentRowMapper;
-
-
-
+        this.jdbcTemplate = jdbcTemplate;
+        this.orderRowMapper = orderRowMapper;
+        this.serverRowMapper = serverRowMapper;
+        this.orderItemRowMapper = orderItemRowMapper;
+        this.paymentRowMapper = paymentRowMapper;
+    }
 
     @Override
     public Order getOrderById(int id) throws RecordNotFoundException, InternalErrorException {
         // Get Order
-        String sql = "Select * From `Order` WHERE orderID = ?";
+        String sql = """
+            Select * From `Order`
+            WHERE orderID = ?
+        """;
         List<Order> orders = jdbcTemplate.query(sql, orderRowMapper, id);
 
         if (orders.isEmpty()) {
@@ -54,9 +59,9 @@ public class MySQLOrderRepo implements OrderRepo {
 
         // Get Server
         String serverSql = """ 
-                Select * FROM Server
-                WHERE serverID = ?
-                """;
+            Select * FROM Server
+            WHERE serverID = ?
+        """;
         Server server = jdbcTemplate.queryForObject(serverSql,
                 serverRowMapper,
                 order.getServerID());
@@ -64,9 +69,9 @@ public class MySQLOrderRepo implements OrderRepo {
 
         // Get OrderItems
         String itemSql = """
-                    SELECT * FROM OrderItem
-                    WHERE orderId = ?
-                    """;
+            SELECT * FROM OrderItem
+            WHERE orderId = ?
+        """;
         List<OrderItem> items = jdbcTemplate.query(itemSql,
                 orderItemRowMapper,
                 id);
@@ -74,9 +79,9 @@ public class MySQLOrderRepo implements OrderRepo {
 
         // Get Payments
         String paymentSql = """
-                SELECT * FROM Payment
-                WHERE orderID = ?
-                """;
+            SELECT * FROM Payment
+            WHERE orderID = ?
+        """;
         List<Payment> payments = jdbcTemplate.query(paymentSql,
                 paymentRowMapper,
                 id);
@@ -95,18 +100,30 @@ public class MySQLOrderRepo implements OrderRepo {
         for (Order order : orders) {
             int orderId = order.getOrderID();
 
-            // Step 2: Fetch and set the server for each order
-            String serverSql = "SELECT * FROM Server WHERE serverID = ?";
+            // Fetch and set the server for each order
+            String serverSql = """
+                SELECT * FROM Server
+                WHERE serverID = ?
+            """;
+
             Server server = jdbcTemplate.queryForObject(serverSql, serverRowMapper, order.getServerID());
             order.setServer(server);
 
-            // Step 3: Fetch and set order items for each order
-            String itemsSql = "SELECT * FROM OrderItem WHERE orderID = ?";
+            // Fetch and set order items for each order
+            String itemsSql = """
+                SELECT * FROM OrderItem
+                WHERE orderID = ?
+            """;
+
             List<OrderItem> items = jdbcTemplate.query(itemsSql, orderItemRowMapper, orderId);
             order.setItems(items);
 
-            // Step 4: Fetch and set payments for each order
-            String paymentSql = "SELECT * FROM Payment WHERE orderID = ?";
+            // Fetch and set payments for each order
+            String paymentSql = """
+                SELECT * FROM Payment
+                WHERE orderID = ?
+            """;
+
             List<Payment> payments = jdbcTemplate.query(paymentSql, paymentRowMapper, orderId);
             order.setPayments(payments);
         }
@@ -116,7 +133,7 @@ public class MySQLOrderRepo implements OrderRepo {
 
     @Override
     public Order addOrder(Order order) throws InternalErrorException {
-        // Step 1: Insert into Order table and get generated orderID
+        // Insert into Order table and get generated orderID
         String sql = """
         INSERT INTO `Order` (serverID, orderDate, subTotal, tax, tip, total)
         VALUES (?, ?, ?, ?, ?, ?)
@@ -138,7 +155,7 @@ public class MySQLOrderRepo implements OrderRepo {
         int orderID = keyHolder.getKey().intValue();
         order.setOrderID(orderID);
 
-        // Step 2: Insert OrderItems for this order
+        // Insert OrderItems for this order
         String itemSql = """
         INSERT INTO OrderItem (orderID, itemID, quantity, price)
         VALUES (?, ?, ?, ?)
@@ -153,7 +170,7 @@ public class MySQLOrderRepo implements OrderRepo {
             );
         }
 
-        // Step 3: Insert Payments for this order
+        // Insert Payments for this order
         String paymentSql = """
         INSERT INTO Payment (orderID, paymentTypeID, amount)
         VALUES (?, ?, ?)
@@ -210,7 +227,7 @@ public class MySQLOrderRepo implements OrderRepo {
             );
         }
 
-        // Step 3: Delete old Payments and re-insert the new ones
+        // Delete old Payments and re-insert the new ones
         jdbcTemplate.update("DELETE FROM Payment WHERE orderID = ?", order.getOrderID());
 
         String paymentSql = """
@@ -234,15 +251,24 @@ public class MySQLOrderRepo implements OrderRepo {
         Order order = getOrderById(id);
 
         // Delete OrderItems
-        String deleteItemsSql = "DELETE FROM OrderItem WHERE orderID = ?";
+        String deleteItemsSql = """
+            DELETE FROM OrderItem
+            WHERE orderID = ?
+        """;
         jdbcTemplate.update(deleteItemsSql, id);
 
         // Delete Payments
-        String deletePaymentsSql = "DELETE FROM Payment WHERE orderID = ?";
+        String deletePaymentsSql = """
+            DELETE FROM Payment
+            WHERE orderID = ?
+        """;
         jdbcTemplate.update(deletePaymentsSql, id);
 
         // Delete the Order
-        String deleteOrderSql = "DELETE FROM `Order` WHERE orderID = ?";
+        String deleteOrderSql = """
+            DELETE FROM `Order`
+            WHERE orderID = ?
+        """;
         jdbcTemplate.update(deleteOrderSql, id);
 
         return order;

@@ -30,8 +30,8 @@ public class MySQLItemRepo implements ItemRepo {
     @Override
     public Item getItemById(int id) throws RecordNotFoundException, InternalErrorException {
         String sql = """
-        SELECT * FROM item
-        WHERE ItemID = ?
+            SELECT * FROM item
+            WHERE ItemID = ?
         """;
         try {
             List<Item> items = jdbcTemplate.query(sql, itemRowMapper, id);
@@ -61,7 +61,6 @@ public class MySQLItemRepo implements ItemRepo {
             return jdbcTemplate.query(sql, itemRowMapper, today);
 
         } catch (DataAccessException ex) {
-            // Wrap any database access exceptions into your InternalErrorException
             throw new InternalErrorException("Failed to get all available items", ex);
         }
     }
@@ -85,7 +84,10 @@ public class MySQLItemRepo implements ItemRepo {
 
     @Override
     public List<ItemCategory> getAllItemCategories() throws InternalErrorException {
-        String sql = "SELECT * FROM ItemCategory ORDER BY ItemCategoryID";
+        String sql = """
+            SELECT * FROM ItemCategory
+            ORDER BY ItemCategoryID
+        """;
         try {
             return jdbcTemplate.query(sql, itemCategoryRowMapper);
         } catch (DataAccessException ex) {

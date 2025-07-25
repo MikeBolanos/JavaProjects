@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface PaymentTypeRepo {
     List<PaymentType> getAll() throws InternalErrorException;
+
+
 }
