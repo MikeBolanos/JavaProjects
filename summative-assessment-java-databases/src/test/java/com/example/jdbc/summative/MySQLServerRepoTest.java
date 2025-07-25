@@ -28,14 +28,14 @@ public class MySQLServerRepoTest {
     void testGetServerByIdWithValidId() {
         jdbcTemplate.update("""
             INSERT INTO Server (ServerID, FirstName, LastName, HireDate, TermDate)
-            VALUES (101, 'Alice', 'Walker', '2021-03-01', NULL)
+            VALUES (405, 'Alice', 'Walker', '2021-03-01', NULL)
         """);
 
         try {
-            Server server = repo.getServerById(101);
+            Server server = repo.getServerById(405);
 
             assertNotNull(server);
-            assertEquals(101, server.getServerID());
+            assertEquals(405, server.getServerID());
             assertEquals("Alice", server.getFirstName());
             assertEquals("Walker", server.getLastName());
             assertEquals(LocalDate.of(2021, 3, 1), server.getHireDate());
