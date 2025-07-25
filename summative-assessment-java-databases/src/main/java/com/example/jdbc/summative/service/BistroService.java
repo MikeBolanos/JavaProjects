@@ -47,7 +47,7 @@ public class BistroService {
         return order;
     }
 
-    public Order deleteOrder(int id) throws InternalErrorException {
+    public Order deleteOrder(int id) throws InternalErrorException, RecordNotFoundException {
         return orders.deleteOrder(id);
     }
 

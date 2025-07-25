@@ -33,6 +33,17 @@ public class MySQLItemRepo implements ItemRepo {
         SELECT * FROM item
         WHERE ItemID = ?
         """;
+        try {
+            List<Item> items = jdbcTemplate.query(sql, itemRowMapper, id);
+
+            if (items.isEmpty()) {
+                throw new RecordNotFoundException("Item with ID " + id + " not found.");
+            }
+
+            return items.get(0);
+        } catch (DataAccessException ex) {
+            throw new InternalErrorException("Failed to get item by ID: " + id, ex);
+        }
 
     }
 
