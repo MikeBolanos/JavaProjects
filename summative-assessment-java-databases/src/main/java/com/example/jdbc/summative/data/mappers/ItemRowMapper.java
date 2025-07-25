@@ -21,7 +21,7 @@ public class ItemRowMapper implements RowMapper<Item> {
         item.setItemCategoryID(rs.getInt("itemCategoryID"));
         item.setItemName(rs.getString("ItemName"));
         item.setItemDescription(rs.getString("ItemDescription"));
-        item.setStartDate(rs.getObject("StartDate)", LocalDate.class));
+        item.setStartDate(rs.getObject("StartDate", LocalDate.class));
         item.setEndDate(rs.getObject("EndDate", LocalDate.class));
         item.setUnitPrice(rs.getBigDecimal("UnitPrice"));
 

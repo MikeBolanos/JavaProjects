@@ -24,28 +24,28 @@ public class MySQLItemRepoTest {
     private ItemRepo itemRepo;
 
     @Test
-    void testGetItemById_validId() throws Exception {
+    void testGetItemByIdWithValidId() throws Exception {
         Item item = itemRepo.getItemById(1);
         assertNotNull(item);
         assertEquals(1, item.getItemID());
     }
 
     @Test
-    void testGetItemById_invalidId_throwsNotFound() {
+    void testGetItemByIdWithInvalidId() {
         assertThrows(RecordNotFoundException.class, () -> {
-            itemRepo.getItemById(9999);
+            itemRepo.getItemById(999);
         });
     }
 
     @Test
-    void testGetAllAvailableItems_returnsExpected() throws InternalErrorException {
+    void testGetAllAvailableItemsReturnsExpected() throws InternalErrorException {
         LocalDate today = LocalDate.of(2024, 1, 1);
         List<Item> items = itemRepo.getAllAvailableItems(today);
         assertFalse(items.isEmpty());
     }
 
     @Test
-    void testGetItemsByCategory_validCategory() throws InternalErrorException {
+    void testGetItemsByCategoryWithValidCategory() throws InternalErrorException {
         LocalDate today = LocalDate.of(2024, 1, 1);
         int categoryID = 1;
         List<Item> items = itemRepo.getItemsByCategory(today, categoryID);

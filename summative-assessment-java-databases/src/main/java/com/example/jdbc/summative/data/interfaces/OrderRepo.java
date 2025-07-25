@@ -10,6 +10,6 @@ public interface OrderRepo {
     public Order getOrderById(int id) throws RecordNotFoundException, InternalErrorException;
     public List<Order> getAllOrders() throws InternalErrorException, RecordNotFoundException;
     public Order addOrder(Order order) throws InternalErrorException;
-    public void updateOrder(Order order) throws InternalErrorException;
-    public Order deleteOrder(int id) throws InternalErrorException;
+    public void updateOrder(Order order) throws InternalErrorException, RecordNotFoundException;
+    public Order deleteOrder(int id) throws InternalErrorException, RecordNotFoundException;
 }

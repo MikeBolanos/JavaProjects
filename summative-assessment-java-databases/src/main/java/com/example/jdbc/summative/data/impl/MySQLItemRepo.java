@@ -30,20 +30,10 @@ public class MySQLItemRepo implements ItemRepo {
     @Override
     public Item getItemById(int id) throws RecordNotFoundException, InternalErrorException {
         String sql = """
-        SELECT * FROM Item
+        SELECT * FROM item
         WHERE ItemID = ?
         """;
 
-        try {
-            return jdbcTemplate.queryForObject(sql, new ItemRowMapper(), id);
-        } catch (DataAccessException e) {
-            // No matching ItemID found
-            if (e.getMessage().contains("Incorrect result size")) {
-                throw new RecordNotFoundException("Item not found with ID: " + id);
-            }
-            // Any other SQL error
-            throw new InternalErrorException("Failed to get item by ID", e);
-        }
     }
 
     @Override
