@@ -13,7 +13,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
-@Sql("/sql/reset_db.sql")
+@Sql(scripts = "/sql/reset_db.sql",
+        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+
 public class MySQLPaymentTypeRepoTest {
 
     @Autowired
@@ -27,6 +29,7 @@ public class MySQLPaymentTypeRepoTest {
         assertFalse(types.isEmpty(), "Returned list should not be empty");
     }
 
+
     @Test
     public void testGetAllReturnsAllPaymentTypesWithExpectedValues () throws InternalErrorException {
         List<PaymentType> types = paymentTypeRepo.getAll();
@@ -36,4 +39,5 @@ public class MySQLPaymentTypeRepoTest {
             assertNotNull(first.getPaymentTypeID(), "First payment type ID should not be null");
             assertNotNull(first.getPaymentTypeName(), "First payment type name should not be null");
     }
+
 }

@@ -16,7 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
-@Sql("/sql/reset_db.sql")
+@Sql(scripts = "/sql/reset_db.sql",
+        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 public class MySQLServerRepoTest {
     @Autowired
     private MySQLServerRepo repo;

@@ -91,6 +91,29 @@ public class MySQLOrderRepoTest {
     }
 
     @Test
+    public void testAddOrderWithNoPayments() throws Exception {
+        Order order = new Order();
+        order.setServerID(1);
+        order.setOrderDate(LocalDateTime.now());
+        order.setSubTotal(new BigDecimal("50.00"));
+        order.setTax(new BigDecimal("5.00"));
+        order.setTip(new BigDecimal("5.00"));
+        order.setTotal(new BigDecimal("60.00"));
+
+        OrderItem item = new OrderItem();
+        item.setItemID(1);
+        item.setQuantity(1);
+        item.setPrice(new BigDecimal("50.00"));
+        order.setItems(List.of(item));
+
+        order.setPayments(new ArrayList<>()); // No payments
+
+        Order added = orderRepo.addOrder(order);
+        assertNotNull(added);
+        assertTrue(added.getOrderID() > 0);
+    }
+
+    @Test
     public void testUpdateOrderChangesData() throws Exception {
         Order order = orderRepo.getOrderById(1);
         BigDecimal newTotal = order.getTotal().add(new BigDecimal("10.00"));
@@ -101,8 +124,40 @@ public class MySQLOrderRepoTest {
         Order updated = orderRepo.getOrderById(1);
         assertEquals(newTotal, updated.getTotal());
     }
+
     @Test
-    public void testDeleteOrder_removesOrder() throws Exception {
+    public void testUpdateOrderWithEmptyItemsAndPayments() throws Exception {
+        Order order = orderRepo.getOrderById(1);
+        order.setItems(new ArrayList<>());
+        order.setPayments(new ArrayList<>());
+
+        orderRepo.updateOrder(order);
+        Order updated = orderRepo.getOrderById(order.getOrderID());
+
+        assertTrue(updated.getItems().isEmpty());
+        assertTrue(updated.getPayments().isEmpty());
+    }
+
+    @Test
+    public void testUpdateOrderWithInvalidId() {
+        Order fakeOrder = new Order();
+        fakeOrder.setOrderID(9999); // Non-existent
+        fakeOrder.setServerID(1);
+        fakeOrder.setOrderDate(LocalDateTime.now());
+        fakeOrder.setSubTotal(BigDecimal.TEN);
+        fakeOrder.setTax(BigDecimal.ONE);
+        fakeOrder.setTip(BigDecimal.ONE);
+        fakeOrder.setTotal(new BigDecimal("12.00"));
+        fakeOrder.setItems(new ArrayList<>());
+        fakeOrder.setPayments(new ArrayList<>());
+
+        assertThrows(RecordNotFoundException.class, () -> {
+            orderRepo.updateOrder(fakeOrder);
+        });
+    }
+
+    @Test
+    public void testDeleteOrderRemovesOrder() throws Exception {
         Order original = orderRepo.getOrderById(1);
 
         Order deleted = orderRepo.deleteOrder(1);
@@ -110,6 +165,13 @@ public class MySQLOrderRepoTest {
 
         assertThrows(RecordNotFoundException.class, () -> {
             orderRepo.getOrderById(1);
+        });
+    }
+
+    @Test
+    public void testDeleteOrderWithInvalidIdThrowsException() {
+        assertThrows(RecordNotFoundException.class, () -> {
+            orderRepo.deleteOrder(9999);
         });
     }
 }

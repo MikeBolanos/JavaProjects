@@ -16,6 +16,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -100,7 +101,7 @@ public class MySQLOrderRepo implements OrderRepo {
         for (Order order : orders) {
             int orderId = order.getOrderID();
 
-            // Fetch and set the server for each order
+            // Get and set the server for each order
             String serverSql = """
                 SELECT * FROM Server
                 WHERE serverID = ?
@@ -109,7 +110,7 @@ public class MySQLOrderRepo implements OrderRepo {
             Server server = jdbcTemplate.queryForObject(serverSql, serverRowMapper, order.getServerID());
             order.setServer(server);
 
-            // Fetch and set order items for each order
+            // Get and set order items for each order
             String itemsSql = """
                 SELECT * FROM OrderItem
                 WHERE orderID = ?
@@ -118,7 +119,7 @@ public class MySQLOrderRepo implements OrderRepo {
             List<OrderItem> items = jdbcTemplate.query(itemsSql, orderItemRowMapper, orderId);
             order.setItems(items);
 
-            // Fetch and set payments for each order
+            // Get and set payments for each order
             String paymentSql = """
                 SELECT * FROM Payment
                 WHERE orderID = ?
@@ -183,10 +184,10 @@ public class MySQLOrderRepo implements OrderRepo {
                     payment.getAmount()
             );
         }
-
         return order;
     }
 
+    @Transactional
     @Override
     public void updateOrder(Order order) throws InternalErrorException, RecordNotFoundException {
         // Step 1: Update the Order table
@@ -244,7 +245,7 @@ public class MySQLOrderRepo implements OrderRepo {
         }
     }
 
-
+    @Transactional
     @Override
     public Order deleteOrder(int id) throws InternalErrorException, RecordNotFoundException {
         // Get order

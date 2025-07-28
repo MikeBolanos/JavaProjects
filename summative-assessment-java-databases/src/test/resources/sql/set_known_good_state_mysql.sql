@@ -6,6 +6,9 @@ begin
     delete from Payment where PaymentId > 0;
     delete from `Order` where OrderId > 0;
 
+
+
+
     alter table OrderItem auto_increment = 1;
     alter table Payment auto_increment = 1;
     alter table `Order` auto_increment = 1;

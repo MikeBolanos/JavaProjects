@@ -15,20 +15,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest
-@Sql("/sql/reset_db.sql")
+@Sql(scripts = "/sql/reset_db.sql",
+        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+
 public class MySQLTaxRepoTest {
     @Autowired
     private MySQLTaxRepo taxRepo;
 
     @Test
     void testGetCurrentTaxWithValidDateReturnsCorrectTax() throws Exception {
-        // Arrange: use a date that falls within a known tax range
+        // Date that falls within a known tax range
         LocalDate date = LocalDate.of(2023, 10, 15);
 
-        // Act
         Tax tax = taxRepo.getCurrentTax(date);
 
-        // Assert
         assertNotNull(tax);
         assertEquals(new BigDecimal("6.25"), tax.getTaxPercentage());
         assertEquals(LocalDate.of(2022, 1, 1), tax.getStartDate());
@@ -43,6 +43,19 @@ public class MySQLTaxRepoTest {
         assertThrows(RecordNotFoundException.class, () -> {
             taxRepo.getCurrentTax(date);
         });
+    }
+
+    @Test
+    void testGetCurrentTaxWithFutureDateReturnsCorrectTax() throws Exception {
+        // Assuming current tax is ongoing (no end date), and this future date is still covered
+        LocalDate date = LocalDate.of(2030, 5, 1);
+
+        Tax tax = taxRepo.getCurrentTax(date);
+
+        assertNotNull(tax);
+        assertEquals(new BigDecimal("6.25"), tax.getTaxPercentage());
+        assertEquals(LocalDate.of(2022, 1, 1), tax.getStartDate());
+        assertNull(tax.getEndDate());
     }
 }
 
